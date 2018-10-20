@@ -2,17 +2,6 @@ import React from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
-const data = [
-  {
-    name: "Bob",
-    age: 26
-  },
-  {
-    name: "Greg",
-    age: 28
-  }
-];
-
 const columns = [
   {
     Header: "Name",
@@ -24,7 +13,7 @@ const columns = [
   }
 ];
 
-const Table = () => {
+const Table = ({ data }) => {
   return (
     <ReactTable
       data={data}

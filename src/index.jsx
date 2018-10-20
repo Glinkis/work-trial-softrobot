@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Table from "./components/Table";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./reducers";
+import App from "./components/App";
 import "./index.scss";
 
-const App = () => (
-  <>
-    <h1>Example List</h1>
-    <Table />
-  </>
-);
+const store = createStore(reducer);
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("app")
+);
