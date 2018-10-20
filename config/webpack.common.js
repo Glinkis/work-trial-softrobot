@@ -1,11 +1,9 @@
 const jsLoader = {
-  exclude: /node_modules/,
   test: /js?x$/,
   loader: "ts-loader"
 };
 
 const cssLoader = {
-  exclude: /node_modules/,
   test: /(sa|sc|c)ss$/,
   use: ["style-loader", "css-loader", "sass-loader"]
 };
@@ -13,7 +11,8 @@ const cssLoader = {
 const common = {
   externals: {
     react: "React",
-    "react-dom": "ReactDOM"
+    "react-dom": "ReactDOM",
+    "react-table": "ReactTable.default"
   },
   module: {
     rules: [jsLoader, cssLoader]
