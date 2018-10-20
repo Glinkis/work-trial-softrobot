@@ -16,12 +16,11 @@ const data = [
 const columns = [
   {
     Header: "Name",
-    accessor: "name" // String-based value accessors!
+    accessor: "name"
   },
   {
     Header: "Age",
-    accessor: "age",
-    Cell: props => <span className="number">{props.value}</span> // Custom cell components!
+    accessor: "age"
   }
 ];
 
