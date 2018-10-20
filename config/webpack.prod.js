@@ -7,7 +7,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "work-trial-softrobot",
-      template: `${__dirname}/template.prod.html`
+      template: `${__dirname}/template.prod.html`,
+      hash: true
     })
   ]
 };
