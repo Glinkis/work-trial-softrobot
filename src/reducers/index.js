@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import { REQUEST_DATA, RECEIVE_DATA } from "../actions";
 
 const requestData = state => ({
@@ -22,4 +21,4 @@ const reducer = (state = {}, action) => {
   return state;
 };
 
-export default combineReducers({ reducer });
+export default reducer;
