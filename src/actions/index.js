@@ -45,7 +45,7 @@ export const fetchItems = async dispatch => {
         date: date.slice(0, 10),
         text,
         owner: users[userId],
-        status: active.toString()
+        status: active
       }))
     )
   );

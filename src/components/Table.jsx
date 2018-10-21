@@ -5,19 +5,17 @@ import "./Table.scss";
 
 const columns = [
   { Header: "Text", accessor: "text" },
-  { Header: "Date", accessor: "date" }
-  { Header: "Owner", accessor: "owner" }
-  { Header: "Status", accessor: "status" }
+  { Header: "Date", accessor: "date" },
+  { Header: "Owner", accessor: "owner" },
+  {
+    Header: "Status",
+    accessor: "status",
+    Cell: text => <span className={`status ${text ? "enabled" : ""}`} />
+  }
 ];
 
-const Table = ({ data }) => {
-  return (
-    <ReactTable
-      data={data}
-      columns={columns}
-      minRows={0}
-    />
-  );
-};
+const Table = ({ data }) => (
+  <ReactTable data={data} columns={columns} minRows={0} />
+);
 
 export default Table;

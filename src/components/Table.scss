@@ -1,3 +1,18 @@
 .ReactTable .-pagination .-btn {
   height: auto;
 }
+
+.ReactTable {
+  .status {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: #ff0000;
+    border-radius: 100%;
+    &.enabled {
+      background-color: #00dd00;
+    }
+  }
+}
