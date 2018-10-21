@@ -10,14 +10,14 @@ class Content extends React.Component {
     dispatch(fetchItems);
   }
   render() {
-    const { error, items, isFetching } = this.props;
+    const { errors, items, isFetching } = this.props;
 
-    if (error) {
-      return <ErrorMessage message={error} />;
+    if (errors) {
+      return errors.map((error, i) => <ErrorMessage key={i} message={error} />);
     }
 
     if (isFetching) {
-      return <span>Loading...</span>;
+      return <div>Loading...</div>;
     }
 
     return <Table data={items} />;

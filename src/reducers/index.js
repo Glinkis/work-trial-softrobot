@@ -2,7 +2,7 @@ import { ADD_ERROR, REQUEST_DATA, RECEIVE_DATA } from "../actions";
 
 const addError = (state, { error }) => ({
   ...state,
-  error
+  errors: [...(state.errors || []), error]
 });
 
 const requestData = state => ({
