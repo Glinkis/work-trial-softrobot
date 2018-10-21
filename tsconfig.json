@@ -2,17 +2,13 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
-    "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strictNullChecks": true,
-    "noImplicitAny": false,
     "sourceMap": true,
     "lib": ["esnext", "dom"]
-  },
-  "include": ["src/**/*"]
+  }
 }

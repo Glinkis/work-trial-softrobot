@@ -5,10 +5,10 @@ const requestData = state => ({
   isFetching: true
 });
 
-const receiveData = (state, action) => ({
+const receiveData = (state, { items }) => ({
   ...state,
   isFetching: false,
-  items: action.items
+  items: [...items]
 });
 
 const reducer = (state = {}, action) => {

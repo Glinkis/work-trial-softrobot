@@ -3,14 +3,10 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 const columns = [
-  {
-    Header: "Name",
-    accessor: "name"
-  },
-  {
-    Header: "Age",
-    accessor: "age"
-  }
+  { Header: "Text", accessor: "text" },
+  { Header: "Date", accessor: "date" }
+  { Header: "Owner", accessor: "owner" }
+  { Header: "Status", accessor: "status" }
 ];
 
 const Table = ({ data }) => {
