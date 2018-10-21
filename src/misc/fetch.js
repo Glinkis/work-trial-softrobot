@@ -13,7 +13,6 @@ const fetch = (method, url, ...params) =>
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          console.log(xhr.responseText);
           resolve(xhr.responseText);
         } else {
           reject();

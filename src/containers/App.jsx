@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Title from "../components/Title";
 import Table from "../components/Table";
 import { fetchItems } from "../actions";
 
@@ -12,7 +13,7 @@ class App extends React.Component {
     const { items, isFetching } = this.props;
     return (
       <>
-        <h1>Example List</h1>
+        <Title />
         {isFetching ? <span>Loading...</span> : <Table data={items} />}
       </>
     );
