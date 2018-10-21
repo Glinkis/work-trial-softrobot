@@ -7,6 +7,7 @@ const addError = (state, { error }) => ({
 
 const requestData = state => ({
   ...state,
+  errors: false,
   isFetching: true
 });
 

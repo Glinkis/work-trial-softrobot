@@ -1,16 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
 
+$dark: #0f0f0f;
+
 html {
   padding: 0;
   margin: 0;
   font-size: 10pt;
   font-family: "PT Sans", sans-serif;
   background-color: #f9f9f9;
-  color: #0f0f0f;
+  color: dark;
 }
 
 body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+hr {
+  color: $dark;
+  background-color: $dark;
 }

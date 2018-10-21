@@ -5,6 +5,10 @@ import ErrorMessage from "../components/ErrorMessage";
 import Table from "../components/Table";
 
 class Content extends React.Component {
+  retry = () => {
+    const { dispatch } = this.props;
+    dispatch(fetchItems);
+  };
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchItems);
@@ -13,7 +17,15 @@ class Content extends React.Component {
     const { errors, items, isFetching } = this.props;
 
     if (errors) {
-      return errors.map((error, i) => <ErrorMessage key={i} message={error} />);
+      return (
+        <div>
+          {errors.map((error, i) => (
+            <ErrorMessage key={i} message={error} />
+          ))}
+          <hr />
+          <button onClick={this.retry}>Retry</button>
+        </div>
+      );
     }
 
     if (isFetching) {
