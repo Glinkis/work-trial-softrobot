@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Title from "../components/Title";
 import Table from "../components/Table";
 import { fetchItems } from "../actions";
+import ErrorMessage from "../components/ErrorMessage";
 
 class App extends React.Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class App extends React.Component {
 
     const element = (() => {
       if (error) {
-        return <span>{error}</span>;
+        return <ErrorMessage message={error} />;
       }
 
       if (isFetching) {
