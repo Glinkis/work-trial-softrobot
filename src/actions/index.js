@@ -1,5 +1,4 @@
-// @ts-nocheck
-import api from "../../trial-files/softrobot_test_api.min.js";
+import { getItems } from "../io/io.js";
 
 export const REQUEST_DATA = "REQUEST_DATA";
 export const RECEIVE_DATA = "RECEIVE_DATA";
@@ -13,24 +12,7 @@ const receiveData = items => ({
   items
 });
 
-export const fetchItems = dispatch => {
+export const fetchItems = async dispatch => {
   dispatch(requestData());
-
-  const xhr = api.XMLHttpRequest();
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4) {
-      const items = JSON.parse(xhr.responseText).map(
-        ({ text, date, userId, active }) => ({
-          date: date.slice(0, 10),
-          text,
-          owner: userId,
-          status: active.toString()
-        })
-      );
-      dispatch(receiveData(items));
-    }
-  };
-
-  xhr.open("GET", "/getitems");
-  xhr.send();
+  dispatch(receiveData(await getItems()));
 };
