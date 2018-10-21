@@ -10,11 +10,24 @@ class App extends React.Component {
     dispatch(fetchItems);
   }
   render() {
-    const { items, isFetching } = this.props;
+    const { error, items, isFetching } = this.props;
+
+    const element = (() => {
+      if (error) {
+        return <span>{error}</span>;
+      }
+
+      if (isFetching) {
+        return <span>Loading...</span>;
+      }
+
+      return <Table data={items} />;
+    })();
+
     return (
       <>
         <Title />
-        {isFetching ? <span>Loading...</span> : <Table data={items} />}
+        {element}
       </>
     );
   }

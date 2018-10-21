@@ -1,4 +1,9 @@
-import { REQUEST_DATA, RECEIVE_DATA } from "../actions";
+import { ADD_ERROR, REQUEST_DATA, RECEIVE_DATA } from "../actions";
+
+const addError = (state, { error }) => ({
+  ...state,
+  error
+});
 
 const requestData = state => ({
   ...state,
@@ -13,6 +18,8 @@ const receiveData = (state, { items }) => ({
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
+    case ADD_ERROR:
+      return addError(state, action);
     case REQUEST_DATA:
       return requestData(state);
     case RECEIVE_DATA:
