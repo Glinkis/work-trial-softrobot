@@ -9,10 +9,12 @@ class Content extends React.Component {
     const { dispatch } = this.props;
     dispatch(fetchItems);
   };
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchItems);
   }
+
   render() {
     const { errors, items, isFetching } = this.props;
 
