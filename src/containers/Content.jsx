@@ -34,7 +34,11 @@ class Content extends React.Component {
       return <div>Loading...</div>;
     }
 
-    return <Table data={items} />;
+    if (items) {
+      return <Table data={items} />;
+    }
+
+    return null;
   }
 }
 

@@ -1,18 +1,34 @@
-.ReactTable .-pagination .-btn {
-  height: auto;
-}
+@import "../index";
 
-.ReactTable {
-  .status {
-    position: relative;
-    top: 2px;
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    background-color: #ff0000;
-    border-radius: 100%;
-    &.enabled {
-      background-color: #00dd00;
+.table {
+  div {
+    padding: 6pt 0;
+    border-bottom: 1pt solid #dadada;
+    &:last-child {
+      border-bottom: none;
+    }
+    span {
+      display: inline-block;
+      width: 80pt;
+    }
+  }
+  .table-header {
+    font-weight: bold;
+    border-color: $dark;
+  }
+  .table-row {
+    .status {
+      position: relative;
+      top: 2px;
+      span {
+        width: 1rem;
+        height: 1rem;
+        background-color: #ff0000;
+        border-radius: 100%;
+        &.enabled {
+          background-color: #00dd00;
+        }
+      }
     }
   }
 }

@@ -24,7 +24,6 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
-    "react-table": "^6.8.6",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },

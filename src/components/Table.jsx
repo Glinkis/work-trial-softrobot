@@ -1,21 +1,37 @@
 import React from "react";
-import ReactTable from "react-table";
-import "react-table/react-table.css";
 import "./Table.scss";
 
-const columns = [
-  { Header: "Text", accessor: "text" },
-  { Header: "Date", accessor: "date" },
-  { Header: "Owner", accessor: "owner" },
-  {
-    Header: "Status",
-    accessor: "status",
-    Cell: text => <span className={`status ${text ? "enabled" : ""}`} />
-  }
-];
-
-const Table = ({ data }) => (
-  <ReactTable data={data} columns={columns} minRows={0} />
+const TableHeader = () => (
+  <div className="table-header">
+    <span>Text</span>
+    <span>Date</span>
+    <span>Owner</span>
+    <span>Status</span>
+  </div>
 );
+
+const TableRow = ({ item }) => {
+  const { text, date, owner, status } = item;
+  return (
+    <div className="table-row">
+      <span className="text">{text.slice(0, 12)}...</span>
+      <span className="date">{date}</span>
+      <span className="owner">{owner}</span>
+      <span className="status"><span className={status ? "enabled" : null} /></span>
+    </div>
+  )
+});
+
+export class Table extends React.Component {
+  render() {
+    const { data } = this.props;
+    return (
+      <div className="table">
+        {<TableHeader />}
+        {data.map((item, i) => <TableRow key={i} item={item} />)}
+      </div>
+    );
+  }
+}
 
 export default Table;
