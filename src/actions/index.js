@@ -1,64 +1,52 @@
 import fetch from "../misc/fetch";
 
 export const ADD_ERROR = "ERROR";
-export const REQUEST_DATA = "REQUEST_DATA";
-export const RECEIVE_DATA = "RECEIVE_DATA";
-export const EDIT_ROW = "EDIT_ROW";
-export const CANCEL_EDIT = "CANCEL_EDIT";
+export const REQUEST_ITEMS = "REQUEST_DATA";
+export const RECEIVE_ITEMS = "RECEIVE_DATA";
+export const REQUEST_USERS = "REQUEST_USERTS";
+export const RECEIVE_USERS = "RECEIVE_USERS";
 
 export const addError = error => ({
   type: ADD_ERROR,
-  error
+  payload: error
 });
 
-export const requestData = () => ({
-  type: REQUEST_DATA
+export const requestItems = () => ({
+  type: REQUEST_ITEMS
 });
 
-export const receiveData = items => ({
-  type: RECEIVE_DATA,
-  items
+export const receiveItems = items => ({
+  type: RECEIVE_ITEMS,
+  payload: items
 });
 
-export const editRow = row => ({
-  type: EDIT_ROW,
-  editableRow: row
+export const requestUsers = () => ({
+  type: REQUEST_USERS
 });
 
-export const cancelEdit = () => ({
-  type: CANCEL_EDIT
+export const receiveUsers = users => ({
+  type: RECEIVE_USERS,
+  payload: users
 });
 
-export const fetchItems = () => async dispatch => {
-  dispatch(requestData());
-
-  let items;
-  try {
-    const result = await fetch("GET", "/getitems");
-    items = JSON.parse(result);
-  } catch (error) {
-    dispatch(addError("Could not get items."));
-    return;
-  }
-
-  let users;
+export const fetchUsers = () => async dispatch => {
+  dispatch(requestUsers());
   try {
     const result = await fetch("GET", "/getusers");
-    users = JSON.parse(result);
+    const users = JSON.parse(result);
+    dispatch(receiveUsers(users));
   } catch (error) {
-    dispatch(addError("Could not get users."));
-    return;
+    dispatch(addError("Uh oh, there was a problem when getting the users."));
   }
+};
 
-  dispatch(
-    receiveData(
-      items.map(({ id, text, date, userId, active }) => ({
-        id,
-        date: date.slice(0, 10),
-        text,
-        owner: users[userId],
-        status: active
-      }))
-    )
-  );
+export const fetchItems = () => async dispatch => {
+  dispatch(requestItems());
+  try {
+    const result = await fetch("GET", "/getitems");
+    const items = JSON.parse(result);
+    dispatch(receiveItems(items));
+  } catch (error) {
+    dispatch(addError("Uh oh, there was a problem when getting the items."));
+  }
 };

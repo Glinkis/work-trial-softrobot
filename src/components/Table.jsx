@@ -11,94 +11,93 @@ const TableHeader = () => (
   </div>
 );
 
-const TableRow = ({ item, onEdit }) => {
-  const { id, text, date, owner, status } = item;
-  return (
-    <div className="table-row">
-      <span>{text.slice(0, 12)}...</span>
-      <span>{date}</span>
-      <span>{owner}</span>
-      <span className="status">
-        <span className={status ? "enabled" : null} />
-      </span>
-      <span className="edit">
-        <button onClick={() => onEdit(id)}>Edit</button>
-      </span>
-    </div>
-  )
-});
-
-class EditableTableRow extends React.Component {
+class TableRow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.item };
+    this.state = {
+      isEditing: false,
+      ...props.item
+    };
   }
   handleInputChange = event => {
     const target = event.target;
-    const value = target.type === 'checkbox'
-      ? target.checked
-      : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     this.setState({ [target.name]: value });
-  }
-  onKeyDown = event => {
-    if (event.keyCode === 27) {
-      this.props.onCancel();
-    }
-  }
-  componentDidMount(){
-    document.addEventListener("keydown", this.onKeyDown);
-  }
-  componentWillUnmount(){
-    document.removeEventListener("keydown", this.onKeyDown);
-  }
+  };
+  onEditEnable = () => {
+    this.setState({ isEditing: true });
+  };
+  onEditCancel = () => {
+    this.setState({ isEditing: false });
+  };
+  onEditSave = () => {
+    // Save data.
+  };
   render() {
-    const { onCancel } = this.props;
-    const { id, text, date, owner, status } = this.state;
-    return (
-      <div className="table-row">
-        <form onSubmit={e => e.preventDefault()}>
-          <input name="text" type="text" value={text} onChange={this.handleInputChange}/>
-          <input name="date" type="text" value={date} onChange={this.handleInputChange}/>
-          <input name="owner" ype="text" value={owner} onChange={this.handleInputChange}/>
+    if (this.state.isEditing) {
+      return (
+        <div className="table-row">
+          <input
+            name="text"
+            type="text"
+            value={this.state.text}
+            onChange={this.handleInputChange}
+          />
+          <input
+            name="date"
+            type="text"
+            value={this.state.date}
+            onChange={this.handleInputChange}
+          />
+          <input
+            name="owner"
+            ype="text"
+            value={this.state.userId}
+            onChange={this.handleInputChange}
+          />
           <span className="status">
-            <input name="status" type="checkbox" checked={status} onChange={this.handleInputChange}/>
+            <input
+              name="status"
+              type="checkbox"
+              checked={this.state.status}
+              onChange={this.handleInputChange}
+            />
           </span>
           <span className="edit">
-            <button type="submit">Save</button>
-            <button onClick={onCancel}>Cancel</button>
+            <button onClick={this.onEditSave}>Save</button>
+            <button onClick={this.onEditCancel}>Cancel</button>
           </span>
-        </form>
+        </div>
+      );
+    }
+
+    return (
+      <div className="table-row">
+        <span>{`${this.state.text.slice(0, 12)}...`}</span>
+        <span>{this.state.date.slice(0, 10)}</span>
+        <span>{this.props.user}</span>
+        <span className="status">
+          <span className={this.state.status ? "enabled" : null} />
+        </span>
+        <span className="edit">
+          <button onClick={this.onEditEnable}>Edit</button>
+        </span>
       </div>
-    )
+    );
   }
 }
 
 export class Table extends React.Component {
   render() {
-    const { data, editableRow, onEditRow, onEditCancel } = this.props;
+    const { users, items } = this.props;
 
     console.log(this.props);
     return (
       <div className="table">
         {<TableHeader />}
-        {data.map(item => {
-          if (item.id === editableRow) {
-            return (
-              <EditableTableRow
-                key={item.id}
-                item={item}
-                onCancel={onEditCancel}
-              />
-            );
-          }
-          return (
-            <TableRow
-              key={item.id}
-              item={item}
-              onEdit={onEditRow}
-            />
-          )
-        })}
+        {items.map(item => (
+          <TableRow key={item.id} item={item} user={users[item.userId]} />
+        ))}
       </div>
     );
   }
