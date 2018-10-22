@@ -1,22 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchItems } from "../actions";
+import { fetchItems, editRow, cancelEdit } from "../actions";
 import ErrorMessage from "../components/ErrorMessage";
 import Table from "../components/Table";
 
 class Content extends React.Component {
   retry = () => {
     const { dispatch } = this.props;
-    dispatch(fetchItems);
+    dispatch(fetchItems());
   };
+
+  onEditRow = row => {
+    const { dispatch } = this.props;
+    dispatch(editRow(row));
+  }
+
+  onEditCancel = () => {
+    const {dispatch} = this.props;
+    dispatch(cancelEdit());
+  }
 
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(fetchItems);
+    dispatch(fetchItems());
   }
 
   render() {
-    const { errors, items, isFetching } = this.props;
+    const { errors, items, isFetching, editableRow } = this.props;
 
     if (errors) {
       return (
@@ -35,7 +45,14 @@ class Content extends React.Component {
     }
 
     if (items) {
-      return <Table data={items} />;
+      return (
+        <Table
+          data={items}
+          editableRow={editableRow}
+          onEditRow={this.onEditRow}
+          onEditCancel={this.onEditCancel}
+        />
+      );
     }
 
     return null;

@@ -4,12 +4,15 @@
   div {
     padding: 6pt 0;
     border-bottom: 1pt solid #dadada;
+    span,
+    input {
+      display: inline-block;
+      margin: 0 2pt;
+      text-align: center;
+      width: 80pt;
+    }
     &:last-child {
       border-bottom: none;
-    }
-    span {
-      display: inline-block;
-      width: 80pt;
     }
   }
   .table-header {
@@ -20,7 +23,8 @@
     .status {
       position: relative;
       top: 2px;
-      span {
+      span,
+      input {
         width: 1rem;
         height: 1rem;
         background-color: #ff0000;

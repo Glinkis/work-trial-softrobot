@@ -3,22 +3,33 @@ import fetch from "../misc/fetch";
 export const ADD_ERROR = "ERROR";
 export const REQUEST_DATA = "REQUEST_DATA";
 export const RECEIVE_DATA = "RECEIVE_DATA";
+export const EDIT_ROW = "EDIT_ROW";
+export const CANCEL_EDIT = "CANCEL_EDIT";
 
-const addError = error => ({
+export const addError = error => ({
   type: ADD_ERROR,
   error
 });
 
-const requestData = () => ({
+export const requestData = () => ({
   type: REQUEST_DATA
 });
 
-const receiveData = items => ({
+export const receiveData = items => ({
   type: RECEIVE_DATA,
   items
 });
 
-export const fetchItems = async dispatch => {
+export const editRow = row => ({
+  type: EDIT_ROW,
+  editableRow: row
+});
+
+export const cancelEdit = () => ({
+  type: CANCEL_EDIT
+});
+
+export const fetchItems = () => async dispatch => {
   dispatch(requestData());
 
   let items;
@@ -41,7 +52,8 @@ export const fetchItems = async dispatch => {
 
   dispatch(
     receiveData(
-      items.map(({ text, date, userId, active }) => ({
+      items.map(({ id, text, date, userId, active }) => ({
+        id,
         date: date.slice(0, 10),
         text,
         owner: users[userId],
