@@ -67,9 +67,9 @@ class EditableTableRow extends React.Component {
             <button type="submit">Save</button>
             <button onClick={onCancel}>Cancel</button>
           </span>
-      </form>
-    </div>
-  )
+        </form>
+      </div>
+    )
   }
 }
 
