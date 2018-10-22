@@ -17,12 +17,12 @@ const fetch = (method, url, ...params) =>
         if (xhr.status === 200) {
           resolve(xhr.responseText);
         } else {
-          reject();
+          reject({ state: xhr.readyState, status: xhr.status });
         }
       }
     };
     xhr.open(method, url);
-    xhr.send(...params);
+    xhr.send(...params.map(param => JSON.stringify(param)));
   });
 
 export default fetch;

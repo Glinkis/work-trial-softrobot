@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchUsers, fetchItems, editRow, cancelEdit } from "../actions";
+import { fetchUsers, fetchItems, updateItem } from "../actions";
 import ErrorMessage from "../components/ErrorMessage";
 import Table from "../components/Table";
 
@@ -10,6 +10,10 @@ class Content extends React.Component {
     dispatch(fetchUsers());
     dispatch(fetchItems());
   };
+  updateItem = item => {
+    const { dispatch } = this.props;
+    dispatch(updateItem(item));
+  };
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchUsers());
@@ -18,7 +22,7 @@ class Content extends React.Component {
   render() {
     const { errors, users, items, isFetching } = this.props;
 
-    if (errors) {
+    if (errors && errors.length) {
       return (
         <div>
           {errors.map((error, i) => (
@@ -35,7 +39,9 @@ class Content extends React.Component {
     }
 
     if (users && items) {
-      return <Table users={users} items={items} />;
+      return (
+        <Table users={users} items={items} onUpdateItem={this.updateItem} />
+      );
     }
 
     return null;

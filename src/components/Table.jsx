@@ -30,13 +30,15 @@ class TableRow extends React.Component {
   onEditCancel = () => {
     this.setState({ isEditing: false });
   };
-  onEditSave = () => {
-    // Save data.
+  onSubmit = event => {
+    event.preventDefault();
+    const { isEditing, ...itemValues } = this.state;
+    this.props.onUpdateItem({ ...itemValues });
   };
   render() {
     if (this.state.isEditing) {
       return (
-        <div className="table-row">
+        <form className="table-row" onSubmit={this.onSubmit}>
           <input
             name="text"
             type="text"
@@ -64,10 +66,10 @@ class TableRow extends React.Component {
             />
           </span>
           <span className="edit">
-            <button onClick={this.onEditSave}>Save</button>
+            <button type="submit">Save</button>
             <button onClick={this.onEditCancel}>Cancel</button>
           </span>
-        </div>
+        </form>
       );
     }
 
@@ -89,14 +91,17 @@ class TableRow extends React.Component {
 
 export class Table extends React.Component {
   render() {
-    const { users, items } = this.props;
-
-    console.log(this.props);
+    const { users, items, onUpdateItem } = this.props;
     return (
       <div className="table">
         {<TableHeader />}
         {items.map(item => (
-          <TableRow key={item.id} item={item} user={users[item.userId]} />
+          <TableRow
+            key={item.id}
+            user={users[item.userId]}
+            item={item}
+            onUpdateItem={onUpdateItem}
+          />
         ))}
       </div>
     );

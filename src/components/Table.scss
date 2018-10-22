@@ -1,7 +1,8 @@
 @import "../index";
 
 .table {
-  div {
+  div,
+  form {
     padding: 6pt 0;
     border-bottom: 1pt solid #dadada;
     span,
@@ -9,7 +10,7 @@
       display: inline-block;
       margin: 0 2pt;
       text-align: center;
-      width: 80pt;
+      width: 100pt;
     }
     &:last-child {
       border-bottom: none;

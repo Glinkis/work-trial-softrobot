@@ -1,5 +1,7 @@
 import {
   ADD_ERROR,
+  ADD_UPDATING_ITEM,
+  REMOVE_UPDATING_ITEM,
   REQUEST_ITEMS,
   RECEIVE_ITEMS,
   REQUEST_USERS,
@@ -11,13 +13,25 @@ const addError = (state, { payload }) => ({
   errors: [...(state.errors || []), payload]
 });
 
+const addUpdatingItem = (state, { payload }) => ({
+  ...state,
+  updatingItems: [...(state.updatingItems || []), payload]
+});
+
+const removeUpdatingItem = (state, { payload }) => ({
+  ...state,
+  updatingItems: [...(state.updatingItems || []).filter(id => id !== payload)]
+});
+
 const requestItems = state => ({
   ...state,
   isFetching: true
 });
 
-const receiveItems = ({ isFetching, errors, ...rest }, { payload }) => ({
-  ...rest,
+const receiveItems = (state, { payload }) => ({
+  ...state,
+  isFetching: !state.users,
+  errors: false,
   items: [...payload]
 });
 
@@ -26,16 +40,21 @@ const requestUsers = state => ({
   isFetching: true
 });
 
-const receiveUsers = ({ isFetching, errors, ...rest }, { payload }) => ({
-  ...rest,
+const receiveUsers = (state, { payload }) => ({
+  ...state,
+  isFetching: !state.items,
+  errors: false,
   users: [...payload]
 });
 
 const reducer = (state = {}, action) => {
-  console.log(action);
   switch (action.type) {
     case ADD_ERROR:
       return addError(state, action);
+    case ADD_UPDATING_ITEM:
+      return addUpdatingItem(state, action);
+    case REMOVE_UPDATING_ITEM:
+      return removeUpdatingItem(state, action);
     case REQUEST_ITEMS:
       return requestItems(state);
     case RECEIVE_ITEMS:
