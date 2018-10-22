@@ -40,21 +40,34 @@ class EditableTableRow extends React.Component {
       : target.value;
     this.setState({ [target.name]: value });
   }
+  onKeyDown = event => {
+    if (event.keyCode === 27) {
+      this.props.onCancel();
+    }
+  }
+  componentDidMount(){
+    document.addEventListener("keydown", this.onKeyDown);
+  }
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.onKeyDown);
+  }
   render() {
     const { onCancel } = this.props;
     const { id, text, date, owner, status } = this.state;
     return (
-    <div className="table-row">
-      <input name="text" type="text" value={text} onChange={this.handleInputChange}/>
-      <input name="date" type="text" value={date} onChange={this.handleInputChange}/>
-      <input name="owner" ype="text" value={owner} onChange={this.handleInputChange}/>
-      <span className="status">
-        <input name="status" type="checkbox" checked={status} onChange={this.handleInputChange}/>
-      </span>
-      <span className="edit">
-        <button onClick={e => console.log} type="submit">Save</button>
-        <button onClick={onCancel}>Cancel</button>
-      </span>
+      <div className="table-row">
+        <form onSubmit={e => e.preventDefault()}>
+          <input name="text" type="text" value={text} onChange={this.handleInputChange}/>
+          <input name="date" type="text" value={date} onChange={this.handleInputChange}/>
+          <input name="owner" ype="text" value={owner} onChange={this.handleInputChange}/>
+          <span className="status">
+            <input name="status" type="checkbox" checked={status} onChange={this.handleInputChange}/>
+          </span>
+          <span className="edit">
+            <button type="submit">Save</button>
+            <button onClick={onCancel}>Cancel</button>
+          </span>
+      </form>
     </div>
   )
   }
