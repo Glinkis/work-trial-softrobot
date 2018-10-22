@@ -59,7 +59,7 @@ class TableRow extends React.Component {
             <input
               name="status"
               type="checkbox"
-              checked={this.state.status}
+              checked={!!this.state.status}
               onChange={this.handleInputChange}
             />
           </span>
