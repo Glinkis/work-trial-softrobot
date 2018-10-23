@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateItem } from "../actions"
+import { updateItem } from "../actions/itemActions"
 import ErrorMessage from "../components/ErrorMessage"
 import "./Table.scss";
 
@@ -116,7 +116,8 @@ export default class Table extends React.Component {
     dispatch(updateItem(item));
   }
   render() {
-    const { users, items, updatingItems, failedItems } = this.props;
+    const { users, items } = this.props.request;
+    const { updating, failed } = this.props.item;
     return (
       <div className="table">
         {<TableHeader />}
@@ -126,8 +127,8 @@ export default class Table extends React.Component {
             user={users[item.userId]}
             item={item}
             onUpdate={this.updateItem}
-            isUpdating={updatingItems.includes(item.id)}
-            failedToUpdate={failedItems.includes(item.id)}
+            isUpdating={updating.includes(item.id)}
+            failedToUpdate={failed.includes(item.id)}
           />
         ))}
       </div>
