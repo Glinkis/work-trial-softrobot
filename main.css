@@ -70,19 +70,10 @@ hr {
 
 .table .table-row .status {
   position: relative; }
-  .table .table-row .status span,
-  .table .table-row .status input {
-    background-color: #e04328;
-    border-radius: 100%; }
-    .table .table-row .status span.enabled,
-    .table .table-row .status input.enabled {
-      background-color: #6ccc13; }
-  .table .table-row .status span {
-    width: 0.75rem;
-    height: 0.75rem; }
-  .table .table-row .status input {
-    width: 1.5rem;
-    height: 1.5rem; }
+  .table .table-row .status .react-toggle .react-toggle-track {
+    background-color: #e04328; }
+  .table .table-row .status .react-toggle--checked .react-toggle-track {
+    background-color: #6ccc13; }
 
 #app {
   display: inline-block;
