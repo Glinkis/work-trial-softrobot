@@ -5,51 +5,70 @@ import {
   REQUEST_ITEMS,
   RECEIVE_ITEMS,
   REQUEST_USERS,
-  RECEIVE_USERS
+  RECEIVE_USERS,
+  REQUEST_REJECTED
 } from "../actions";
 
 const addError = (state, { payload }) => ({
   ...state,
-  errors: [...(state.errors || []), payload]
+  errors: [...state.errors, payload]
 });
 
 const addUpdatingItem = (state, { payload }) => ({
   ...state,
-  updatingItems: [...(state.updatingItems || []), payload]
+  updatingItems: [...state.updatingItems, payload]
 });
 
 const removeUpdatingItem = (state, { payload }) => ({
   ...state,
-  updatingItems: [...(state.updatingItems || []).filter(id => id !== payload)]
+  updatingItems: [...state.updatingItems.filter(id => id !== payload)]
 });
 
 const requestItems = state => ({
   ...state,
-  isFetching: true,
-  errors: false
+  isFetching: state.isFetching + 1
 });
 
-const receiveItems = (state, { payload }) => ({
-  ...state,
-  isFetching: !state.users,
-  errors: false,
-  items: [...payload]
-});
+const receiveItems = (state, { payload }) => {
+  const isFetching = state.isFetching - 1;
+  return {
+    ...state,
+    isFetching,
+    errors: isFetching ? [...state.errors] : [],
+    items: [...payload]
+  };
+};
 
 const requestUsers = state => ({
   ...state,
-  isFetching: true,
-  errors: false
+  isFetching: state.isFetching + 1
 });
 
-const receiveUsers = (state, { payload }) => ({
+const receiveUsers = (state, { payload }) => {
+  const isFetching = state.isFetching - 1;
+  return {
+    ...state,
+    isFetching,
+    errors: isFetching ? [...state.errors] : [],
+    users: [...payload]
+  };
+};
+
+const requestRejected = state => ({
   ...state,
-  isFetching: !state.items,
-  errors: false,
-  users: [...payload]
+  isFetching: state.isFetching - 1
 });
 
-const reducer = (state = {}, action) => {
+const defaultState = {
+  errors: [],
+  isFetching: 0,
+  users: [],
+  items: [],
+  updatingItems: []
+};
+
+const reducer = (state = defaultState, action) => {
+  console.log(action.type, state);
   switch (action.type) {
     case ADD_ERROR:
       return addError(state, action);
@@ -65,6 +84,8 @@ const reducer = (state = {}, action) => {
       return requestUsers(state);
     case RECEIVE_USERS:
       return receiveUsers(state, action);
+    case REQUEST_REJECTED:
+      return requestRejected(state);
   }
   return state;
 };

@@ -7,6 +7,7 @@ export const REQUEST_ITEMS = "REQUEST_DATA";
 export const RECEIVE_ITEMS = "RECEIVE_DATA";
 export const REQUEST_USERS = "REQUEST_USERS";
 export const RECEIVE_USERS = "RECEIVE_USERS";
+export const REQUEST_REJECTED = "REQUEST_REJECTED";
 
 export const addError = error => ({
   type: ADD_ERROR,
@@ -41,6 +42,10 @@ export const receiveUsers = users => ({
   payload: users
 });
 
+export const requestRejected = () => ({
+  type: REQUEST_REJECTED
+});
+
 export const fetchUsers = () => async dispatch => {
   dispatch(requestUsers());
   try {
@@ -48,6 +53,7 @@ export const fetchUsers = () => async dispatch => {
     const users = JSON.parse(result);
     dispatch(receiveUsers(users));
   } catch (error) {
+    dispatch(requestRejected());
     dispatch(addError("Uh oh, there was a problem when getting the users."));
   }
 };
@@ -59,6 +65,7 @@ export const fetchItems = () => async dispatch => {
     const items = JSON.parse(result);
     dispatch(receiveItems(items));
   } catch (error) {
+    dispatch(requestRejected());
     dispatch(addError("Uh oh, there was a problem when getting the items."));
   }
 };

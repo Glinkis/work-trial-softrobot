@@ -19,7 +19,7 @@ export default class Content extends React.Component {
   render() {
     const { errors, users, items, isFetching } = this.props;
 
-    if (errors && errors.length) {
+    if (errors.length) {
       return (
         <div>
           {errors.map((error, i) => (
@@ -35,7 +35,7 @@ export default class Content extends React.Component {
       return <div>Loading...</div>;
     }
 
-    if (users && items) {
+    if (users.length && items.length) {
       return <Table />;
     }
 
