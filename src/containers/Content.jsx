@@ -17,7 +17,7 @@ export default class Content extends React.Component {
     dispatch(fetchItems());
   }
   render() {
-    const { errors, users, items, isFetching } = this.props;
+    const { errors, users, items, openRequests } = this.props;
 
     if (errors.length) {
       return (
@@ -31,7 +31,7 @@ export default class Content extends React.Component {
       );
     }
 
-    if (isFetching) {
+    if (openRequests) {
       return <div>Loading...</div>;
     }
 

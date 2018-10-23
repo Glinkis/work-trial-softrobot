@@ -15,43 +15,43 @@ const requestError = (state, { payload }) => ({
 const requestItems = state => ({
   ...state,
   errors: [],
-  isFetching: state.isFetching + 1
+  openRequests: state.openRequests + 1
 });
 
 const requestUsers = state => ({
   ...state,
   errors: [],
-  isFetching: state.isFetching + 1
+  openRequests: state.openRequests + 1
 });
 
 const receiveItems = (state, { payload }) => {
-  const isFetching = state.isFetching - 1;
+  const openRequests = state.openRequests - 1;
   return {
     ...state,
-    isFetching,
-    errors: isFetching ? [...state.errors] : [],
+    openRequests,
+    errors: openRequests ? [...state.errors] : [],
     items: [...payload]
   };
 };
 
 const receiveUsers = (state, { payload }) => {
-  const isFetching = state.isFetching - 1;
+  const openRequests = state.openRequests - 1;
   return {
     ...state,
-    isFetching,
-    errors: isFetching ? [...state.errors] : [],
+    openRequests,
+    errors: openRequests ? [...state.errors] : [],
     users: [...payload]
   };
 };
 
 const requestRejected = state => ({
   ...state,
-  isFetching: state.isFetching - 1
+  openRequests: state.openRequests - 1
 });
 
 const defaultState = {
   errors: [],
-  isFetching: 0,
+  openRequests: 0,
   users: [],
   items: []
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateItem } from "../actions/itemActions"
-import ErrorMessage from "../components/ErrorMessage"
+import { updateItem } from "../actions/itemActions";
+import ErrorMessage from "../components/ErrorMessage";
 import "./Table.scss";
 
 const TableHeader = () => (
@@ -17,28 +17,32 @@ const TableHeader = () => (
 class TableRow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isEditing: false,
-      ...props.item
-    };
+    this.state = { ...props.item, isEditing: false };
   }
-  handleInputChange = event => {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    this.setState({ [target.name]: value });
+
+  handleInputChange = ({ target }) => {
+    if (target.type === "checkbox") {
+      this.setState({ [target.name]: target.checked });
+      return;
+    }
+    this.setState({ [target.name]: target.value });
   };
+
   onEditEnable = () => {
     this.setState({ isEditing: true });
   };
+
   onEditCancel = () => {
     this.setState({ isEditing: false });
   };
+
   onSubmit = event => {
     event.preventDefault();
     const { isEditing, ...itemValues } = this.state;
     this.props.onUpdate({ ...itemValues });
     this.setState({ isEditing: false });
   };
+
   render() {
     const { text, date, userId, status, isEditing } = this.state;
     const { user, isUpdating, failedToUpdate } = this.props;
@@ -53,7 +57,7 @@ class TableRow extends React.Component {
     }
 
     if (isUpdating) {
-      return <div className="table-row">Updating item...</div>
+      return <div className="table-row">Updating item...</div>;
     }
 
     if (isEditing) {
@@ -114,7 +118,7 @@ export default class Table extends React.Component {
   updateItem = item => {
     const { dispatch } = this.props;
     dispatch(updateItem(item));
-  }
+  };
   render() {
     const { users, items } = this.props.request;
     const { updating, failed } = this.props.item;
