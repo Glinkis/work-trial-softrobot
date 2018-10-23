@@ -36,34 +36,51 @@ class TableRow extends React.Component {
     event.preventDefault();
     const { isEditing, ...itemValues } = this.state;
     this.props.onUpdate({ ...itemValues });
+    this.setState({ isEditing: false });
   };
   render() {
-    if (this.state.isEditing) {
+    const { text, date, userId, status, isEditing } = this.state;
+    const { user, isUpdating, failedToUpdate } = this.props;
+
+    if (failedToUpdate) {
+      return (
+        <div className="table-row">
+          <ErrorMessage message={"Failed to update item."} />
+          <button onClick={this.onSubmit}>Retry</button>
+        </div>
+      );
+    }
+
+    if (isUpdating) {
+      return <div className="table-row">Updating item...</div>
+    }
+
+    if (isEditing) {
       return (
         <form className="table-row" onSubmit={this.onSubmit}>
           <input
             name="text"
             type="text"
-            value={this.state.text}
+            value={text}
             onChange={this.handleInputChange}
           />
           <input
             name="date"
             type="text"
-            value={this.state.date}
+            value={date}
             onChange={this.handleInputChange}
           />
           <input
             name="owner"
             ype="text"
-            value={this.state.userId}
+            value={userId}
             onChange={this.handleInputChange}
           />
           <span className="status">
             <input
               name="status"
               type="checkbox"
-              checked={!!this.state.status}
+              checked={!!status}
               onChange={this.handleInputChange}
             />
           </span>
@@ -77,11 +94,11 @@ class TableRow extends React.Component {
 
     return (
       <div className="table-row">
-        <span>{`${this.state.text.slice(0, 12)}...`}</span>
-        <span>{this.state.date.slice(0, 10)}</span>
-        <span>{this.props.user}</span>
+        <span>{`${text.slice(0, 12)}...`}</span>
+        <span>{date.slice(0, 10)}</span>
+        <span>{user}</span>
         <span className="status">
-          <span className={this.state.status ? "enabled" : null} />
+          <span className={status ? "enabled" : null} />
         </span>
         <span className="edit">
           <button onClick={this.onEditEnable}>Edit</button>
@@ -98,7 +115,7 @@ export default class Table extends React.Component {
     dispatch(updateItem(item));
   }
   render() {
-    const { users, items } = this.props;
+    const { users, items, updatingItems, failedItems } = this.props;
     return (
       <div className="table">
         {<TableHeader />}
@@ -108,6 +125,8 @@ export default class Table extends React.Component {
             user={users[item.userId]}
             item={item}
             onUpdate={this.updateItem}
+            isUpdating={updatingItems.includes(item.id)}
+            failedToUpdate={failedItems.includes(item.id)}
           />
         ))}
       </div>

@@ -74,6 +74,6 @@ export const updateItem = item => async dispatch => {
     await fetch("PUT", "/putitem", item);
     dispatch(removeUpdatingItem(item.id));
   } catch (error) {
-    dispatch(requestError("Uh oh, there was a problem updating the item."));
+    // dispatch(requestError("Uh oh, there was a problem updating the item."));
   }
 };

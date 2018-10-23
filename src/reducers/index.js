@@ -66,7 +66,8 @@ const defaultState = {
   isFetching: 0,
   users: [],
   items: [],
-  updatingItems: []
+  updatingItems: [],
+  failedItems: []
 };
 
 const reducer = (state = defaultState, action) => {
