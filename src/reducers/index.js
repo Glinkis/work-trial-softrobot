@@ -26,6 +26,13 @@ const removeUpdatingItem = (state, { payload }) => ({
 
 const requestItems = state => ({
   ...state,
+  errors: [],
+  isFetching: state.isFetching + 1
+});
+
+const requestUsers = state => ({
+  ...state,
+  errors: [],
   isFetching: state.isFetching + 1
 });
 
@@ -38,11 +45,6 @@ const receiveItems = (state, { payload }) => {
     items: [...payload]
   };
 };
-
-const requestUsers = state => ({
-  ...state,
-  isFetching: state.isFetching + 1
-});
 
 const receiveUsers = (state, { payload }) => {
   const isFetching = state.isFetching - 1;
