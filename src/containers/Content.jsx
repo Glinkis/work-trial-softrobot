@@ -4,7 +4,8 @@ import { fetchUsers, fetchItems, updateItem } from "../actions";
 import ErrorMessage from "../components/ErrorMessage";
 import Table from "../components/Table";
 
-class Content extends React.Component {
+@connect(state => state)
+export default class Content extends React.Component {
   retry = () => {
     const { dispatch } = this.props;
     dispatch(fetchUsers());
@@ -47,10 +48,3 @@ class Content extends React.Component {
     return null;
   }
 }
-
-const mapStateToProps = state => {
-  console.log(state);
-  return state;
-};
-
-export default connect(mapStateToProps)(Content);
