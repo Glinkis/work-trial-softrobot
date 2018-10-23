@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateItem } from "../actions/itemActions";
+import Toggle from "react-toggle";
+import "react-toggle/style.css";
 import ErrorMessage from "../components/ErrorMessage";
 import "./Table.scss";
 
@@ -91,7 +93,7 @@ class TableRow extends React.Component {
             ))}
           </select>
           <span className="status">
-            <input
+            <Toggle
               name="active"
               type="checkbox"
               checked={!!active}

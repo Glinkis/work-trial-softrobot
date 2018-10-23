@@ -44,21 +44,11 @@
     }
     .status {
       position: relative;
-      span,
-      input {
+      .react-toggle .react-toggle-track {
         background-color: #e04328;
-        border-radius: 100%;
-        &.enabled {
-          background-color: #6ccc13;
-        }
       }
-      span {
-        width: 0.75rem;
-        height: 0.75rem;
-      }
-      input {
-        width: 1.5rem;
-        height: 1.5rem;
+      .react-toggle--checked .react-toggle-track {
+        background-color: #6ccc13;
       }
     }
   }
