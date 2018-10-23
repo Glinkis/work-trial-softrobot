@@ -92,7 +92,7 @@ class TableRow extends React.Component {
           </select>
           <span className="status">
             <input
-              name="status"
+              name="active"
               type="checkbox"
               checked={!!active}
               onChange={this.handleInputChange}
