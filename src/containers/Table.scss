@@ -1,16 +1,17 @@
 @import "../index";
 
 .table {
-  div,
-  form {
+  > div,
+  > form {
     padding: 6pt 0;
     border-bottom: 1pt solid #dadada;
     span,
-    input {
+    input,
+    textarea {
       display: inline-block;
-      margin: 0 2pt;
       text-align: center;
       width: 100pt;
+      font-size: 1rem;
     }
     &:last-child {
       border-bottom: none;
@@ -21,12 +22,26 @@
     border-color: $dark;
   }
   .table-row {
+    * {
+      vertical-align: middle;
+    }
+    input,
+    textarea {
+      border: 1pt solid #dadada;
+      background-color: #f9f9f9;
+      padding: 2pt 0;
+    }
+    textarea {
+      text-align: left;
+      margin-bottom: 5pt;
+      width: 100%;
+      height: 80pt;
+    }
     .error-message {
       border: none;
     }
     .status {
       position: relative;
-      top: 2px;
       span,
       input {
         width: 1rem;
@@ -36,17 +51,6 @@
         &.enabled {
           background-color: #00dd00;
         }
-      }
-    }
-    .edit {
-      i {
-        cursor: pointer;
-        opacity: 0.5;
-        font-size: 1.5rem;
-        margin: 0 4pt;
-      }
-      i:hover {
-        opacity: 1;
       }
     }
   }

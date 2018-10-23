@@ -25,8 +25,10 @@ export default class Content extends React.Component {
           {errors.map((error, i) => (
             <ErrorMessage key={i} message={error} />
           ))}
-          <hr />
-          <button onClick={this.retry}>Retry</button>
+          <br />
+          <i onClick={this.retry} className="material-icons">
+            refresh
+          </i>
         </div>
       );
     }

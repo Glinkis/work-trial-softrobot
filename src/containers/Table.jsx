@@ -51,7 +51,9 @@ class TableRow extends React.Component {
       return (
         <div className="table-row">
           <ErrorMessage message={"Failed to update item."} />
-          <button onClick={this.onSubmit}>Retry</button>
+          <i onClick={this.onSubmit} className="material-icons">
+            refresh
+          </i>
         </div>
       );
     }
@@ -63,12 +65,14 @@ class TableRow extends React.Component {
     if (isEditing) {
       return (
         <form className="table-row" onSubmit={this.onSubmit}>
-          <input
-            name="text"
-            type="text"
-            value={text}
-            onChange={this.handleInputChange}
-          />
+          <div>
+            <textarea
+              name="text"
+              value={text}
+              onChange={this.handleInputChange}
+            />
+          </div>{" "}
+          <span />
           <input
             name="date"
             type="text"
@@ -90,8 +94,12 @@ class TableRow extends React.Component {
             />
           </span>
           <span className="edit">
-            <i onClick={this.onSubmit} className="fa fa-save" />
-            <i onClick={this.onEditCancel} className="fa fa-ban" />
+            <i onClick={this.onSubmit} className="material-icons">
+              save
+            </i>
+            <i onClick={this.onEditCancel} className="material-icons">
+              cancel
+            </i>
             <button style={{ display: "none" }} type="submit" />
           </span>
         </form>
@@ -107,7 +115,9 @@ class TableRow extends React.Component {
           <span className={status ? "enabled" : null} />
         </span>
         <span className="edit">
-          <i onClick={this.onEditEnable} className="fa fa-pencil" />
+          <i onClick={this.onEditEnable} className="material-icons">
+            edit
+          </i>
         </span>
       </div>
     );

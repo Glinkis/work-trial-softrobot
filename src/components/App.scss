@@ -5,4 +5,14 @@
   background-color: #ececec;
   border-radius: 5pt;
   text-align: center;
+
+  i.material-icons {
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 1.5rem;
+    margin: 0 2pt;
+  }
+  i.material-icons:hover {
+    opacity: 1;
+  }
 }
