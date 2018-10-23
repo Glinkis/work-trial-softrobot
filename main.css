@@ -72,13 +72,17 @@ hr {
   position: relative; }
   .table .table-row .status span,
   .table .table-row .status input {
-    width: 1rem;
-    height: 1rem;
-    background-color: #ff0000;
+    background-color: #e04328;
     border-radius: 100%; }
     .table .table-row .status span.enabled,
     .table .table-row .status input.enabled {
-      background-color: #00dd00; }
+      background-color: #6ccc13; }
+  .table .table-row .status span {
+    width: 0.75rem;
+    height: 0.75rem; }
+  .table .table-row .status input {
+    width: 1.5rem;
+    height: 1.5rem; }
 
 #app {
   display: inline-block;
