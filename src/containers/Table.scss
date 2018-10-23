@@ -2,12 +2,13 @@
 
 $red: #e04328;
 $green: #6ccc13;
+$medium: #dadada;
 
 .table {
   > div,
   > form {
     padding: 6pt 0;
-    border-bottom: 1pt solid #dadada;
+    /*border-bottom: 2pt solid $medium;*/
     span,
     input,
     textarea,
@@ -23,9 +24,12 @@ $green: #6ccc13;
   }
   .table-header {
     font-weight: bold;
-    border-color: $dark;
+    background-color: $medium;
   }
   .table-row {
+    &:nth-child(odd) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
     &:hover {
       background-color: rgba(0, 0, 0, 0.05);
     }
