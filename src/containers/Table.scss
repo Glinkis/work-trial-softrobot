@@ -49,10 +49,10 @@ $green: #6ccc13;
       .react-toggle .react-toggle-track {
         background-color: $red;
       }
-      .react-toggle--checked {
+      .react-toggle--checked .react-toggle-track {
         background-color: $green;
       }
-      span {
+      > span {
         background-color: $red;
         border-radius: 100%;
         width: 0.75rem;
