@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { updateItem } from "../actions"
 import "./Table.scss";
 
 const TableHeader = () => (
@@ -34,7 +35,7 @@ class TableRow extends React.Component {
   onSubmit = event => {
     event.preventDefault();
     const { isEditing, ...itemValues } = this.state;
-    this.props.onUpdateItem({ ...itemValues });
+    this.props.onUpdate({ ...itemValues });
   };
   render() {
     if (this.state.isEditing) {
@@ -106,7 +107,7 @@ export default class Table extends React.Component {
             key={item.id}
             user={users[item.userId]}
             item={item}
-            onUpdateItem={this.updateItem}
+            onUpdate={this.updateItem}
           />
         ))}
       </div>

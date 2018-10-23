@@ -1,18 +1,13 @@
 import {
-  ADD_ERROR,
   ADD_UPDATING_ITEM,
   REMOVE_UPDATING_ITEM,
+  REQUEST_ERROR,
   REQUEST_ITEMS,
   RECEIVE_ITEMS,
   REQUEST_USERS,
   RECEIVE_USERS,
   REQUEST_REJECTED
 } from "../actions";
-
-const addError = (state, { payload }) => ({
-  ...state,
-  errors: [...state.errors, payload]
-});
 
 const addUpdatingItem = (state, { payload }) => ({
   ...state,
@@ -22,6 +17,11 @@ const addUpdatingItem = (state, { payload }) => ({
 const removeUpdatingItem = (state, { payload }) => ({
   ...state,
   updatingItems: [...state.updatingItems.filter(id => id !== payload)]
+});
+
+const requestError = (state, { payload }) => ({
+  ...state,
+  errors: [...state.errors, payload]
 });
 
 const requestItems = state => ({
@@ -72,12 +72,12 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
   console.log(action.type, state);
   switch (action.type) {
-    case ADD_ERROR:
-      return addError(state, action);
     case ADD_UPDATING_ITEM:
       return addUpdatingItem(state, action);
     case REMOVE_UPDATING_ITEM:
       return removeUpdatingItem(state, action);
+    case REQUEST_ERROR:
+      return requestError(state, action);
     case REQUEST_ITEMS:
       return requestItems(state);
     case RECEIVE_ITEMS:
