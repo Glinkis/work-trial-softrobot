@@ -39,11 +39,11 @@ hr {
   .table > form select {
     display: inline-block;
     text-align: center;
-    width: 120pt;
+    width: 100pt;
     font-size: 1rem; }
-  .table > div:last-child,
-  .table > form:last-child {
-    border-bottom: none; }
+  .table > div > :last-child,
+  .table > form > :last-child {
+    width: 60pt; }
 
 .table .table-header {
   font-weight: bold;
@@ -73,6 +73,9 @@ hr {
 
 .table .table-row .status .react-toggle .react-toggle-track {
   background-color: #e04328; }
+
+.table .table-row .status .react-toggle .react-toggle-thumb {
+  border: none; }
 
 .table .table-row .status .react-toggle--checked .react-toggle-track {
   background-color: #6ccc13; }
