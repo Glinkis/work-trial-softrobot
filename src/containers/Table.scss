@@ -15,11 +15,11 @@ $medium: #e0e0e0;
     select {
       display: inline-block;
       text-align: center;
-      width: 120pt;
+      width: 100pt;
       font-size: 1rem;
     }
-    &:last-child {
-      border-bottom: none;
+    > :last-child {
+      width: 60pt;
     }
   }
   .table-header {
@@ -50,8 +50,13 @@ $medium: #e0e0e0;
       border: none;
     }
     .status {
-      .react-toggle .react-toggle-track {
-        background-color: $red;
+      .react-toggle {
+        .react-toggle-track {
+          background-color: $red;
+        }
+        .react-toggle-thumb {
+          border: none;
+        }
       }
       .react-toggle--checked .react-toggle-track {
         background-color: $green;
