@@ -15,7 +15,7 @@ const fetch = (method, url, ...params) =>
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          resolve(xhr.responseText);
+          resolve(JSON.parse(xhr.responseText));
         } else {
           reject({ state: xhr.readyState, status: xhr.status });
         }

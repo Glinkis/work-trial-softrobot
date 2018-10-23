@@ -49,8 +49,7 @@ export const requestRejected = () => ({
 export const fetchUsers = () => async dispatch => {
   dispatch(requestUsers());
   try {
-    const result = await fetch("GET", "/getusers");
-    const users = JSON.parse(result);
+    const users = await fetch("GET", "/getusers");
     dispatch(receiveUsers(users));
   } catch (error) {
     dispatch(requestRejected());
@@ -61,8 +60,7 @@ export const fetchUsers = () => async dispatch => {
 export const fetchItems = () => async dispatch => {
   dispatch(requestItems());
   try {
-    const result = await fetch("GET", "/getitems");
-    const items = JSON.parse(result);
+    const items = await fetch("GET", "/getitems");
     dispatch(receiveItems(items));
   } catch (error) {
     dispatch(requestRejected());
