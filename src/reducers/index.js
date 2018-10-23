@@ -1,6 +1,8 @@
 import {
   ADD_UPDATING_ITEM,
   REMOVE_UPDATING_ITEM,
+  ADD_FAILED_ITEM,
+  REMOVE_FAILED_ITEM,
   REQUEST_ERROR,
   REQUEST_ITEMS,
   RECEIVE_ITEMS,
@@ -17,6 +19,16 @@ const addUpdatingItem = (state, { payload }) => ({
 const removeUpdatingItem = (state, { payload }) => ({
   ...state,
   updatingItems: [...state.updatingItems.filter(id => id !== payload)]
+});
+
+const addFailedItem = (state, { payload }) => ({
+  ...state,
+  failedItems: [...state.failedItems, payload]
+});
+
+const removeFailedItem = (state, { payload }) => ({
+  ...state,
+  failedItems: [...state.failedItems.filter(id => id !== payload)]
 });
 
 const requestError = (state, { payload }) => ({
@@ -77,6 +89,10 @@ const reducer = (state = defaultState, action) => {
       return addUpdatingItem(state, action);
     case REMOVE_UPDATING_ITEM:
       return removeUpdatingItem(state, action);
+    case ADD_FAILED_ITEM:
+      return addFailedItem(state, action);
+    case REMOVE_FAILED_ITEM:
+      return removeFailedItem(state, action);
     case REQUEST_ERROR:
       return requestError(state, action);
     case REQUEST_ITEMS:

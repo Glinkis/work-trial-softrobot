@@ -21,6 +21,9 @@
     border-color: $dark;
   }
   .table-row {
+    .error-message {
+      border: none;
+    }
     .status {
       position: relative;
       top: 2px;

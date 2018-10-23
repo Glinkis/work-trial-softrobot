@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateItem } from "../actions"
+import ErrorMessage from "../components/ErrorMessage"
 import "./Table.scss";
 
 const TableHeader = () => (
