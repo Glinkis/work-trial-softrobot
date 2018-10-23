@@ -45,6 +45,9 @@ hr {
   font-weight: bold;
   border-color: #0f0f0f; }
 
+.table .table-row .error-message {
+  border: none; }
+
 .table .table-row .status {
   position: relative;
   top: 2px; }
