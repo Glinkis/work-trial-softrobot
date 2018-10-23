@@ -61,6 +61,15 @@ hr {
     .table .table-row .status input.enabled {
       background-color: #00dd00; }
 
+.table .table-row .edit i {
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 1.5rem;
+  margin: 0 4pt; }
+
+.table .table-row .edit i:hover {
+  opacity: 1; }
+
 #app {
   display: inline-block;
   margin: auto;
