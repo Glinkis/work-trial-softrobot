@@ -32,12 +32,14 @@ hr {
   .table > div span,
   .table > div input,
   .table > div textarea,
+  .table > div select,
   .table > form span,
   .table > form input,
-  .table > form textarea {
+  .table > form textarea,
+  .table > form select {
     display: inline-block;
     text-align: center;
-    width: 100pt;
+    width: 120pt;
     font-size: 1rem; }
   .table > div:last-child,
   .table > form:last-child {
@@ -51,7 +53,8 @@ hr {
   vertical-align: middle; }
 
 .table .table-row input,
-.table .table-row textarea {
+.table .table-row textarea,
+.table .table-row select {
   border: 1pt solid #dadada;
   background-color: #f9f9f9;
   padding: 2pt 0; }
