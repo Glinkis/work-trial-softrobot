@@ -28,7 +28,7 @@ hr {
 .table > div,
 .table > form {
   padding: 6pt 0;
-  border-bottom: 1pt solid #dadada; }
+  /*border-bottom: 2pt solid $medium;*/ }
   .table > div span,
   .table > div input,
   .table > div textarea,
@@ -47,7 +47,10 @@ hr {
 
 .table .table-header {
   font-weight: bold;
-  border-color: #0f0f0f; }
+  background-color: #dadada; }
+
+.table .table-row:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05); }
 
 .table .table-row:hover {
   background-color: rgba(0, 0, 0, 0.05); }
