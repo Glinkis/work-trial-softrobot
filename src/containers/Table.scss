@@ -1,5 +1,8 @@
 @import "../index";
 
+$red: #e04328;
+$green: #6ccc13;
+
 .table {
   > div,
   > form {
@@ -44,10 +47,19 @@
     }
     .status {
       .react-toggle .react-toggle-track {
-        background-color: #e04328;
+        background-color: $red;
       }
-      .react-toggle--checked .react-toggle-track {
-        background-color: #6ccc13;
+      .react-toggle--checked {
+        background-color: $green;
+      }
+      span {
+        background-color: $red;
+        border-radius: 100%;
+        width: 0.75rem;
+        height: 0.75rem;
+        &.enabled {
+          background-color: $green;
+        }
       }
     }
   }
