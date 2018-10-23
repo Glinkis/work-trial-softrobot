@@ -16,6 +16,18 @@ const TableHeader = () => (
   </div>
 );
 
+const getDate = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  const second = date.getSeconds();
+  const ms = date.getMilliseconds();
+  return `${year}-${month}-${day}T${hour}:${minute}:${second}.${ms}Z`;
+};
+
 class TableRow extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +53,7 @@ class TableRow extends React.Component {
   onSubmit = event => {
     event.preventDefault();
     const { isEditing, ...itemValues } = this.state;
-    this.props.onUpdate({ ...itemValues });
+    this.props.onUpdate({ ...itemValues, date: getDate() });
     this.setState({ isEditing: false });
   };
 
@@ -75,12 +87,7 @@ class TableRow extends React.Component {
             />
           </div>{" "}
           <span />
-          <input
-            name="date"
-            type="text"
-            value={date}
-            onChange={this.handleInputChange}
-          />
+          <span />
           <select
             name="userId"
             onChange={this.handleInputChange}

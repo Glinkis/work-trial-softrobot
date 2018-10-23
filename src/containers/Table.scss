@@ -26,6 +26,9 @@ $green: #6ccc13;
     border-color: $dark;
   }
   .table-row {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
     * {
       vertical-align: middle;
     }
