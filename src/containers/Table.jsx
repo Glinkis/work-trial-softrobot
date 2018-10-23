@@ -90,8 +90,9 @@ class TableRow extends React.Component {
             />
           </span>
           <span className="edit">
-            <button type="submit">Save</button>
-            <button onClick={this.onEditCancel}>Cancel</button>
+            <i onClick={this.onSubmit} className="fa fa-save" />
+            <i onClick={this.onEditCancel} className="fa fa-ban" />
+            <button style={{ display: "none" }} type="submit" />
           </span>
         </form>
       );
@@ -106,7 +107,7 @@ class TableRow extends React.Component {
           <span className={status ? "enabled" : null} />
         </span>
         <span className="edit">
-          <button onClick={this.onEditEnable}>Edit</button>
+          <i onClick={this.onEditEnable} className="fa fa-pencil" />
         </span>
       </div>
     );
