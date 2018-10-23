@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchUsers, fetchItems, updateItem } from "../actions";
 import ErrorMessage from "../components/ErrorMessage";
-import Table from "../components/Table";
+import Table from "./Table";
 
 @connect(state => state)
 export default class Content extends React.Component {
@@ -10,10 +10,6 @@ export default class Content extends React.Component {
     const { dispatch } = this.props;
     dispatch(fetchUsers());
     dispatch(fetchItems());
-  };
-  updateItem = item => {
-    const { dispatch } = this.props;
-    dispatch(updateItem(item));
   };
   componentDidMount() {
     const { dispatch } = this.props;
@@ -40,9 +36,7 @@ export default class Content extends React.Component {
     }
 
     if (users && items) {
-      return (
-        <Table users={users} items={items} onUpdateItem={this.updateItem} />
-      );
+      return <Table />;
     }
 
     return null;

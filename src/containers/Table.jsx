@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./Table.scss";
 
 const TableHeader = () => (
@@ -89,9 +90,14 @@ class TableRow extends React.Component {
   }
 }
 
-export class Table extends React.Component {
+@connect(state => state)
+export default class Table extends React.Component {
+  updateItem = item => {
+    const { dispatch } = this.props;
+    dispatch(updateItem(item));
+  }
   render() {
-    const { users, items, onUpdateItem } = this.props;
+    const { users, items } = this.props;
     return (
       <div className="table">
         {<TableHeader />}
@@ -100,12 +106,10 @@ export class Table extends React.Component {
             key={item.id}
             user={users[item.userId]}
             item={item}
-            onUpdateItem={onUpdateItem}
+            onUpdateItem={this.updateItem}
           />
         ))}
       </div>
     );
   }
 }
-
-export default Table;
