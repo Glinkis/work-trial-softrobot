@@ -2,7 +2,7 @@
 
 $red: #e04328;
 $green: #6ccc13;
-$medium: #dadada;
+$medium: #e0e0e0;
 
 .table {
   > div,
@@ -27,11 +27,8 @@ $medium: #dadada;
     background-color: $medium;
   }
   .table-row {
-    &:nth-child(odd) {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
     &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.04);
     }
     * {
       vertical-align: middle;
@@ -46,7 +43,7 @@ $medium: #dadada;
     textarea {
       text-align: left;
       margin-bottom: 5pt;
-      width: 100%;
+      width: calc(100% - 10pt);
       height: 80pt;
     }
     .error-message {
