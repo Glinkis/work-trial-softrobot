@@ -44,7 +44,7 @@ class TableRow extends React.Component {
   };
 
   render() {
-    const { text, date, userId, status, isEditing } = this.state;
+    const { text, date, userId, active, isEditing } = this.state;
     const { user, isUpdating, failedToUpdate } = this.props;
 
     if (failedToUpdate) {
@@ -89,7 +89,7 @@ class TableRow extends React.Component {
             <input
               name="status"
               type="checkbox"
-              checked={!!status}
+              checked={!!active}
               onChange={this.handleInputChange}
             />
           </span>
@@ -112,7 +112,7 @@ class TableRow extends React.Component {
         <span>{date.slice(0, 10)}</span>
         <span>{user}</span>
         <span className="status">
-          <span className={status ? "enabled" : null} />
+          <span className={active ? "enabled" : null} />
         </span>
         <span className="edit">
           <i onClick={this.onEditEnable} className="material-icons">
