@@ -45,7 +45,7 @@ class TableRow extends React.Component {
 
   render() {
     const { text, date, userId, active, isEditing } = this.state;
-    const { user, isUpdating, failedToUpdate } = this.props;
+    const { users, isUpdating, failedToUpdate } = this.props;
 
     if (failedToUpdate) {
       return (
@@ -79,12 +79,17 @@ class TableRow extends React.Component {
             value={date}
             onChange={this.handleInputChange}
           />
-          <input
-            name="owner"
-            ype="text"
-            value={userId}
+          <select
+            name="userId"
             onChange={this.handleInputChange}
-          />
+            value={userId}
+          >
+            {users.map((user, i) => (
+              <option key={i} value={i}>
+                {user}
+              </option>
+            ))}
+          </select>
           <span className="status">
             <input
               name="status"
@@ -110,7 +115,7 @@ class TableRow extends React.Component {
       <div className="table-row">
         <span>{`${text.slice(0, 12)}...`}</span>
         <span>{date.slice(0, 10)}</span>
-        <span>{user}</span>
+        <span>{users[userId]}</span>
         <span className="status">
           <span className={active ? "enabled" : null} />
         </span>
@@ -139,7 +144,7 @@ export default class Table extends React.Component {
         {items.map(item => (
           <TableRow
             key={item.id}
-            user={users[item.userId]}
+            users={users}
             item={item}
             onUpdate={this.updateItem}
             isUpdating={updating.includes(item.id)}

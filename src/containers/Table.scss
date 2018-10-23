@@ -7,10 +7,11 @@
     border-bottom: 1pt solid #dadada;
     span,
     input,
-    textarea {
+    textarea,
+    select {
       display: inline-block;
       text-align: center;
-      width: 100pt;
+      width: 120pt;
       font-size: 1rem;
     }
     &:last-child {
@@ -26,7 +27,8 @@
       vertical-align: middle;
     }
     input,
-    textarea {
+    textarea,
+    select {
       border: 1pt solid #dadada;
       background-color: #f9f9f9;
       padding: 2pt 0;
