@@ -47,13 +47,10 @@ hr {
 
 .table .table-header {
   font-weight: bold;
-  background-color: #dadada; }
-
-.table .table-row:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.05); }
+  background-color: #e0e0e0; }
 
 .table .table-row:hover {
-  background-color: rgba(0, 0, 0, 0.05); }
+  background-color: rgba(0, 0, 0, 0.04); }
 
 .table .table-row * {
   vertical-align: middle; }
@@ -68,7 +65,7 @@ hr {
 .table .table-row textarea {
   text-align: left;
   margin-bottom: 5pt;
-  width: 100%;
+  width: calc(100% - 10pt);
   height: 80pt; }
 
 .table .table-row .error-message {
@@ -91,11 +88,14 @@ hr {
 #app {
   display: inline-block;
   margin: auto;
-  padding: 20pt;
   background-color: #f4f5f7;
   border: 2px solid #e0e0e0;
   border-radius: 5pt;
   text-align: center; }
+  #app > * {
+    margin: 10pt; }
+  #app > .table {
+    margin: 0; }
   #app i.material-icons {
     cursor: pointer;
     opacity: 0.5;
