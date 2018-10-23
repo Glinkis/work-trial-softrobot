@@ -71,15 +71,15 @@ hr {
 .table .table-row .status .react-toggle .react-toggle-track {
   background-color: #e04328; }
 
-.table .table-row .status .react-toggle--checked {
+.table .table-row .status .react-toggle--checked .react-toggle-track {
   background-color: #6ccc13; }
 
-.table .table-row .status span {
+.table .table-row .status > span {
   background-color: #e04328;
   border-radius: 100%;
   width: 0.75rem;
   height: 0.75rem; }
-  .table .table-row .status span.enabled {
+  .table .table-row .status > span.enabled {
     background-color: #6ccc13; }
 
 #app {
