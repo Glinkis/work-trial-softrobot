@@ -1,4 +1,5 @@
 @import "../index";
+@import "../containers/Table";
 
 .table {
   .table-header {
@@ -12,6 +13,15 @@
       &:hover {
         background-color: darken($medium, 10%);
         cursor: pointer;
+      }
+      $border: 2pt;
+      &.up {
+        border-top: $border solid $dark;
+        padding-top: $tablePadding - $border;
+      }
+      &.down {
+        border-bottom: $border solid $dark;
+        padding-bottom: $tablePadding - $border;
       }
     }
   }

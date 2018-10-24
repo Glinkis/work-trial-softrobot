@@ -1,10 +1,12 @@
 @import "../index";
 
+$tablePadding: 6pt;
+
 .table {
   width: 460pt;
   > * {
     > * {
-      padding: 6pt 0;
+      padding: $tablePadding 0;
     }
     span,
     input,
