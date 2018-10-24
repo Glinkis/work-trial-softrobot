@@ -74,7 +74,11 @@ export default class TableRow extends React.Component {
     }
 
     if (isUpdating) {
-      return <div className="table-row">Updating item...</div>;
+      return (
+        <div className="table-row">
+          <span class="fill">Updating item...</span>
+        </div>
+      );
     }
 
     if (isEditing) {
