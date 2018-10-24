@@ -7,7 +7,8 @@
     :last-child {
       background-color: $medium;
     }
-    .button {
+    .sorter {
+      user-select: none;
       &:hover {
         background-color: darken($medium, 10%);
         cursor: pointer;
