@@ -112,20 +112,20 @@ hr {
   color: #0f0f0f;
   background-color: #0f0f0f; }
 
-.table > * > * {
-  padding: 6pt 0; }
-
-.table > * span,
-.table > * input,
-.table > * textarea,
-.table > * select {
-  display: inline-block;
-  text-align: center;
-  width: 100pt;
-  font-size: 1rem; }
-
-.table > * > :last-child {
-  width: 60pt; }
+.table {
+  width: 460pt; }
+  .table > * > * {
+    padding: 6pt 0; }
+  .table > * span,
+  .table > * input,
+  .table > * textarea,
+  .table > * select {
+    display: inline-block;
+    text-align: center;
+    width: 100pt;
+    font-size: 1rem; }
+  .table > * > :last-child {
+    width: 60pt; }
 
 #app {
   display: inline-block;
