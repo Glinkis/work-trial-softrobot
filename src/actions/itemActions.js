@@ -32,7 +32,7 @@ export const updateItem = item => async dispatch => {
   dispatch(addUpdatingItem(id));
 
   try {
-    await fetch("PUT", "/putitem", item);
+    await fetch("/putitem", { method: "PUT", body: item });
     dispatch(removeUpdatingItem(id));
   } catch (error) {
     dispatch(removeUpdatingItem(id));

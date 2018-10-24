@@ -7,8 +7,9 @@ import api from "../../trial-files/softrobot_test_api.min.js";
  * @param  {...any} params - Miscellaneous parameters to pass with the request.
  * @returns {Promise<string>} - A promise that resolves to a json string.
  */
-const fetch = (method, url, ...params) =>
+const fetch = (url, options = {}) =>
   new Promise((resolve, reject) => {
+    const { method = "GET", body } = options;
     const xhr = api.XMLHttpRequest();
     xhr.timeout = 2000;
     xhr.ontimeout = reject;
@@ -22,7 +23,12 @@ const fetch = (method, url, ...params) =>
       }
     };
     xhr.open(method, url);
-    xhr.send(...params.map(param => JSON.stringify(param)));
+
+    if (body !== undefined) {
+      xhr.send(JSON.stringify(body));
+    } else {
+      xhr.send();
+    }
   });
 
 export default fetch;
