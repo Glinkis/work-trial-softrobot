@@ -1,5 +1,7 @@
 # work-trial-softrobot
 
+[![Build Status](https://travis-ci.org/Glinkis/work-trial-softrobot.svg?branch=master)](https://travis-ci.org/Glinkis/work-trial-softrobot)
+
 A trial project for my application to SoftRobot.
 
 [Live Demo](https://glinkis.github.io/work-trial-softrobot/)
