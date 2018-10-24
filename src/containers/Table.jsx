@@ -126,7 +126,7 @@ class TableRow extends React.Component {
         <span>{date.slice(0, 10)}</span>
         <span>{users[userId]}</span>
         <span className="status">
-          <span className={active ? "enabled" : null} />
+          <span className={active ? "enabled" : ""} />
         </span>
         <span className="edit">
           <i onClick={this.onEditEnable} className="material-icons">
