@@ -1,4 +1,4 @@
-import fetch from "../misc/fetch";
+import fetch from "../utils/fetch";
 
 export const ADD_UPDATING_ITEM = "ADD_UPDATING_ITEM";
 export const REMOVE_UPDATING_ITEM = "REMOVE_UPDATING_ITEM";

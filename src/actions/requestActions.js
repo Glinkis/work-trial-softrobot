@@ -1,4 +1,4 @@
-import fetch from "../misc/fetch";
+import fetch from "../utils/fetch";
 
 export const REQUEST_ERROR = "REQUEST_ERROR";
 export const REQUEST_ITEMS = "REQUEST_ITEMS";
