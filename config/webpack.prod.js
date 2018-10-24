@@ -7,6 +7,7 @@ cssLoader.use = [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"];
 module.exports = {
   ...common,
   mode: "production",
+  externals: {},
   plugins: [
     new MiniCssExtractPlugin({
       chunkFilename: "[id].css",
