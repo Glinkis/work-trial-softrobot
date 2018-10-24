@@ -5,7 +5,7 @@ import getFormattedTime from "../utils/getFormattedTime";
 import "./TableRow.scss";
 
 const Updating = () => {
-  return <div className="table-row">Updating item...</div>;
+  return;
 };
 
 const TextInput = ({ value, onChange }) => (
@@ -80,7 +80,7 @@ export default class TableRow extends React.Component {
     }
 
     if (isUpdating) {
-      return <Updating />;
+      return <div className="table-row">Updating item...</div>;
     }
 
     if (isEditing) {
