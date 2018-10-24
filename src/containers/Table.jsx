@@ -2,18 +2,9 @@ import React from "react";
 import "react-toggle/style.css";
 import { connect } from "react-redux";
 import { updateItem } from "../actions/itemActions";
+import TableHeader from "../components/TableHeader";
 import TableRow from "../components/TableRow";
 import "./Table.scss";
-
-const TableHeader = () => (
-  <div className="table-header">
-    <span>Text</span>
-    <span>Date</span>
-    <span>Owner</span>
-    <span>Status</span>
-    <span />
-  </div>
-);
 
 @connect(state => state)
 export default class Table extends React.Component {
