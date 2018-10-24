@@ -27,6 +27,38 @@ hr {
   color: #0f0f0f;
   background-color: #0f0f0f; }
 
+html {
+  padding: 0;
+  margin: 0;
+  font-size: 12pt;
+  font-family: "PT Sans", sans-serif;
+  background-color: #f9f9f9;
+  color: #0f0f0f; }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+hr {
+  color: #0f0f0f;
+  background-color: #0f0f0f; }
+
+.table {
+  width: 460pt; }
+  .table > * > * {
+    padding: 6pt 0; }
+  .table > * span,
+  .table > * input,
+  .table > * textarea,
+  .table > * select {
+    display: inline-block;
+    text-align: center;
+    width: 100pt;
+    font-size: 1rem; }
+  .table > * > :last-child {
+    width: 60pt; }
+
 .table .table-header {
   font-weight: bold;
   background-color: #e0e0e0; }
@@ -37,6 +69,12 @@ hr {
     .table .table-header .sorter:hover {
       background-color: #c7c7c7;
       cursor: pointer; }
+    .table .table-header .sorter.up {
+      border-top: 2pt solid #0f0f0f;
+      padding-top: 4pt; }
+    .table .table-header .sorter.down {
+      border-bottom: 2pt solid #0f0f0f;
+      padding-bottom: 4pt; }
 
 html {
   padding: 0;
