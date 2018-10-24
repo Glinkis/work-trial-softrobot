@@ -32,9 +32,11 @@ hr {
   background-color: #e0e0e0; }
   .table .table-header :last-child {
     background-color: #e0e0e0; }
-  .table .table-header .button:hover {
-    background-color: #c7c7c7;
-    cursor: pointer; }
+  .table .table-header .sorter {
+    user-select: none; }
+    .table .table-header .sorter:hover {
+      background-color: #c7c7c7;
+      cursor: pointer; }
 
 html {
   padding: 0;
@@ -131,8 +133,7 @@ hr {
   background-color: #f4f5f7;
   border: 2px solid #e0e0e0;
   border-radius: 5pt;
-  text-align: center;
-  white-space: nowrap; }
+  text-align: center; }
   #app > * {
     margin: 10pt; }
   #app > .table {
