@@ -112,6 +112,9 @@ hr {
   width: calc(100% - 10pt);
   height: 80pt; }
 
+.table .table-row .fill {
+  width: 100%; }
+
 .table .table-row .error-message {
   border: none; }
 
