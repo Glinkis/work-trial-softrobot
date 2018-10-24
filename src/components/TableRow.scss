@@ -1,0 +1,50 @@
+@import "../index";
+
+.table {
+  .table-row {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    * {
+      vertical-align: middle;
+    }
+    input,
+    textarea,
+    select {
+      border: 1pt solid #dadada;
+      background-color: $light;
+      padding: 2pt 0;
+    }
+    textarea {
+      text-align: left;
+      margin-bottom: 5pt;
+      width: calc(100% - 10pt);
+      height: 80pt;
+    }
+    .error-message {
+      border: none;
+    }
+    .status {
+      .react-toggle {
+        .react-toggle-track {
+          background-color: $red;
+        }
+        .react-toggle-thumb {
+          border: none;
+        }
+      }
+      .react-toggle--checked .react-toggle-track {
+        background-color: $green;
+      }
+      > span {
+        background-color: $red;
+        border-radius: 100%;
+        width: 0.75rem;
+        height: 0.75rem;
+        &.enabled {
+          background-color: $green;
+        }
+      }
+    }
+  }
+}

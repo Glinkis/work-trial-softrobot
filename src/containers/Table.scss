@@ -1,9 +1,5 @@
 @import "../index";
 
-$red: #e04328;
-$green: #6ccc13;
-$medium: #e0e0e0;
-
 .table {
   > div,
   > form {
@@ -25,51 +21,5 @@ $medium: #e0e0e0;
   .table-header {
     font-weight: bold;
     background-color: $medium;
-  }
-  .table-row {
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.04);
-    }
-    * {
-      vertical-align: middle;
-    }
-    input,
-    textarea,
-    select {
-      border: 1pt solid #dadada;
-      background-color: #f9f9f9;
-      padding: 2pt 0;
-    }
-    textarea {
-      text-align: left;
-      margin-bottom: 5pt;
-      width: calc(100% - 10pt);
-      height: 80pt;
-    }
-    .error-message {
-      border: none;
-    }
-    .status {
-      .react-toggle {
-        .react-toggle-track {
-          background-color: $red;
-        }
-        .react-toggle-thumb {
-          border: none;
-        }
-      }
-      .react-toggle--checked .react-toggle-track {
-        background-color: $green;
-      }
-      > span {
-        background-color: $red;
-        border-radius: 100%;
-        width: 0.75rem;
-        height: 0.75rem;
-        &.enabled {
-          background-color: $green;
-        }
-      }
-    }
   }
 }
