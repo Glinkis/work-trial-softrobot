@@ -38,10 +38,10 @@ describe("requestActions", () => {
   });
 
   it("should create an action to recieve users", () => {
-    const action = actions.receiveUsers(["BOB", "FRED"]);
+    const action = actions.receiveUsers(["Bob", "Fred"]);
     const expectedAction = {
       type: actions.RECEIVE_USERS,
-      payload: ["BOB", "FRED"]
+      payload: ["Bob", "Fred"]
     };
     expect(action).deep.equals(expectedAction);
   });
