@@ -10,4 +10,6 @@ A trial project for my application to SoftRobot.
 | -------- | --------------------------------- |
 | `start`  | Start a local development server. |
 | `build`  | Run a production build.           |
+| `test`   | Run tests.                        |
+| `test:w` | Run tests continously.            |
 | `deploy` | Deploy the current build.         |

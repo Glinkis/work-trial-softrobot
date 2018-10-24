@@ -3,7 +3,7 @@
     "moduleResolution": "node",
     "allowJs": true,
     "checkJs": false,
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es5",
     "jsx": "react",
     "esModuleInterop": true,
