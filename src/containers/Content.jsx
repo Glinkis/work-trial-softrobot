@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUsers, fetchItems } from "../actions/requestActions";
+import Title from "../components/Title";
 import ErrorMessage from "../components/ErrorMessage";
 import Table from "./Table";
 
@@ -38,7 +39,12 @@ export default class Content extends React.Component {
     }
 
     if (users.length && items.length) {
-      return <Table />;
+      return (
+        <>
+          <Title>Example List</Title>
+          <Table />
+        </>
+      );
     }
 
     return null;

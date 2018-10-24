@@ -1,6 +1,6 @@
 import React from "react";
 import "./Title.scss";
 
-const Title = () => <h1 className="title">Example List</h1>;
+const Title = ({ children }) => <h1 className="title">{children}</h1>;
 
 export default Title;
