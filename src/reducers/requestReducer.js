@@ -50,8 +50,8 @@ const requestRejected = state => ({
 });
 
 const defaultState = {
-  errors: [],
   openRequests: 0,
+  errors: [],
   users: [],
   items: []
 };
