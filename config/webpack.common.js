@@ -11,8 +11,7 @@ const cssLoader = {
 const common = {
   externals: {
     react: "React",
-    "react-dom": "ReactDOM",
-    "react-table": "ReactTable.default"
+    "react-dom": "ReactDOM"
   },
   module: {
     rules: [jsLoader, cssLoader]
