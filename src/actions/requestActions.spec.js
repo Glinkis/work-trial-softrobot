@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import * as actions from "./requestActions";
 
-describe("requestActions", () => {
+describe("request actions", () => {
   it("should create an action to add a request error", () => {
     const action = actions.requestError("error");
     const expectedAction = {
