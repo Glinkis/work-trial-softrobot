@@ -1,9 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
-import { updateItem } from "../actions/itemActions";
 import Toggle from "react-toggle";
 import "react-toggle/style.css";
 import ErrorMessage from "../components/ErrorMessage";
+import getFormattedTime from "../utils/getFormattedTime";
+import { connect } from "react-redux";
+import { updateItem } from "../actions/itemActions";
 import "./Table.scss";
 
 const TableHeader = () => (
@@ -15,18 +16,6 @@ const TableHeader = () => (
     <span />
   </div>
 );
-
-const getDate = () => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-  const hour = date.getHours();
-  const minute = date.getMinutes();
-  const second = date.getSeconds();
-  const ms = date.getMilliseconds();
-  return `${year}-${month}-${day}T${hour}:${minute}:${second}.${ms}Z`;
-};
 
 class TableRow extends React.Component {
   constructor(props) {
@@ -53,7 +42,7 @@ class TableRow extends React.Component {
   onSubmit = event => {
     event.preventDefault();
     const { isEditing, ...itemValues } = this.state;
-    this.props.onUpdate({ ...itemValues, date: getDate() });
+    this.props.onUpdate({ ...itemValues, date: getFormattedTime() });
     this.setState({ isEditing: false });
   };
 
