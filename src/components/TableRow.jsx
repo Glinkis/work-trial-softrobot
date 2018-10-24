@@ -5,9 +5,7 @@ import getFormattedTime from "../utils/getFormattedTime";
 import "./TableRow.scss";
 
 const TextInput = ({ value, onChange }) => (
-  <div>
-    <textarea name="text" value={value} onChange={onChange} />
-  </div>
+  <textarea name="text" value={value} onChange={onChange} />
 );
 
 const UserInput = ({ users, value, onChange }) => (

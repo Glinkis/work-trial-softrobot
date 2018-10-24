@@ -4,5 +4,14 @@
   .table-header {
     font-weight: bold;
     background-color: $medium;
+    :last-child {
+      background-color: $medium;
+    }
+    .button {
+      &:hover {
+        background-color: darken($medium, 10%);
+        cursor: pointer;
+      }
+    }
   }
 }
