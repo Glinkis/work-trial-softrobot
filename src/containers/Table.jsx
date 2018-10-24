@@ -2,6 +2,7 @@ import React from "react";
 import "react-toggle/style.css";
 import { connect } from "react-redux";
 import { updateItem } from "../actions/itemActions";
+import { sortTable } from "../actions/sortActions";
 import { sortByString, sortByBoolean } from "../utils/sort";
 import TableHeader from "../components/TableHeader";
 import TableRow from "../components/TableRow";
@@ -9,75 +10,47 @@ import "./Table.scss";
 
 @connect(state => state)
 export default class Table extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { sort: this.defaultSort, sorter: {} };
-  }
-
   updateItem = item => {
     const { dispatch } = this.props;
     dispatch(updateItem(item));
   };
 
   onSort = event => {
+    const { dispatch } = this.props;
+    const name = event.target.textContent;
+    dispatch(sortTable(name));
+  };
+
+  sort = (a, b) => {
     const { users } = this.props.request;
-    let name = event.target.textContent;
-    let sort = this.defaultSort;
-    let sorter = {};
+    const { name } = this.props.sort;
 
     switch (name) {
       case "Text":
-        sort = (a, b) => sortByString(a.text, b.text);
-        sorter = { name: "Text" };
-        break;
+        return sortByString(a.text, b.text);
       case "Date":
-        sort = (a, b) => sortByString(a.date, b.date);
-        sorter = { name: "Date" };
-        break;
+        return sortByString(a.date, b.date);
       case "Owner":
-        sort = (a, b) => sortByString(users[a.userId], users[b.userId]);
-        sorter = { name: "Owner" };
-        break;
+        return sortByString(users[a.userId], users[b.userId]);
       case "Status":
-        sort = (a, b) => sortByBoolean(a.active, b.active);
-        sorter = { name: "Status" };
-        break;
+        return sortByBoolean(a.active, b.active);
     }
-
-    if (
-      this.state.sorter.name === name &&
-      this.state.sorter.direction === "up"
-    ) {
-      sorter.direction = "down";
-    } else if (
-      this.state.sorter.name === name &&
-      this.state.sorter.direction === "down"
-    ) {
-      sorter = {};
-      sort = this.defaultSort;
-    } else {
-      sorter.direction = "up";
-    }
-
-    this.setState({ sort, sorter });
-  };
-
-  defaultSort(a, b) {
     return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
-  }
+  };
 
   render() {
     const { users, items } = this.props.request;
     const { updating, failed } = this.props.item;
+    const { direction } = this.props.sort;
 
-    items = items.sort(this.state.sort);
-    if (this.state.sorter.direction === "down") {
+    items = items.sort(this.sort);
+    if (direction === "down") {
       items = items.reverse();
     }
 
     return (
       <div className="table">
-        {<TableHeader onClick={this.onSort} sorter={this.state.sorter} />}
+        {<TableHeader onClick={this.onSort} sorter={this.props.sort} />}
         {items.map(item => (
           <TableRow
             key={item.id}

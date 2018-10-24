@@ -1,7 +1,7 @@
 import React from "react";
 import "./TableHeader.scss";
 
-const TableHeader = ({ sorter, onClick }) => {
+const TableHeader = ({ onClick, sorter }) => {
   const activeSort = name => (sorter.name === name ? sorter.direction : "");
   return (
     <div className="table-header">
