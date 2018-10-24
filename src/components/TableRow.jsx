@@ -4,10 +4,6 @@ import ErrorMessage from "../components/ErrorMessage";
 import getFormattedTime from "../utils/getFormattedTime";
 import "./TableRow.scss";
 
-const Updating = () => {
-  return;
-};
-
 const TextInput = ({ value, onChange }) => (
   <div>
     <textarea name="text" value={value} onChange={onChange} />
