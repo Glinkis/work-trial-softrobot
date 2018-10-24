@@ -6,6 +6,7 @@ import {
   RECEIVE_USERS,
   REQUEST_REJECTED
 } from "../actions/requestActions";
+import { UPDATE_ITEM } from "../actions/itemActions";
 
 const requestError = (state, { payload }) => ({
   ...state,
@@ -49,6 +50,11 @@ const requestRejected = state => ({
   openRequests: state.openRequests - 1
 });
 
+const updateItem = (state, { payload }) => ({
+  ...state,
+  items: state.items.map(item => (item.id === payload.id ? payload : item))
+});
+
 const defaultState = {
   openRequests: 0,
   errors: [],
@@ -70,6 +76,8 @@ export default (state = defaultState, action) => {
       return receiveUsers(state, action);
     case REQUEST_REJECTED:
       return requestRejected(state);
+    case UPDATE_ITEM:
+      return updateItem(state, action);
   }
   return state;
 };

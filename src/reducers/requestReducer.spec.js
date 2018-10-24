@@ -8,6 +8,7 @@ import {
   receiveUsers,
   requestRejected
 } from "../actions/requestActions";
+import { UPDATE_ITEM } from "../actions/itemActions";
 
 describe("request reducer", () => {
   it("should return the initial state", () => {
@@ -80,6 +81,19 @@ describe("request reducer", () => {
     };
     expect(reducer(state, requestRejected([{}]))).deep.equals({
       openRequests: 1
+    });
+  });
+
+  it("should handle updateItem", () => {
+    const state = {
+      items: [{ id: 0, active: false }]
+    };
+    const action = {
+      type: UPDATE_ITEM,
+      payload: { id: 0, active: true }
+    };
+    expect(reducer(state, action)).deep.equals({
+      items: [{ id: 0, active: true }]
     });
   });
 });

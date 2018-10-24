@@ -24,18 +24,25 @@ export default class Table extends React.Component {
   sort = (a, b) => {
     const { users } = this.props.request;
     const { name } = this.props.sort;
-
+    let pos = 0;
     switch (name) {
       case "Text":
-        return sortByString(a.text, b.text);
+        pos = sortByString(a.text, b.text);
+        break;
       case "Date":
-        return sortByString(a.date, b.date);
+        pos = sortByString(a.date, b.date);
+        break;
       case "Owner":
-        return sortByString(users[a.userId], users[b.userId]);
+        pos = sortByString(users[a.userId], users[b.userId]);
+        break;
       case "Status":
-        return sortByBoolean(a.active, b.active);
+        pos = sortByBoolean(a.active, b.active);
+        break;
     }
-    return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+
+    const sortById = a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+
+    return pos === 0 ? sortById : pos;
   };
 
   render() {
