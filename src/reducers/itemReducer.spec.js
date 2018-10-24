@@ -16,7 +16,10 @@ describe("item reducer", () => {
   });
 
   it("should handle addUpdatingItem", () => {
-    const state = { updating: [1], failed: [] };
+    const state = {
+      updating: [1],
+      failed: []
+    };
     expect(reducer(state, addUpdatingItem(0))).deep.equals({
       updating: [1, 0],
       failed: []
@@ -24,7 +27,10 @@ describe("item reducer", () => {
   });
 
   it("should handle removeUpdatingItem", () => {
-    const state = { updating: [0, 1], failed: [] };
+    const state = {
+      updating: [0, 1],
+      failed: []
+    };
     expect(reducer(state, removeUpdatingItem(0))).deep.equals({
       updating: [1],
       failed: []
@@ -32,7 +38,10 @@ describe("item reducer", () => {
   });
 
   it("should handle addFailedItem", () => {
-    const state = { updating: [], failed: [1] };
+    const state = {
+      updating: [],
+      failed: [1]
+    };
     expect(reducer(state, addFailedItem(0))).deep.equals({
       updating: [],
       failed: [1, 0]
@@ -40,7 +49,10 @@ describe("item reducer", () => {
   });
 
   it("should handle removeFailedItem", () => {
-    const state = { updating: [], failed: [0, 1] };
+    const state = {
+      updating: [],
+      failed: [0, 1]
+    };
     expect(reducer(state, removeFailedItem(0))).deep.equals({
       updating: [],
       failed: [1]
