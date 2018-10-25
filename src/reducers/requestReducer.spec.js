@@ -64,10 +64,17 @@ describe("request reducer", () => {
       openRequests: 2,
       items: []
     };
-    expect(reducer(state, receiveItems([{}]))).deep.equals({
+    const item = {
+      id: 0,
+      text: "",
+      date: "",
+      userId: 0,
+      active: false
+    };
+    expect(reducer(state, receiveItems([item]))).deep.equals({
       ...defaultState,
       openRequests: 1,
-      items: [{}]
+      items: [item]
     });
   });
 
@@ -77,10 +84,10 @@ describe("request reducer", () => {
       openRequests: 2,
       users: []
     };
-    expect(reducer(state, receiveUsers([{}]))).deep.equals({
+    expect(reducer(state, receiveUsers(["Bob"]))).deep.equals({
       ...defaultState,
       openRequests: 1,
-      users: [{}]
+      users: ["Bob"]
     });
   });
 
