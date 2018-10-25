@@ -20,6 +20,7 @@ export default class TableRowEditable extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
+    console.log(getFormattedTime());
     this.props.onSubmit({ ...this.state, date: getFormattedTime() });
   };
 
