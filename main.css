@@ -2,6 +2,15 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+.title {
+  margin: 0;
+  font-size: 1.4rem;
+  margin-bottom: 20pt; }
+
+.error-message {
+  color: red; }
+
 html {
   padding: 0;
   margin: 0;
@@ -37,6 +46,7 @@ hr {
 .table {
   width: 460pt; }
   .table > * > * {
+    vertical-align: middle;
     padding: 6pt 0; }
   .table > * span,
   .table > * input,
@@ -46,8 +56,11 @@ hr {
     text-align: center;
     width: 100pt;
     font-size: 1rem; }
-  .table > * > :last-child {
+  .table .table-header > :last-child,
+  .table .table-row > :last-child {
     width: 60pt; }
+  .table form {
+    margin-bottom: 0; }
 
 .table .table-header {
   font-weight: bold;
@@ -65,14 +78,6 @@ hr {
     .table .table-header .sorter.down {
       border-bottom: 2pt solid #0f0f0f;
       padding-bottom: 4pt; }
-
-.title {
-  margin: 0;
-  font-size: 1.4rem;
-  margin-bottom: 20pt; }
-
-.error-message {
-  color: red; }
 
 html {
   padding: 0;
@@ -92,9 +97,6 @@ hr {
 
 .table .table-row:hover {
   background-color: rgba(0, 0, 0, 0.04); }
-
-.table .table-row * {
-  vertical-align: middle; }
 
 .table .table-row input,
 .table .table-row textarea,
@@ -152,6 +154,7 @@ hr {
 .table {
   width: 460pt; }
   .table > * > * {
+    vertical-align: middle;
     padding: 6pt 0; }
   .table > * span,
   .table > * input,
@@ -161,8 +164,36 @@ hr {
     text-align: center;
     width: 100pt;
     font-size: 1rem; }
-  .table > * > :last-child {
+  .table .table-header > :last-child,
+  .table .table-row > :last-child {
     width: 60pt; }
+  .table form {
+    margin-bottom: 0; }
+
+html {
+  padding: 0;
+  margin: 0;
+  font-size: 12pt;
+  font-family: "PT Sans", sans-serif;
+  background-color: #f9f9f9;
+  color: #0f0f0f; }
+
+body {
+  display: flex;
+  align-items: center; }
+
+hr {
+  color: #0f0f0f;
+  background-color: #0f0f0f; }
+
+.table-navigation {
+  background-color: #e0e0e0; }
+  .table-navigation > * {
+    margin: 0 10pt; }
+  .table-navigation input {
+    padding: 1pt;
+    width: 4rem;
+    margin-left: 4pt; }
 
 #app {
   display: inline-block;
