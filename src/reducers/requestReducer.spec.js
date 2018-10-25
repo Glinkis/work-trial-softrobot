@@ -64,15 +64,17 @@ describe("request reducer", () => {
       openRequests: 2,
       items: []
     };
-    const item = { id: 0, text: "", date: "", userId: 0, active: false };
-    const reducedState = reducer(state, receiveItems([item]));
-
-    expect(reducedState.items[0]).to.not.equal(item);
-
-    expect(reducedState).deep.equals({
+    const item = {
+      id: 0,
+      text: "",
+      date: "",
+      userId: 0,
+      active: false
+    };
+    expect(reducer(state, receiveItems([item]))).deep.equals({
       ...defaultState,
       openRequests: 1,
-      items: [{ id: 0, text: "", date: "", userId: 0, active: false }]
+      items: [item]
     });
   });
 
