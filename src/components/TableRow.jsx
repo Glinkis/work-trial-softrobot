@@ -36,6 +36,8 @@ export default class TableRow extends React.Component {
           onCancel={this.onEditDisable}
           isUpdating={isUpdating}
           failedToUpdate={failedToUpdate}
+          updateMessage="Updating item..."
+          errorMessage="Failed to update item."
         />
       );
     }

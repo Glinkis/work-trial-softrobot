@@ -37,12 +37,18 @@ export default class TableRowEditable extends React.Component {
 
   render() {
     const { text, userId, active } = this.state;
-    const { users, failedToUpdate, isUpdating } = this.props;
+    const {
+      users,
+      failedToUpdate,
+      isUpdating,
+      errorMessage,
+      updateMessage
+    } = this.props;
 
     if (failedToUpdate) {
       return (
         <div className="table-row">
-          <ErrorMessage message={"Failed to update item."} />
+          <ErrorMessage message={errorMessage} />
           <i onClick={this.onSubmit} className="material-icons">
             refresh
           </i>
@@ -53,7 +59,7 @@ export default class TableRowEditable extends React.Component {
     if (isUpdating) {
       return (
         <div className="table-row">
-          <span className="fill">Updating item...</span>
+          <span className="fill">{updateMessage}</span>
         </div>
       );
     }
