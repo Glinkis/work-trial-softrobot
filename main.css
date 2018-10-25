@@ -3,13 +3,13 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+.error-message {
+  color: red; }
+
 .title {
   margin: 0;
   font-size: 1.4rem;
   margin-bottom: 20pt; }
-
-.error-message {
-  color: red; }
 
 html {
   padding: 0;
@@ -98,6 +98,31 @@ hr {
   color: #0f0f0f;
   background-color: #0f0f0f; }
 
+.table .table-navigation {
+  background-color: #e0e0e0; }
+  .table .table-navigation > * {
+    margin: 0 10pt; }
+  .table .table-navigation input {
+    padding: 1pt;
+    width: 4rem;
+    margin-left: 4pt; }
+
+html {
+  padding: 0;
+  margin: 0;
+  font-size: 12pt;
+  font-family: "PT Sans", sans-serif;
+  background-color: #f9f9f9;
+  color: #0f0f0f; }
+
+body {
+  display: flex;
+  align-items: center; }
+
+hr {
+  color: #0f0f0f;
+  background-color: #0f0f0f; }
+
 .table .table-row:hover {
   background-color: rgba(0, 0, 0, 0.04); }
 
@@ -134,31 +159,6 @@ hr {
   overflow: hidden; }
   .table .table-row .status > span.enabled {
     background-color: #6ccc13; }
-
-html {
-  padding: 0;
-  margin: 0;
-  font-size: 12pt;
-  font-family: "PT Sans", sans-serif;
-  background-color: #f9f9f9;
-  color: #0f0f0f; }
-
-body {
-  display: flex;
-  align-items: center; }
-
-hr {
-  color: #0f0f0f;
-  background-color: #0f0f0f; }
-
-.table .table-navigation {
-  background-color: #e0e0e0; }
-  .table .table-navigation > * {
-    margin: 0 10pt; }
-  .table .table-navigation input {
-    padding: 1pt;
-    width: 4rem;
-    margin-left: 4pt; }
 
 
 html {
