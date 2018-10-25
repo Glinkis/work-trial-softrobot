@@ -1,3 +1,4 @@
+// @ts-check
 import { expect } from "chai";
 import reducer from "./requestReducer";
 import {
@@ -8,6 +9,8 @@ import {
   receiveUsers,
   requestRejected
 } from "../actions/requestActions";
+
+const defaultState = reducer(undefined, {});
 
 describe("request reducer", () => {
   it("should return the initial state", () => {
@@ -21,18 +24,22 @@ describe("request reducer", () => {
 
   it("should handle requestError", () => {
     const state = {
+      ...defaultState,
       errors: []
     };
     expect(reducer(state, requestError("error"))).deep.equals({
+      ...defaultState,
       errors: ["error"]
     });
   });
 
   it("should handle requestItems", () => {
     const state = {
+      ...defaultState,
       openRequests: 0
     };
     expect(reducer(state, requestItems())).deep.equals({
+      ...defaultState,
       errors: [],
       openRequests: 1
     });
@@ -40,9 +47,11 @@ describe("request reducer", () => {
 
   it("should handle requestUsers", () => {
     const state = {
+      ...defaultState,
       openRequests: 0
     };
     expect(reducer(state, requestUsers())).deep.equals({
+      ...defaultState,
       errors: [],
       openRequests: 1
     });
@@ -50,35 +59,37 @@ describe("request reducer", () => {
 
   it("should handle receiveItems", () => {
     const state = {
+      ...defaultState,
       openRequests: 2,
-      errors: ["error"],
       items: []
     };
     expect(reducer(state, receiveItems([{}]))).deep.equals({
+      ...defaultState,
       openRequests: 1,
-      errors: ["error"],
       items: [{}]
     });
   });
 
   it("should handle receiveUsers", () => {
     const state = {
+      ...defaultState,
       openRequests: 2,
-      errors: ["error"],
       users: []
     };
     expect(reducer(state, receiveUsers([{}]))).deep.equals({
+      ...defaultState,
       openRequests: 1,
-      errors: ["error"],
       users: [{}]
     });
   });
 
   it("should handle requestRejected", () => {
     const state = {
+      ...defaultState,
       openRequests: 2
     };
-    expect(reducer(state, requestRejected([{}]))).deep.equals({
+    expect(reducer(state, requestRejected())).deep.equals({
+      ...defaultState,
       openRequests: 1
     });
   });

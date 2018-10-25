@@ -1,3 +1,4 @@
+// @ts-check
 import {
   REQUEST_ERROR,
   REQUEST_ITEMS,

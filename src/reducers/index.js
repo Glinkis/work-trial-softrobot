@@ -1,3 +1,4 @@
+// @ts-check
 import { combineReducers } from "redux";
 import requestReducer from "./requestReducer";
 import itemReducer from "./itemReducer";
