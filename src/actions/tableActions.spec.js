@@ -11,4 +11,13 @@ describe("table actions", () => {
     };
     expect(action).deep.equals(expectedAction);
   });
+
+  it("should create an action to sort the table", () => {
+    const action = actions.setTableRowAmount(10);
+    const expectedAction = {
+      type: actions.SET_TABLE_ROW_AMOUNT,
+      payload: 10
+    };
+    expect(action).deep.equals(expectedAction);
+  });
 });
