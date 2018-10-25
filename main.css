@@ -2,14 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
-.title {
-  margin: 0;
-  font-size: 1.4rem;
-  margin-bottom: 20pt; }
-
-.error-message {
-  color: red; }
-
 html {
   padding: 0;
   margin: 0;
@@ -73,6 +65,14 @@ hr {
     .table .table-header .sorter.down {
       border-bottom: 2pt solid #0f0f0f;
       padding-bottom: 4pt; }
+
+.title {
+  margin: 0;
+  font-size: 1.4rem;
+  margin-bottom: 20pt; }
+
+.error-message {
+  color: red; }
 
 html {
   padding: 0;
