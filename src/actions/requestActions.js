@@ -8,6 +8,7 @@ export const REQUEST_USERS = "REQUEST_USERS";
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const REQUEST_REJECTED = "REQUEST_REJECTED";
 
+/** @param {string} error */
 export const requestError = error => ({
   type: REQUEST_ERROR,
   payload: error
@@ -17,6 +18,16 @@ export const requestItems = () => ({
   type: REQUEST_ITEMS
 });
 
+/**
+ * @typedef {Object} Item
+ * @prop {number} id
+ * @prop {string} text
+ * @prop {string} date
+ * @prop {number} userId
+ * @prop {boolean} active
+ */
+
+/** @param {Item[]} items */
 export const receiveItems = items => ({
   type: RECEIVE_ITEMS,
   payload: items
@@ -26,6 +37,7 @@ export const requestUsers = () => ({
   type: REQUEST_USERS
 });
 
+/** @param {string[]} users */
 export const receiveUsers = users => ({
   type: RECEIVE_USERS,
   payload: users
