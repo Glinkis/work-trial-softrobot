@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchUsers, fetchItems } from "../actions/requestActions";
-import Title from "../components/Title";
+import { fetchItems, fetchUsers } from "../actions/requestActions";
 import ErrorMessage from "../components/ErrorMessage";
+import Title from "../components/Title";
 import Table from "./Table";
 
 @connect(state => state.request)

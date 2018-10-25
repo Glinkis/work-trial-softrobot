@@ -1,7 +1,7 @@
 import {
-  SORT_TABLE,
+  SET_TABLE_PAGE,
   SET_TABLE_ROW,
-  SET_TABLE_PAGE
+  SORT_TABLE
 } from "../actions/tableActions";
 
 const sortTable = (state, { payload }) => {

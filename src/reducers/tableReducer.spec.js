@@ -1,7 +1,7 @@
 // @ts-check
 import { expect } from "chai";
+import { setTablePage, setTableRows, sortTable } from "../actions/tableActions";
 import reducer from "./tableReducer";
-import { sortTable, setTableRows, setTablePage } from "../actions/tableActions";
 
 const defaultState = reducer(undefined, {});
 

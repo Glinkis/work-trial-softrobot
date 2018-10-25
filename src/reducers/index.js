@@ -1,7 +1,7 @@
 // @ts-check
 import { combineReducers } from "redux";
-import requestReducer from "./requestReducer";
 import itemReducer from "./itemReducer";
+import requestReducer from "./requestReducer";
 import tableReducer from "./tableReducer";
 
 export default combineReducers({

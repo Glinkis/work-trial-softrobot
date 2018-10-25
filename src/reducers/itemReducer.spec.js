@@ -1,12 +1,12 @@
 // @ts-check
 import { expect } from "chai";
-import reducer from "./itemReducer";
 import {
-  addUpdatingItem,
-  removeUpdatingItem,
   addFailedItem,
-  removeFailedItem
+  addUpdatingItem,
+  removeFailedItem,
+  removeUpdatingItem
 } from "../actions/itemActions";
+import reducer from "./itemReducer";
 
 const defaultState = reducer(undefined, {});
 

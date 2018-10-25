@@ -1,13 +1,13 @@
 // @ts-check
+import { UPDATE_ITEM } from "../actions/itemActions";
 import {
+  RECEIVE_ITEMS,
+  RECEIVE_USERS,
   REQUEST_ERROR,
   REQUEST_ITEMS,
-  RECEIVE_ITEMS,
-  REQUEST_USERS,
-  RECEIVE_USERS,
-  REQUEST_REJECTED
+  REQUEST_REJECTED,
+  REQUEST_USERS
 } from "../actions/requestActions";
-import { UPDATE_ITEM } from "../actions/itemActions";
 
 const requestError = (state, { payload }) => ({
   ...state,

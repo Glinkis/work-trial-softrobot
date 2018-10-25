@@ -1,9 +1,9 @@
 // @ts-check
 import {
-  ADD_UPDATING_ITEM,
-  REMOVE_UPDATING_ITEM,
   ADD_FAILED_ITEM,
-  REMOVE_FAILED_ITEM
+  ADD_UPDATING_ITEM,
+  REMOVE_FAILED_ITEM,
+  REMOVE_UPDATING_ITEM
 } from "../actions/itemActions";
 
 const addUpdatingItem = (state, { payload }) => ({

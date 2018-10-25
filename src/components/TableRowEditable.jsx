@@ -1,8 +1,8 @@
 // @ts-check
 import React from "react";
 import Toggle from "react-toggle";
-import ErrorMessage from "./ErrorMessage";
 import getFormattedTime from "../utils/getFormattedTime";
+import ErrorMessage from "./ErrorMessage";
 
 export default class TableRowEditable extends React.Component {
   constructor(props) {

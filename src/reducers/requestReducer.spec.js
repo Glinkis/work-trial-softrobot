@@ -1,15 +1,15 @@
 // @ts-check
 import { expect } from "chai";
-import reducer from "./requestReducer";
+import { UPDATE_ITEM } from "../actions/itemActions";
 import {
-  requestError,
-  requestItems,
-  requestUsers,
   receiveItems,
   receiveUsers,
-  requestRejected
+  requestError,
+  requestItems,
+  requestRejected,
+  requestUsers
 } from "../actions/requestActions";
-import { UPDATE_ITEM } from "../actions/itemActions";
+import reducer from "./requestReducer";
 
 const defaultState = reducer(undefined, {});
 

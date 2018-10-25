@@ -1,12 +1,12 @@
 import React from "react";
-import "react-toggle/style.css";
 import { connect } from "react-redux";
+import "react-toggle/style.css";
 import { updateItem } from "../actions/itemActions";
-import { sortTable, setTablePage, setTableRows } from "../actions/tableActions";
-import { sortByString, sortByBoolean, sortByNumber } from "../utils/sort";
+import { setTablePage, setTableRows, sortTable } from "../actions/tableActions";
 import TableHeader, { columns } from "../components/TableHeader";
-import TableRow from "../components/TableRow";
 import TableNavigation from "../components/TableNavigation";
+import TableRow from "../components/TableRow";
+import { sortByBoolean, sortByNumber, sortByString } from "../utils/sort";
 import AddItem from "./AddItem";
 import "./Table.scss";
 
