@@ -103,15 +103,20 @@ describe("request reducer", () => {
   it("should handle updateItem", () => {
     const state = {
       ...defaultState,
-      items: [{ id: 0, active: false }]
+      items: [{ id: 0, active: false }, { id: 1, active: true }]
     };
     const action = {
       type: UPDATE_ITEM,
-      payload: { id: 0, active: true }
+      payload: { id: 1, active: false }
     };
-    expect(reducer(state, action)).deep.equals({
+    const reducedState = reducer(state, action);
+
+    expect(reducedState.items[0]).to.not.equal(state.items[0]);
+    expect(reducedState.items[1]).to.not.equal(state.items[1]);
+
+    expect(reducedState).deep.equals({
       ...defaultState,
-      items: [{ id: 0, active: true }]
+      items: [{ id: 0, active: false }, { id: 1, active: false }]
     });
   });
 });

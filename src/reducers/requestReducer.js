@@ -53,7 +53,9 @@ const requestRejected = state => ({
 
 const updateItem = (state, { payload }) => ({
   ...state,
-  items: state.items.map(item => (item.id === payload.id ? payload : item))
+  items: state.items.map(
+    item => (item.id === payload.id ? { ...payload } : { ...item })
+  )
 });
 
 const defaultState = {
