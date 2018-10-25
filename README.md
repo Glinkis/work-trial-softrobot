@@ -9,11 +9,11 @@ A trial project for my application to SoftRobot.
 
 ## CLI
 
-| Command  | Description                                |
-| -------- | ------------------------------------------ |
-| `start`  | Start a local development server.          |
-| `build`  | Run a production build.                    |
-| `test`   | Run tests.                                 |
-| `test:w` | Run tests continously.                     |
-| `lint`   | Lint the code.                             |
-| `format` | Format the code to the project code style. |
+| Command  | Description                                      |
+| -------- | ------------------------------------------------ |
+| `start`  | Start a local development server.                |
+| `build`  | Run a production build.                          |
+| `test`   | Run tests.                                       |
+| `test:w` | Run tests continously.                           |
+| `lint`   | Lint the code.                                   |
+| `format` | Format the code to align with the project style. |
