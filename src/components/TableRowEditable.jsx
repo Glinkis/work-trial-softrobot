@@ -7,6 +7,7 @@ export default class TableRowEditable extends React.Component {
   constructor(props) {
     super(props);
 
+    // Create default values if no prop item exists.
     const item = props.item || {
       id: this.props.items.length,
       text: "",
