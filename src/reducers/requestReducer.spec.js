@@ -24,35 +24,20 @@ describe("request reducer", () => {
   });
 
   it("should handle requestError", () => {
-    const state = {
-      ...defaultState,
-      errors: []
-    };
-    expect(reducer(state, requestError("error"))).deep.equals({
-      ...defaultState,
+    expect(reducer(defaultState, requestError("error"))).deep.include({
       errors: ["error"]
     });
   });
 
   it("should handle requestItems", () => {
-    const state = {
-      ...defaultState,
-      openRequests: 0
-    };
-    expect(reducer(state, requestItems())).deep.equals({
-      ...defaultState,
+    expect(reducer(defaultState, requestItems())).deep.include({
       errors: [],
       openRequests: 1
     });
   });
 
   it("should handle requestUsers", () => {
-    const state = {
-      ...defaultState,
-      openRequests: 0
-    };
-    expect(reducer(state, requestUsers())).deep.equals({
-      ...defaultState,
+    expect(reducer(defaultState, requestUsers())).deep.include({
       errors: [],
       openRequests: 1
     });
@@ -71,8 +56,7 @@ describe("request reducer", () => {
       userId: 0,
       active: false
     };
-    expect(reducer(state, receiveItems([item]))).deep.equals({
-      ...defaultState,
+    expect(reducer(state, receiveItems([item]))).deep.include({
       openRequests: 1,
       items: [item]
     });
@@ -84,8 +68,7 @@ describe("request reducer", () => {
       openRequests: 2,
       users: []
     };
-    expect(reducer(state, receiveUsers(["Bob"]))).deep.equals({
-      ...defaultState,
+    expect(reducer(state, receiveUsers(["Bob"]))).deep.include({
       openRequests: 1,
       users: ["Bob"]
     });
@@ -96,8 +79,7 @@ describe("request reducer", () => {
       ...defaultState,
       openRequests: 2
     };
-    expect(reducer(state, requestRejected())).deep.equals({
-      ...defaultState,
+    expect(reducer(state, requestRejected())).deep.include({
       openRequests: 1
     });
   });
@@ -111,8 +93,7 @@ describe("request reducer", () => {
       type: UPDATE_ITEM,
       payload: { id: 0, active: true }
     };
-    expect(reducer(state, action)).deep.equals({
-      ...defaultState,
+    expect(reducer(state, action)).deep.include({
       items: [{ id: 0, active: true }]
     });
   });

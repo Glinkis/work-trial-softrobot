@@ -23,8 +23,7 @@ describe("item reducer", () => {
       ...defaultState,
       updating: [1]
     };
-    expect(reducer(state, addUpdatingItem(0))).deep.equals({
-      ...defaultState,
+    expect(reducer(state, addUpdatingItem(0))).deep.include({
       updating: [1, 0]
     });
   });
@@ -34,8 +33,7 @@ describe("item reducer", () => {
       ...defaultState,
       updating: [0, 1]
     };
-    expect(reducer(state, removeUpdatingItem(0))).deep.equals({
-      ...defaultState,
+    expect(reducer(state, removeUpdatingItem(0))).deep.include({
       updating: [1]
     });
   });
@@ -45,8 +43,7 @@ describe("item reducer", () => {
       ...defaultState,
       failed: [1]
     };
-    expect(reducer(state, addFailedItem(0))).deep.equals({
-      ...defaultState,
+    expect(reducer(state, addFailedItem(0))).deep.include({
       failed: [1, 0]
     });
   });
@@ -56,8 +53,7 @@ describe("item reducer", () => {
       ...defaultState,
       failed: [0, 1]
     };
-    expect(reducer(state, removeFailedItem(0))).deep.equals({
-      ...defaultState,
+    expect(reducer(state, removeFailedItem(0))).deep.include({
       failed: [1]
     });
   });
