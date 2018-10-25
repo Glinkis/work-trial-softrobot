@@ -12,10 +12,10 @@ describe("table actions", () => {
     expect(action).deep.equals(expectedAction);
   });
 
-  it("should create an action set the amount of table rows", () => {
-    const action = actions.setTableRowAmount(10);
+  it("should create an action set the table rows", () => {
+    const action = actions.setTableRow(10);
     const expectedAction = {
-      type: actions.SET_TABLE_ROW_AMOUNT,
+      type: actions.SET_TABLE_ROW,
       payload: 10
     };
     expect(action).deep.equals(expectedAction);

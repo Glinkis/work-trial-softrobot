@@ -1,0 +1,13 @@
+@import "../index";
+
+.table-navigation {
+  background-color: $medium;
+  > * {
+    margin: 0 10pt;
+  }
+  input {
+    padding: 1pt;
+    width: 4rem;
+    margin-left: 4pt;
+  }
+}

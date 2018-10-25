@@ -9,9 +9,9 @@ export const columns = {
   STATUS: "Status"
 };
 
-const TableHeader = ({ onClick, sorter }) => {
+const TableHeader = ({ onClick, table }) => {
   const { TEXT, DATE, OWNER, STATUS } = columns;
-  const activeSort = name => (sorter.name === name ? sorter.direction : "");
+  const activeSort = name => (table.name === name ? table.direction : "");
   return (
     <div className="table-header">
       <span className={`sorter ${activeSort(TEXT)}`} onClick={onClick}>

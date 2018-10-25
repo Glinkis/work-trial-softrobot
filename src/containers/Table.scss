@@ -6,6 +6,7 @@ $tablePadding: 6pt;
   width: 460pt;
   > * {
     > * {
+      vertical-align: middle;
       padding: $tablePadding 0;
     }
     span,
@@ -17,8 +18,14 @@ $tablePadding: 6pt;
       width: 100pt;
       font-size: 1rem;
     }
+  }
+  .table-header,
+  .table-row {
     > :last-child {
       width: 60pt;
     }
+  }
+  form {
+    margin-bottom: 0;
   }
 }

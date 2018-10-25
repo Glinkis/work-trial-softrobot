@@ -1,6 +1,6 @@
 import {
   SORT_TABLE,
-  SET_TABLE_ROW_AMOUNT,
+  SET_TABLE_ROW,
   SET_TABLE_PAGE
 } from "../actions/tableActions";
 
@@ -16,28 +16,29 @@ const sortTable = (state, { payload }) => {
   return { ...state, name: payload, direction: "up" };
 };
 
-const setTableRowAmount = (state, { payload }) => ({
+const setTableRows = (state, { payload }) => ({
   ...state,
-  rows: payload
+  rows: payload < 0 ? 0 : payload
 });
 
 const setTablePage = (state, { payload }) => ({
   ...state,
-  page: payload
+  page: payload < 0 ? 0 : payload
 });
 
 const defaultState = {
   name: "",
   direction: "",
-  rows: 20
+  rows: 10,
+  page: 0
 };
 
 export default (state = defaultState, action) => {
   switch (action.type) {
     case SORT_TABLE:
       return sortTable(state, action);
-    case SET_TABLE_ROW_AMOUNT:
-      return setTableRowAmount(state, action);
+    case SET_TABLE_ROW:
+      return setTableRows(state, action);
     case SET_TABLE_PAGE:
       return setTablePage(state, action);
   }
