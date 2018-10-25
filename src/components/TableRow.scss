@@ -13,13 +13,16 @@
     select {
       border: 1pt solid #dadada;
       background-color: $light;
-      padding: 2pt 0;
+      margin: 2pt 0;
     }
     textarea {
       text-align: left;
-      margin-bottom: 5pt;
+      margin-top: 7pt;
       width: calc(100% - 10pt);
       height: 80pt;
+    }
+    .fill {
+      width: 100%;
     }
     .error-message {
       border: none;
@@ -41,6 +44,7 @@
         border-radius: 100%;
         width: 0.75rem;
         height: 0.75rem;
+        overflow: hidden;
         &.enabled {
           background-color: $green;
         }

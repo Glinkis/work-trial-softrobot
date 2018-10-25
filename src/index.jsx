@@ -8,7 +8,7 @@ import reducer from "./reducers";
 import App from "./components/App";
 import "./index.scss";
 
-const store = createStore(reducer, applyMiddleware(logger, thunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -2,7 +2,7 @@
 import { expect } from "chai";
 import * as actions from "./itemActions";
 
-describe("itemActions", () => {
+describe("item actions", () => {
   it("should create an action to add an updating item", () => {
     const action = actions.addUpdatingItem(0);
     const expectedAction = {

@@ -6,9 +6,7 @@ import getFormattedTime from "../utils/getFormattedTime";
 import "./TableRow.scss";
 
 const TextInput = ({ value, onChange }) => (
-  <div>
-    <textarea name="text" value={value} onChange={onChange} />
-  </div>
+  <textarea name="text" value={value} onChange={onChange} />
 );
 
 const UserInput = ({ users, value, onChange }) => (
@@ -77,7 +75,11 @@ export default class TableRow extends React.Component {
     }
 
     if (isUpdating) {
-      return <div className="table-row">Updating item...</div>;
+      return (
+        <div className="table-row">
+          <span className="fill">Updating item...</span>
+        </div>
+      );
     }
 
     if (isEditing) {
