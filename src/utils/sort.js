@@ -10,6 +10,15 @@ export const sortByString = (a, b) => {
 };
 
 /**
+ * Sort numbers by lowest first.
+ * @param {number} a
+ * @param {number} b
+ */
+export const sortByNumber = (a, b) => {
+  return a < b ? -1 : a > b ? 1 : 0;
+};
+
+/**
  * Sort strings booleans by truthiness.
  * @param {boolean} a
  * @param {boolean} b

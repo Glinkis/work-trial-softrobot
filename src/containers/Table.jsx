@@ -3,7 +3,7 @@ import "react-toggle/style.css";
 import { connect } from "react-redux";
 import { updateItem } from "../actions/itemActions";
 import { sortTable } from "../actions/sortActions";
-import { sortByString, sortByBoolean } from "../utils/sort";
+import { sortByString, sortByBoolean, sortByNumber } from "../utils/sort";
 import TableHeader from "../components/TableHeader";
 import TableRow from "../components/TableRow";
 import "./Table.scss";
@@ -40,9 +40,7 @@ export default class Table extends React.Component {
         break;
     }
 
-    const sortById = a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
-
-    return pos === 0 ? sortById : pos;
+    return pos === 0 ? sortByNumber(a.id, b.id) : pos;
   };
 
   render() {
