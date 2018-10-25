@@ -17,19 +17,19 @@ describe("sort reducer", () => {
       direction: ""
     };
 
-    const state2 = reducer(state1, sortTable("Name"));
+    const state2 = reducer(state1, sortTable("DATE"));
     expect(state2).deep.equals({
-      name: "Name",
+      name: "DATE",
       direction: "up"
     });
 
-    const state3 = reducer(state2, sortTable("Name"));
+    const state3 = reducer(state2, sortTable("DATE"));
     expect(state3).deep.equals({
-      name: "Name",
+      name: "DATE",
       direction: "down"
     });
 
-    const state4 = reducer(state3, sortTable("Name"));
+    const state4 = reducer(state3, sortTable("DATE"));
     expect(state4).deep.equals({
       name: "",
       direction: ""
