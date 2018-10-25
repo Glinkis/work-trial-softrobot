@@ -97,6 +97,7 @@ describe("request reducer", () => {
 
   it("should handle updateItem", () => {
     const state = {
+      ...defaultState,
       items: [{ id: 0, active: false }]
     };
     const action = {
@@ -104,6 +105,7 @@ describe("request reducer", () => {
       payload: { id: 0, active: true }
     };
     expect(reducer(state, action)).deep.equals({
+      ...defaultState,
       items: [{ id: 0, active: true }]
     });
   });

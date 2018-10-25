@@ -9,7 +9,7 @@ import api from "../../trial-files/softrobot_test_api.min.js";
  * @param {any} [options.body] - What to pass into the request.
  * @returns {Promise<string>} - A promise that resolves to a json string.
  */
-const fetch = (url, options) =>
+const fetch = (url, options = {}) =>
   new Promise((resolve, reject) => {
     const { method = "GET", body } = options;
     const xhr = api.XMLHttpRequest();
