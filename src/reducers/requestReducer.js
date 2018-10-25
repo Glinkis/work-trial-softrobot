@@ -32,7 +32,7 @@ const receiveItems = (state, { payload }) => {
     ...state,
     openRequests,
     errors: openRequests ? [...state.errors] : [],
-    items: [...payload]
+    items: payload.map(item => ({ ...item }))
   };
 };
 
