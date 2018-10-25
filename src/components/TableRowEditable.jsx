@@ -11,9 +11,7 @@ export default class TableRowEditable extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const { isEditing, ...itemValues } = this.state;
-    this.props.onUpdate({ ...itemValues, date: getFormattedTime() });
-    this.props.onSubmit();
+    this.props.onSubmit({ ...this.state, date: getFormattedTime() });
   };
 
   onCancel = () => {

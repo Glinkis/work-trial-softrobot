@@ -9,6 +9,11 @@ export default class TableRow extends React.Component {
     this.state = { isEditing: false };
   }
 
+  onSubmit = item => {
+    this.props.onSubmit(item);
+    this.onEditDisable();
+  };
+
   onEditEnable = () => {
     this.setState({ isEditing: true });
   };
@@ -19,7 +24,7 @@ export default class TableRow extends React.Component {
 
   render() {
     const { isEditing } = this.state;
-    const { users, item, onUpdate, isUpdating, failedToUpdate } = this.props;
+    const { users, item, isUpdating, failedToUpdate } = this.props;
     const { text, date, userId, active } = this.props.item;
 
     if (isEditing || isUpdating || failedToUpdate) {
@@ -27,9 +32,8 @@ export default class TableRow extends React.Component {
         <TableRowEditable
           users={users}
           item={item}
-          onSubmit={this.onEditDisable}
+          onSubmit={this.onSubmit}
           onCancel={this.onEditDisable}
-          onUpdate={onUpdate}
           isUpdating={isUpdating}
           failedToUpdate={failedToUpdate}
         />

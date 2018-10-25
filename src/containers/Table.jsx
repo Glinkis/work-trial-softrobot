@@ -6,8 +6,8 @@ import { sortTable, setTablePage, setTableRow } from "../actions/tableActions";
 import { sortByString, sortByBoolean, sortByNumber } from "../utils/sort";
 import TableHeader, { columns } from "../components/TableHeader";
 import TableRow from "../components/TableRow";
-import "./Table.scss";
 import TableNavigation from "../components/TableNavigation";
+import "./Table.scss";
 
 @connect(state => state)
 export default class Table extends React.Component {
@@ -82,7 +82,7 @@ export default class Table extends React.Component {
             key={item.id}
             users={users}
             item={item}
-            onUpdate={this.updateItem}
+            onSubmit={this.updateItem}
             isUpdating={updating.includes(item.id)}
             failedToUpdate={failed.includes(item.id)}
           />
