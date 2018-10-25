@@ -7,6 +7,7 @@ import { sortByString, sortByBoolean, sortByNumber } from "../utils/sort";
 import TableHeader, { columns } from "../components/TableHeader";
 import TableRow from "../components/TableRow";
 import TableNavigation from "../components/TableNavigation";
+import AddItem from "./AddItem";
 import "./Table.scss";
 
 @connect(state => state)
@@ -94,6 +95,7 @@ export default class Table extends React.Component {
           onSetRows={this.onSetRows}
           pages={Math.floor(items.length / rows)}
         />
+        <AddItem />
       </div>
     );
   }

@@ -6,7 +6,16 @@ import getFormattedTime from "../utils/getFormattedTime";
 export default class TableRowEditable extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.item };
+
+    const item = props.item || {
+      id: this.props.items.length,
+      text: "",
+      date: "",
+      userId: 0,
+      active: false
+    };
+
+    this.state = { ...item };
   }
 
   onSubmit = event => {
