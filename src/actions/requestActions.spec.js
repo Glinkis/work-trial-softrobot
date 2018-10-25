@@ -21,11 +21,17 @@ describe("request actions", () => {
   });
 
   it("should create an action to recieve items", () => {
-    const item = { id: 0 };
+    const item = {
+      id: 0,
+      text: "",
+      date: "",
+      userId: 0,
+      active: false
+    };
     const action = actions.receiveItems([item]);
     const expectedAction = {
       type: actions.RECEIVE_ITEMS,
-      payload: [{ id: 0 }]
+      payload: [item]
     };
     expect(action).deep.equals(expectedAction);
   });
