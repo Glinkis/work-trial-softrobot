@@ -51,9 +51,12 @@ const requestRejected = state => ({
   openRequests: state.openRequests - 1
 });
 
-const updateItem = (state, { payload }) => ({
-  ...state,
-  items: state.items.map(item => (item.id === payload.id ? payload : item))
+const updateItem = ({ items, ...rest }, { payload }) => ({
+  ...rest,
+  items:
+    payload.id >= items.length
+      ? items.map(item => (item.id === payload.id ? payload : item))
+      : [...items, payload]
 });
 
 const defaultState = {
