@@ -1,3 +1,4 @@
+// @ts-check
 import {
   ADD_UPDATING_ITEM,
   REMOVE_UPDATING_ITEM,

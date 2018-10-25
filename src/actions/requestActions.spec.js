@@ -1,3 +1,4 @@
+// @ts-check
 import { expect } from "chai";
 import * as actions from "./requestActions";
 

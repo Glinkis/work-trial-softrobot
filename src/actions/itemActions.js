@@ -1,3 +1,4 @@
+// @ts-check
 import fetch from "../utils/fetch";
 
 export const ADD_UPDATING_ITEM = "ADD_UPDATING_ITEM";

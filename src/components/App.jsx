@@ -1,3 +1,4 @@
+// @ts-check
 import React from "react";
 import Content from "../containers/Content";
 import "./App.scss";

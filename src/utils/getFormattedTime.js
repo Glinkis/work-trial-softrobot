@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * Gets current time in the format "YYYY-MM-DDT:hh:mm:ss:msZ";
  * @returns {string} - The current time.

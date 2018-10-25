@@ -1,3 +1,4 @@
+// @ts-check
 import fetch from "../utils/fetch";
 
 export const REQUEST_ERROR = "REQUEST_ERROR";
