@@ -2,7 +2,7 @@ import React from "react";
 import "react-toggle/style.css";
 import { connect } from "react-redux";
 import { updateItem } from "../actions/itemActions";
-import { sortTable } from "../actions/sortActions";
+import { sortTable } from "../actions/tableActions";
 import { sortByString, sortByBoolean, sortByNumber } from "../utils/sort";
 import TableHeader, { columns } from "../components/TableHeader";
 import TableRow from "../components/TableRow";

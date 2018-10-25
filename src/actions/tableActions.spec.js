@@ -1,8 +1,8 @@
 // @ts-check
 import { expect } from "chai";
-import * as actions from "./sortActions";
+import * as actions from "./tableActions";
 
-describe("sort actions", () => {
+describe("table actions", () => {
   it("should create an action to sort the table", () => {
     const action = actions.sortTable("DATE");
     const expectedAction = {

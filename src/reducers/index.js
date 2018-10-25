@@ -2,7 +2,7 @@
 import { combineReducers } from "redux";
 import requestReducer from "./requestReducer";
 import itemReducer from "./itemReducer";
-import sortReducer from "./sortReducer";
+import sortReducer from "./tableReducer";
 
 export default combineReducers({
   request: requestReducer,

@@ -1,9 +1,9 @@
 // @ts-check
 import { expect } from "chai";
-import reducer from "./sortReducer";
-import { sortTable } from "../actions/sortActions";
+import reducer from "./tableReducer";
+import { sortTable } from "../actions/tableActions";
 
-describe("sort reducer", () => {
+describe("table reducer", () => {
   it("should return the initial state", () => {
     expect(reducer(undefined, {})).to.deep.equal({
       name: "",

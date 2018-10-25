@@ -1,4 +1,4 @@
-import { SORT_TABLE } from "../actions/sortActions";
+import { SORT_TABLE } from "../actions/tableActions";
 
 const sortTable = (state, { payload }) => {
   if (state.name === payload && state.direction === "up") {
