@@ -14,4 +14,4 @@ A trial project for my application to SoftRobot.
 | `build`  | Run a production build.           |
 | `test`   | Run tests.                        |
 | `test:w` | Run tests continously.            |
-| `deploy` | Deploy the current build.         |
+| `lint`   | Lint the code.                    |
