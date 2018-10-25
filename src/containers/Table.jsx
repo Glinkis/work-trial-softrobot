@@ -47,8 +47,11 @@ export default class Table extends React.Component {
 
   onSetPage = page => {
     const { dispatch } = this.props;
-    if (page.target !== undefined) {
-      page = value.target.value;
+    const { items } = this.props.request;
+    const { rows } = this.props.table;
+    const max = Math.floor(items.length / rows);
+    if (page > max) {
+      page = max;
     }
     dispatch(setTablePage(page));
   };
