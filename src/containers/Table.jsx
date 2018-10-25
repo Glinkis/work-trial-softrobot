@@ -73,7 +73,7 @@ export default class Table extends React.Component {
       sorted = items.reverse();
     }
 
-    console.log(sorted.length, page, rows);
+    // Get items for current page.
     sorted = items.slice(page * rows, page * rows + rows);
 
     return (
