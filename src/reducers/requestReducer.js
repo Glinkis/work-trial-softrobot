@@ -55,8 +55,8 @@ const updateItem = ({ items, ...rest }, { payload }) => ({
   ...rest,
   items:
     payload.id >= items.length
-      ? items.map(item => (item.id === payload.id ? payload : item))
-      : [...items, payload]
+      ? [...items, payload]
+      : items.map(item => (item.id === payload.id ? payload : item))
 });
 
 const defaultState = {
