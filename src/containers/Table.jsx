@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { updateItem } from "../actions/itemActions";
 import { sortTable } from "../actions/sortActions";
 import { sortByString, sortByBoolean, sortByNumber } from "../utils/sort";
-import TableHeader from "../components/TableHeader";
+import TableHeader, { columns } from "../components/TableHeader";
 import TableRow from "../components/TableRow";
 import "./Table.scss";
 
@@ -22,20 +22,21 @@ export default class Table extends React.Component {
   };
 
   sort = (a, b) => {
+    const { TEXT, DATE, OWNER, STATUS } = columns;
     const { users } = this.props.request;
     const { name } = this.props.sort;
     let pos = 0;
     switch (name) {
-      case "Text":
+      case TEXT:
         pos = sortByString(a.text, b.text);
         break;
-      case "Date":
+      case DATE:
         pos = sortByString(a.date, b.date);
         break;
-      case "Owner":
+      case OWNER:
         pos = sortByString(users[a.userId], users[b.userId]);
         break;
-      case "Status":
+      case STATUS:
         pos = sortByBoolean(a.active, b.active);
         break;
     }
