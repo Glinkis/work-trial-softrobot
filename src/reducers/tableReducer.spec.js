@@ -1,7 +1,7 @@
 // @ts-check
 import { expect } from "chai";
 import reducer from "./tableReducer";
-import { sortTable, setTableRow, setTablePage } from "../actions/tableActions";
+import { sortTable, setTableRows, setTablePage } from "../actions/tableActions";
 
 const defaultState = reducer(undefined, {});
 
@@ -36,7 +36,7 @@ describe("table reducer", () => {
   });
 
   it("should handle setTableRow", () => {
-    expect(reducer(undefined, setTableRow(10))).deep.include({
+    expect(reducer(undefined, setTableRows(10))).deep.include({
       rows: 10
     });
   });

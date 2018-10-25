@@ -2,7 +2,7 @@ import React from "react";
 import "react-toggle/style.css";
 import { connect } from "react-redux";
 import { updateItem } from "../actions/itemActions";
-import { sortTable, setTablePage, setTableRow } from "../actions/tableActions";
+import { sortTable, setTablePage, setTableRows } from "../actions/tableActions";
 import { sortByString, sortByBoolean, sortByNumber } from "../utils/sort";
 import TableHeader, { columns } from "../components/TableHeader";
 import TableRow from "../components/TableRow";
@@ -50,7 +50,7 @@ export default class Table extends React.Component {
     const { dispatch } = this.props;
     const { items } = this.props.request;
     const { rows } = this.props.table;
-    const max = Math.floor(items.length / rows);
+    const max = Math.ceil(items.length / rows) - 1;
     if (page > max) {
       page = max;
     }
@@ -59,8 +59,8 @@ export default class Table extends React.Component {
 
   onSetRows = ({ target }) => {
     const { dispatch } = this.props;
-    const rows = target.value;
-    dispatch(setTableRow(rows));
+    const rows = Number(target.value);
+    dispatch(setTableRows(rows));
   };
 
   render() {
@@ -73,6 +73,7 @@ export default class Table extends React.Component {
       sorted = items.reverse();
     }
 
+    console.log(sorted.length, page, rows);
     sorted = items.slice(page * rows, page * rows + rows);
 
     return (
@@ -93,7 +94,7 @@ export default class Table extends React.Component {
           rows={rows}
           onSetPage={this.onSetPage}
           onSetRows={this.onSetRows}
-          pages={Math.floor(items.length / rows)}
+          pages={Math.ceil(items.length / rows) - 1}
         />
         <AddItem />
       </div>

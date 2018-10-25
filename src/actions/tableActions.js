@@ -10,7 +10,7 @@ export const sortTable = name => ({
 });
 
 /** @param {number} amount */
-export const setTableRow = amount => ({
+export const setTableRows = amount => ({
   type: SET_TABLE_ROW,
   payload: amount
 });

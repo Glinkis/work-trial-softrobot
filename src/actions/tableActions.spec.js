@@ -13,7 +13,7 @@ describe("table actions", () => {
   });
 
   it("should create an action set the table rows", () => {
-    const action = actions.setTableRow(10);
+    const action = actions.setTableRows(10);
     const expectedAction = {
       type: actions.SET_TABLE_ROW,
       payload: 10
