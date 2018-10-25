@@ -6,7 +6,7 @@ import api from "../../trial-files/softrobot_test_api.min.js";
  * @param {string} url - Url to send the request.
  * @param {Object} [options] - Various options.
  * @param {string} [options.method] - Request method, e.g.GET , POST, & DELETE.
- * @param  {any} [options.body] - What to pass into the request.
+ * @param {any} [options.body] - What to pass into the request.
  * @returns {Promise<string>} - A promise that resolves to a json string.
  */
 const fetch = (url, options) =>
