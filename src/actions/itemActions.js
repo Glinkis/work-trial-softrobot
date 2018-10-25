@@ -7,21 +7,25 @@ export const ADD_FAILED_ITEM = "ADD_FAILED_ITEM";
 export const REMOVE_FAILED_ITEM = "REMOVE_FAILED_ITEM";
 export const UPDATE_ITEM = "UPDATE_ITEM";
 
+/** @param {number} id */
 export const addUpdatingItem = id => ({
   type: ADD_UPDATING_ITEM,
   payload: id
 });
 
+/** @param {number} id */
 export const removeUpdatingItem = id => ({
   type: REMOVE_UPDATING_ITEM,
   payload: id
 });
 
+/** @param {number} id */
 export const addFailedItem = id => ({
   type: ADD_FAILED_ITEM,
   payload: id
 });
 
+/** @param {number} id */
 export const removeFailedItem = id => ({
   type: REMOVE_FAILED_ITEM,
   payload: id
