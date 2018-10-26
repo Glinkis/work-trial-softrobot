@@ -3,7 +3,7 @@
   "name": "work-trial-softrobot",
   "version": "1.0.0",
   "description": "A trial project for my application to SoftRobot.",
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
     "build": "rimraf build && webpack --config config/webpack.prod.js",
