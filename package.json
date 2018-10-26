@@ -9,7 +9,7 @@
     "build": "rimraf build && webpack --config config/webpack.prod.js",
     "test": "mocha --require ts-node/register src/**/*.spec.js",
     "test:w": "mocha --require ts-node/register src/**/*.spec.js --watch",
-    "lint": "tslint src/**/*.js src/**/*.jsx",
+    "lint": "tslint src/**/*.js src/**/*.jsx && stylelint \"src/**/*.scss\"",
     "format": "prettier --write src/**/*.js src/**/*.jsx && tslint --fix src/**/*.js src/**/*.jsx",
     "deploy": "npm run build && gh-pages -d dist"
   },
@@ -53,6 +53,9 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^9.6.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-scss": "^3.3.2",
     "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
