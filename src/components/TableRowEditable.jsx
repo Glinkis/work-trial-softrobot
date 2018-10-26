@@ -25,10 +25,6 @@ export default class TableRowEditable extends React.Component {
     this.props.onSubmit({ ...this.state, date: getFormattedTime() });
   };
 
-  onCancel = () => {
-    this.props.onCancel();
-  };
-
   handleInputChange = ({ target }) => {
     if (target.type === "checkbox") {
       this.setState({ [target.name]: target.checked });
@@ -41,6 +37,7 @@ export default class TableRowEditable extends React.Component {
     const { text, userId, active } = this.state;
     const {
       users,
+      onCancel,
       failedToUpdate,
       isUpdating,
       errorMessage,
@@ -81,7 +78,7 @@ export default class TableRowEditable extends React.Component {
           <i onClick={this.onSubmit} className="material-icons">
             save
           </i>
-          <i onClick={this.onCancel} className="material-icons">
+          <i onClick={onCancel} className="material-icons">
             cancel
           </i>
           <button style={{ display: "none" }} type="submit" />
