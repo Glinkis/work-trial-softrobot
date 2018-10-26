@@ -12,11 +12,13 @@ export default class Content extends React.Component {
     dispatch(fetchUsers());
     dispatch(fetchItems());
   };
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchUsers());
     dispatch(fetchItems());
   }
+
   render() {
     const { errors, users, items, openRequests } = this.props;
 
