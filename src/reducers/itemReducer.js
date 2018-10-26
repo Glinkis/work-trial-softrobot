@@ -13,7 +13,7 @@ const addUpdatingItem = (state, { payload }) => ({
 
 const removeUpdatingItem = (state, { payload }) => ({
   ...state,
-  updating: [...state.updating.filter(id => id !== payload)]
+  updating: state.updating.filter(id => id !== payload)
 });
 
 const addFailedItem = (state, { payload }) => ({
@@ -23,7 +23,7 @@ const addFailedItem = (state, { payload }) => ({
 
 const removeFailedItem = (state, { payload }) => ({
   ...state,
-  failed: [...state.failed.filter(id => id !== payload)]
+  failed: state.failed.filter(id => id !== payload)
 });
 
 const defaultState = {
