@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { updateItem } from "../actions/itemActions";
 import TableRowEditable from "../components/TableRowEditable";
-import "./AddItem.scss";
 
 @connect(state => state)
 export default class AddItem extends React.Component {
