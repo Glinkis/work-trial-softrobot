@@ -12,20 +12,19 @@ export const columns = {
 const TableHeader = ({ onClick, table }) => {
   const { TEXT, DATE, OWNER, STATUS } = columns;
   const activeSort = name => (table.name === name ? table.direction : "");
+
+  const Cell = ({ column }) => (
+    <span className={`sorter ${activeSort(column)}`} onClick={onClick}>
+      {column}
+    </span>
+  );
+
   return (
     <div className="table-header">
-      <span className={`sorter ${activeSort(TEXT)}`} onClick={onClick}>
-        {TEXT}
-      </span>
-      <span className={`sorter ${activeSort(DATE)}`} onClick={onClick}>
-        {DATE}
-      </span>
-      <span className={`sorter ${activeSort(OWNER)}`} onClick={onClick}>
-        {OWNER}
-      </span>
-      <span className={`sorter ${activeSort(STATUS)}`} onClick={onClick}>
-        {STATUS}
-      </span>
+      <Cell column={TEXT} />
+      <Cell column={DATE} />
+      <Cell column={OWNER} />
+      <Cell column={STATUS} />
       <span />
     </div>
   );
