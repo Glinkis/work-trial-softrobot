@@ -1,4 +1,6 @@
 // @ts-check
+/// <reference path="../types.d.ts" />
+
 import fetch from "../utils/fetch";
 
 export const REQUEST_ERROR = "REQUEST_ERROR";
@@ -17,15 +19,6 @@ export const requestError = error => ({
 export const requestItems = () => ({
   type: REQUEST_ITEMS
 });
-
-/**
- * @typedef {Object} Item
- * @prop {number} id
- * @prop {string} text
- * @prop {string} date
- * @prop {number} userId
- * @prop {boolean} active
- */
 
 /** @param {Item[]} items */
 export const receiveItems = items => ({

@@ -1,4 +1,6 @@
 // @ts-check
+/// <reference path="../types.d.ts" />
+
 import fetch from "../utils/fetch";
 
 export const ADD_UPDATING_ITEM = "ADD_UPDATING_ITEM";
@@ -31,6 +33,7 @@ export const removeFailedItem = id => ({
   payload: id
 });
 
+/** @param {Item} item */
 export const updateItem = item => async dispatch => {
   const { id } = item;
 
