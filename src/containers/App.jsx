@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import { fetchItems, fetchUsers } from "../actions/requestActions";
 import ErrorMessage from "../components/ErrorMessage";
 import Title from "../components/Title";
+import "./App.scss";
 import Table from "./Table";
 
 @connect(state => state.request)
-export default class Content extends React.Component {
+export default class App extends React.Component {
   retry = () => {
     const { dispatch } = this.props;
     dispatch(fetchUsers());
