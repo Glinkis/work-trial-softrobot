@@ -87,14 +87,14 @@ describe("request reducer", () => {
   it("should handle updateItem", () => {
     const state = {
       ...defaultState,
-      items: [{ id: 0, active: false }]
+      items: [{ id: 0, text: "", date: "", userId: 0, active: false }]
     };
     const action = {
       type: UPDATE_ITEM,
-      payload: { id: 0, active: true }
+      payload: { id: 0, text: "", date: "", userId: 0, active: true }
     };
     expect(reducer(state, action)).deep.include({
-      items: [{ id: 0, active: true }]
+      items: [{ id: 0, text: "", date: "", userId: 0, active: true }]
     });
   });
 });
