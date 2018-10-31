@@ -9,23 +9,27 @@ import {
   REQUEST_USERS
 } from "../actions/requestActions";
 
+/** @param {typeof defaultState} state */
 const requestError = (state, { payload }) => ({
   ...state,
   errors: [...state.errors, payload]
 });
 
+/** @param {typeof defaultState} state */
 const requestItems = state => ({
   ...state,
   errors: [],
   openRequests: state.openRequests + 1
 });
 
+/** @param {typeof defaultState} state */
 const requestUsers = state => ({
   ...state,
   errors: [],
   openRequests: state.openRequests + 1
 });
 
+/** @param {typeof defaultState} state */
 const receiveItems = (state, { payload }) => {
   const openRequests = state.openRequests - 1;
   return {
@@ -36,6 +40,7 @@ const receiveItems = (state, { payload }) => {
   };
 };
 
+/** @param {typeof defaultState} state */
 const receiveUsers = (state, { payload }) => {
   const openRequests = state.openRequests - 1;
   return {
@@ -46,11 +51,13 @@ const receiveUsers = (state, { payload }) => {
   };
 };
 
+/** @param {typeof defaultState} state */
 const requestRejected = state => ({
   ...state,
   openRequests: state.openRequests - 1
 });
 
+/** @param {typeof defaultState} state */
 const updateItem = ({ items, ...rest }, { payload }) => ({
   ...rest,
   items:
@@ -60,9 +67,13 @@ const updateItem = ({ items, ...rest }, { payload }) => ({
 });
 
 const defaultState = {
+  /** @type {number} */
   openRequests: 0,
+  /** @type {string[]} */
   errors: [],
+  /** @type {string[]} */
   users: [],
+  /** @type {Item[]} */
   items: []
 };
 
