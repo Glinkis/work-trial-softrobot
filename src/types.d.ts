@@ -3,5 +3,5 @@ declare interface Item {
   text: string;
   date: string;
   userId: number;
-  status: boolean;
+  active: boolean;
 }
