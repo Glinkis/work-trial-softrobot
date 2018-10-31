@@ -1,26 +1,28 @@
+@import "../index";
+
 #app {
-  background-color: #f4f5f7;
-  border: 2px solid #e0e0e0;
+  background-color: $semi;
+  border: 2px solid $medium;
   border-radius: 5pt;
+  color: $dark;
   display: inline-block;
+  font-family: "PT Sans", sans-serif;
+  font-size: 12pt;
   margin: auto;
   text-align: center;
-
   > * {
     margin: 10pt;
   }
-
-  > .table {
+  .table {
     margin: 0;
   }
-
   i.material-icons {
     cursor: pointer;
     font-size: 1.5rem;
     margin: 0 2pt;
     opacity: 0.5;
-  }
-  i.material-icons:hover {
-    opacity: 1;
+    &:hover {
+      opacity: 1;
+    }
   }
 }

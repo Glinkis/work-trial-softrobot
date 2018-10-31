@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
 
 $light: #f9f9f9;
+$semi: #f4f5f7;
 $medium: #e0e0e0;
 $dark: #0f0f0f;
 $red: #e04328;
@@ -8,9 +9,6 @@ $green: #6ccc13;
 
 html {
   background-color: $light;
-  color: $dark;
-  font-family: "PT Sans", sans-serif;
-  font-size: 12pt;
   margin: 0;
   padding: 0;
 }
@@ -18,9 +16,4 @@ html {
 body {
   align-items: center;
   display: flex;
-}
-
-hr {
-  background-color: $dark;
-  color: $dark;
 }

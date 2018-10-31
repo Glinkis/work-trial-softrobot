@@ -4,6 +4,15 @@ $tablePadding: 6pt;
 
 .table {
   width: 460pt;
+  .table-header,
+  .table-row {
+    > :last-child {
+      width: 60pt;
+    }
+    .fill {
+      width: 100%;
+    }
+  }
   > * {
     > * {
       padding: $tablePadding 0;
@@ -17,15 +26,6 @@ $tablePadding: 6pt;
       font-size: 1rem;
       text-align: center;
       width: 100pt;
-    }
-  }
-  .table-header,
-  .table-row {
-    > :last-child {
-      width: 60pt;
-    }
-    .fill {
-      width: 100%;
     }
   }
   form {

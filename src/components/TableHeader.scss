@@ -1,6 +1,8 @@
 @import "../index";
 @import "../containers/Table";
 
+$markerHeight: 2pt;
+
 .table {
   .table-header {
     background-color: $medium;
@@ -14,14 +16,13 @@
         background-color: darken($medium, 10%);
         cursor: pointer;
       }
-      $border: 2pt;
       &.up {
-        border-top: $border solid $dark;
-        padding-top: $tablePadding - $border;
+        border-top: $markerHeight solid $dark;
+        padding-top: $tablePadding - $markerHeight;
       }
       &.down {
-        border-bottom: $border solid $dark;
-        padding-bottom: $tablePadding - $border;
+        border-bottom: $markerHeight solid $dark;
+        padding-bottom: $tablePadding - $markerHeight;
       }
     }
   }
