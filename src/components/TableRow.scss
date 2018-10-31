@@ -9,15 +9,15 @@
     input,
     textarea,
     select {
-      border: 1pt solid #dadada;
       background-color: $light;
+      border: 1pt solid #dadada;
       margin: 2pt 0;
     }
     textarea {
-      text-align: left;
-      margin-top: 7pt;
-      width: calc(100% - 10pt);
       height: 80pt;
+      margin-top: 7pt;
+      text-align: left;
+      width: calc(100% - 10pt);
     }
     .error-message {
       border: none;
@@ -37,9 +37,9 @@
       > span {
         background-color: $red;
         border-radius: 100%;
-        width: 0.75rem;
         height: 0.75rem;
         overflow: hidden;
+        width: 0.75rem;
         &.enabled {
           background-color: $green;
         }

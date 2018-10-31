@@ -10,7 +10,7 @@
     "test": "mocha --require ts-node/register src/**/*.spec.js",
     "test:w": "mocha --require ts-node/register src/**/*.spec.js --watch",
     "lint": "tslint src/**/*.js src/**/*.jsx && stylelint \"src/**/*.scss\"",
-    "format": "prettier --write src/**/*.js src/**/*.jsx && tslint --fix src/**/*.js src/**/*.jsx",
+    "format": "prettier --write src/**/*.js src/**/*.jsx && tslint --fix src/**/*.js src/**/*.jsx && stylelint --fix \"src/**/*.scss\"",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "repository": {
@@ -55,6 +55,7 @@
     "style-loader": "^0.23.1",
     "stylelint": "^9.6.0",
     "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-order": "^1.0.0",
     "stylelint-scss": "^3.3.2",
     "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",

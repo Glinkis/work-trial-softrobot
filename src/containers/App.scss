@@ -1,9 +1,9 @@
 #app {
-  display: inline-block;
-  margin: auto;
   background-color: #f4f5f7;
   border: 2px solid #e0e0e0;
   border-radius: 5pt;
+  display: inline-block;
+  margin: auto;
   text-align: center;
 
   > * {
@@ -16,9 +16,9 @@
 
   i.material-icons {
     cursor: pointer;
-    opacity: 0.5;
     font-size: 1.5rem;
     margin: 0 2pt;
+    opacity: 0.5;
   }
   i.material-icons:hover {
     opacity: 1;

@@ -7,20 +7,20 @@ $red: #e04328;
 $green: #6ccc13;
 
 html {
-  padding: 0;
-  margin: 0;
-  font-size: 12pt;
-  font-family: "PT Sans", sans-serif;
   background-color: $light;
   color: $dark;
+  font-family: "PT Sans", sans-serif;
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 hr {
-  color: $dark;
   background-color: $dark;
+  color: $dark;
 }
