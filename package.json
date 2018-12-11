@@ -10,7 +10,7 @@
     "test": "mocha --require ts-node/register src/**/*.spec.js",
     "test:w": "mocha --require ts-node/register src/**/*.spec.js --watch",
     "lint": "tslint src/**/*.js src/**/*.jsx && stylelint \"src/**/*.scss\"",
-    "format": "prettier --write src/**/*.js src/**/*.jsx && tslint --fix src/**/*.js src/**/*.jsx && stylelint --fix \"src/**/*.scss\"",
+    "format": "prettier --write src/**/*.{js,jsx} && tslint --fix src/**/*.{js,jsx} && stylelint --fix \"src/**/*.scss\"",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "husky": {
