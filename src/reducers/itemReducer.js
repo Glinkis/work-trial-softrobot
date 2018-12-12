@@ -1,4 +1,5 @@
 // @ts-check
+/// <reference path="../types.d.ts" />
 import {
   ADD_FAILED_ITEM,
   ADD_UPDATING_ITEM,

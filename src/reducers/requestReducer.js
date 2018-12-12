@@ -1,4 +1,5 @@
 // @ts-check
+/// <reference path="../types.d.ts" />
 import { UPDATE_ITEM } from "../actions/itemActions";
 import {
   RECEIVE_ITEMS,

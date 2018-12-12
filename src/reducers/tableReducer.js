@@ -1,3 +1,4 @@
+/// <reference path="../types.d.ts" />
 import {
   SET_TABLE_PAGE,
   SET_TABLE_ROW,
