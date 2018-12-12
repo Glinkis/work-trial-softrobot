@@ -1,11 +1,11 @@
 // @ts-check
 import { expect } from "chai";
-import { setTablePage, setTableRows, sortTable } from "../actions/tableActions";
+import * as actions from "../actions/tableActions";
 import reducer from "./tableReducer";
 
-const defaultState = reducer(undefined, {});
-
 describe("table reducer", () => {
+  const defaultState = reducer(undefined, {});
+
   it("should return the initial state", () => {
     expect(reducer(undefined, {})).to.deep.equal({
       name: "",
@@ -16,19 +16,19 @@ describe("table reducer", () => {
   });
 
   it("should handle sortTable", () => {
-    const state1 = reducer(defaultState, sortTable("DATE"));
+    const state1 = reducer(defaultState, actions.sortTable("DATE"));
     expect(state1).deep.include({
       name: "DATE",
       direction: "up"
     });
 
-    const state2 = reducer(state1, sortTable("DATE"));
+    const state2 = reducer(state1, actions.sortTable("DATE"));
     expect(state2).deep.include({
       name: "DATE",
       direction: "down"
     });
 
-    const state3 = reducer(state2, sortTable("DATE"));
+    const state3 = reducer(state2, actions.sortTable("DATE"));
     expect(state3).deep.include({
       name: "",
       direction: ""
@@ -36,13 +36,13 @@ describe("table reducer", () => {
   });
 
   it("should handle setTableRow", () => {
-    expect(reducer(undefined, setTableRows(10))).deep.include({
+    expect(reducer(undefined, actions.setTableRows(10))).deep.include({
       rows: 10
     });
   });
 
   it("should handle setTablePage", () => {
-    expect(reducer(undefined, setTablePage(1))).deep.include({
+    expect(reducer(undefined, actions.setTablePage(1))).deep.include({
       page: 1
     });
   });

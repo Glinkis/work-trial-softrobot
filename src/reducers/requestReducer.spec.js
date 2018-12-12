@@ -1,19 +1,12 @@
 // @ts-check
 import { expect } from "chai";
 import { UPDATE_ITEM } from "../actions/itemActions";
-import {
-  receiveItems,
-  receiveUsers,
-  requestError,
-  requestItems,
-  requestRejected,
-  requestUsers
-} from "../actions/requestActions";
+import * as actions from "../actions/requestActions";
 import reducer from "./requestReducer";
 
-const defaultState = reducer(undefined, {});
-
 describe("request reducer", () => {
+  const defaultState = reducer(undefined, {});
+
   it("should return the initial state", () => {
     expect(reducer(undefined, {})).to.deep.equal({
       openRequests: 0,
@@ -24,20 +17,20 @@ describe("request reducer", () => {
   });
 
   it("should handle requestError", () => {
-    expect(reducer(defaultState, requestError("error"))).deep.include({
+    expect(reducer(defaultState, actions.requestError("error"))).deep.include({
       errors: ["error"]
     });
   });
 
   it("should handle requestItems", () => {
-    expect(reducer(defaultState, requestItems())).deep.include({
+    expect(reducer(defaultState, actions.requestItems())).deep.include({
       errors: [],
       openRequests: 1
     });
   });
 
   it("should handle requestUsers", () => {
-    expect(reducer(defaultState, requestUsers())).deep.include({
+    expect(reducer(defaultState, actions.requestUsers())).deep.include({
       errors: [],
       openRequests: 1
     });
@@ -56,7 +49,7 @@ describe("request reducer", () => {
       userId: 0,
       active: false
     };
-    expect(reducer(state, receiveItems([item]))).deep.include({
+    expect(reducer(state, actions.receiveItems([item]))).deep.include({
       openRequests: 1,
       items: [item]
     });
@@ -68,7 +61,7 @@ describe("request reducer", () => {
       openRequests: 2,
       users: []
     };
-    expect(reducer(state, receiveUsers(["Bob"]))).deep.include({
+    expect(reducer(state, actions.receiveUsers(["Bob"]))).deep.include({
       openRequests: 1,
       users: ["Bob"]
     });
@@ -79,7 +72,7 @@ describe("request reducer", () => {
       ...defaultState,
       openRequests: 2
     };
-    expect(reducer(state, requestRejected())).deep.include({
+    expect(reducer(state, actions.requestRejected())).deep.include({
       openRequests: 1
     });
   });

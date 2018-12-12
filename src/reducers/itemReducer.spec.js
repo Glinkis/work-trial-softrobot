@@ -1,16 +1,11 @@
 // @ts-check
 import { expect } from "chai";
-import {
-  addFailedItem,
-  addUpdatingItem,
-  removeFailedItem,
-  removeUpdatingItem
-} from "../actions/itemActions";
+import * as actions from "../actions/itemActions";
 import reducer from "./itemReducer";
 
-const defaultState = reducer(undefined, {});
-
 describe("item reducer", () => {
+  const defaultState = reducer(undefined, {});
+
   it("should return the initial state", () => {
     expect(reducer(undefined, {})).to.deep.equal({
       updating: [],
@@ -23,7 +18,7 @@ describe("item reducer", () => {
       ...defaultState,
       updating: [1]
     };
-    expect(reducer(state, addUpdatingItem(0))).deep.include({
+    expect(reducer(state, actions.addUpdatingItem(0))).deep.include({
       updating: [1, 0]
     });
   });
@@ -33,7 +28,7 @@ describe("item reducer", () => {
       ...defaultState,
       updating: [0, 1]
     };
-    expect(reducer(state, removeUpdatingItem(0))).deep.include({
+    expect(reducer(state, actions.removeUpdatingItem(0))).deep.include({
       updating: [1]
     });
   });
@@ -43,7 +38,7 @@ describe("item reducer", () => {
       ...defaultState,
       failed: [1]
     };
-    expect(reducer(state, addFailedItem(0))).deep.include({
+    expect(reducer(state, actions.addFailedItem(0))).deep.include({
       failed: [1, 0]
     });
   });
@@ -53,7 +48,7 @@ describe("item reducer", () => {
       ...defaultState,
       failed: [0, 1]
     };
-    expect(reducer(state, removeFailedItem(0))).deep.include({
+    expect(reducer(state, actions.removeFailedItem(0))).deep.include({
       failed: [1]
     });
   });
