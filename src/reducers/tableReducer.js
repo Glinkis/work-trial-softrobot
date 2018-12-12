@@ -4,7 +4,7 @@ import {
   SORT_TABLE
 } from "../actions/tableActions";
 
-/** @param {typeof defaultState} state */
+/** @type {TableReducer<string>} */
 const sortTable = (state, payload) => {
   if (state.name === payload && state.direction === "up") {
     return { ...state, name: payload, direction: "down" };
@@ -17,18 +17,19 @@ const sortTable = (state, payload) => {
   return { ...state, name: payload, direction: "up" };
 };
 
-/** @param {typeof defaultState} state */
+/** @type {TableReducer<number>} */
 const setTableRows = (state, payload) => ({
   ...state,
   rows: payload < 0 ? 0 : payload
 });
 
-/** @param {typeof defaultState} state */
+/** @type {TableReducer<number>} */
 const setTablePage = (state, payload) => ({
   ...state,
   page: payload < 0 ? 0 : payload
 });
 
+/** @type {TableState} */
 const defaultState = {
   name: "",
   direction: "",

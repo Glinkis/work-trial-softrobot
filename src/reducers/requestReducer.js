@@ -9,27 +9,27 @@ import {
   REQUEST_USERS
 } from "../actions/requestActions";
 
-/** @param {typeof defaultState} state */
+/** @type {RequestReducer<string>} */
 const requestError = (state, payload) => ({
   ...state,
   errors: [...state.errors, payload]
 });
 
-/** @param {typeof defaultState} state */
+/** @type {RequestReducer} */
 const requestItems = state => ({
   ...state,
   errors: [],
   openRequests: state.openRequests + 1
 });
 
-/** @param {typeof defaultState} state */
+/** @type {RequestReducer} */
 const requestUsers = state => ({
   ...state,
   errors: [],
   openRequests: state.openRequests + 1
 });
 
-/** @param {typeof defaultState} state */
+/** @type {RequestReducer<Item[]>} */
 const receiveItems = (state, payload) => {
   const openRequests = state.openRequests - 1;
   return {
@@ -40,7 +40,7 @@ const receiveItems = (state, payload) => {
   };
 };
 
-/** @param {typeof defaultState} state */
+/** @type {RequestReducer<string[]>} */
 const receiveUsers = (state, payload) => {
   const openRequests = state.openRequests - 1;
   return {
@@ -51,13 +51,13 @@ const receiveUsers = (state, payload) => {
   };
 };
 
-/** @param {typeof defaultState} state */
+/** @type {RequestReducer} */
 const requestRejected = state => ({
   ...state,
   openRequests: state.openRequests - 1
 });
 
-/** @param {typeof defaultState} state */
+/** @type {RequestReducer<Item>} */
 const updateItem = ({ items, ...rest }, payload) => ({
   ...rest,
   items:
@@ -66,14 +66,11 @@ const updateItem = ({ items, ...rest }, payload) => ({
       : items.map(item => (item.id === payload.id ? payload : item))
 });
 
+/** @type {RequestState} */
 const defaultState = {
-  /** @type {number} */
   openRequests: 0,
-  /** @type {string[]} */
   errors: [],
-  /** @type {string[]} */
   users: [],
-  /** @type {Item[]} */
   items: []
 };
 
