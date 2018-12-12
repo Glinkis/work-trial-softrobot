@@ -10,7 +10,7 @@ import {
 } from "../actions/requestActions";
 
 /** @param {typeof defaultState} state */
-const requestError = (state, { payload }) => ({
+const requestError = (state, payload) => ({
   ...state,
   errors: [...state.errors, payload]
 });
@@ -30,7 +30,7 @@ const requestUsers = state => ({
 });
 
 /** @param {typeof defaultState} state */
-const receiveItems = (state, { payload }) => {
+const receiveItems = (state, payload) => {
   const openRequests = state.openRequests - 1;
   return {
     ...state,
@@ -41,7 +41,7 @@ const receiveItems = (state, { payload }) => {
 };
 
 /** @param {typeof defaultState} state */
-const receiveUsers = (state, { payload }) => {
+const receiveUsers = (state, payload) => {
   const openRequests = state.openRequests - 1;
   return {
     ...state,
@@ -58,7 +58,7 @@ const requestRejected = state => ({
 });
 
 /** @param {typeof defaultState} state */
-const updateItem = ({ items, ...rest }, { payload }) => ({
+const updateItem = ({ items, ...rest }, payload) => ({
   ...rest,
   items:
     payload.id >= items.length
@@ -77,22 +77,22 @@ const defaultState = {
   items: []
 };
 
-export default (state = defaultState, action) => {
-  switch (action.type) {
+export default (state = defaultState, { type, payload }) => {
+  switch (type) {
     case REQUEST_ERROR:
-      return requestError(state, action);
+      return requestError(state, payload);
     case REQUEST_ITEMS:
       return requestItems(state);
     case RECEIVE_ITEMS:
-      return receiveItems(state, action);
+      return receiveItems(state, payload);
     case REQUEST_USERS:
       return requestUsers(state);
     case RECEIVE_USERS:
-      return receiveUsers(state, action);
+      return receiveUsers(state, payload);
     case REQUEST_REJECTED:
       return requestRejected(state);
     case UPDATE_ITEM:
-      return updateItem(state, action);
+      return updateItem(state, payload);
   }
   return state;
 };

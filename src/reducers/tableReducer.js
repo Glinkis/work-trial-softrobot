@@ -5,7 +5,7 @@ import {
 } from "../actions/tableActions";
 
 /** @param {typeof defaultState} state */
-const sortTable = (state, { payload }) => {
+const sortTable = (state, payload) => {
   if (state.name === payload && state.direction === "up") {
     return { ...state, name: payload, direction: "down" };
   }
@@ -18,13 +18,13 @@ const sortTable = (state, { payload }) => {
 };
 
 /** @param {typeof defaultState} state */
-const setTableRows = (state, { payload }) => ({
+const setTableRows = (state, payload) => ({
   ...state,
   rows: payload < 0 ? 0 : payload
 });
 
 /** @param {typeof defaultState} state */
-const setTablePage = (state, { payload }) => ({
+const setTablePage = (state, payload) => ({
   ...state,
   page: payload < 0 ? 0 : payload
 });
@@ -36,14 +36,14 @@ const defaultState = {
   page: 0
 };
 
-export default (state = defaultState, action) => {
-  switch (action.type) {
+export default (state = defaultState, { type, payload }) => {
+  switch (type) {
     case SORT_TABLE:
-      return sortTable(state, action);
+      return sortTable(state, payload);
     case SET_TABLE_ROW:
-      return setTableRows(state, action);
+      return setTableRows(state, payload);
     case SET_TABLE_PAGE:
-      return setTablePage(state, action);
+      return setTablePage(state, payload);
   }
   return state;
 };
