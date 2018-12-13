@@ -3,11 +3,11 @@
 
 import fetch from "../utils/fetch";
 
-export const ADD_UPDATING_ITEM = "ADD_UPDATING_ITEM";
-export const REMOVE_UPDATING_ITEM = "REMOVE_UPDATING_ITEM";
-export const ADD_FAILED_ITEM = "ADD_FAILED_ITEM";
-export const REMOVE_FAILED_ITEM = "REMOVE_FAILED_ITEM";
-export const UPDATE_ITEM = "UPDATE_ITEM";
+export const ADD_UPDATING_ITEM = "[item] ADD_UPDATING_ITEM";
+export const REMOVE_UPDATING_ITEM = "[item] REMOVE_UPDATING_ITEM";
+export const ADD_FAILED_ITEM = "[item] ADD_FAILED_ITEM";
+export const REMOVE_FAILED_ITEM = "[item] REMOVE_FAILED_ITEM";
+export const UPDATE_ITEM = "[item] UPDATE_ITEM";
 
 /** @param {number} id */
 export const addUpdatingItem = id => ({

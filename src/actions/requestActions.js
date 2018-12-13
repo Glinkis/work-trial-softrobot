@@ -3,12 +3,12 @@
 
 import fetch from "../utils/fetch";
 
-export const REQUEST_ERROR = "REQUEST_ERROR";
-export const REQUEST_ITEMS = "REQUEST_ITEMS";
-export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
-export const REQUEST_USERS = "REQUEST_USERS";
-export const RECEIVE_USERS = "RECEIVE_USERS";
-export const REQUEST_REJECTED = "REQUEST_REJECTED";
+export const REQUEST_ERROR = "[request] REQUEST_ERROR";
+export const REQUEST_ITEMS = "[request] REQUEST_ITEMS";
+export const RECEIVE_ITEMS = "[request] RECEIVE_ITEMS";
+export const REQUEST_USERS = "[request] REQUEST_USERS";
+export const RECEIVE_USERS = "[request] RECEIVE_USERS";
+export const REQUEST_REJECTED = "[request] REQUEST_REJECTED";
 
 /** @param {string} error */
 export const requestError = error => ({
