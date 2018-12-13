@@ -8,17 +8,21 @@
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="manifest" href="manifest.json">
-<link href="vendors~main.css?5429731eb7b15dedcef2" rel="stylesheet"><link href="main.css?5429731eb7b15dedcef2" rel="stylesheet"></head>
+<link href="vendors~main.css?d8094472e4ec895300f7" rel="stylesheet"><link href="main.css?d8094472e4ec895300f7" rel="stylesheet"></head>
 
 <body>
   <div id="app"></div>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('work-trial-softrobot/service-worker.js');
+        if (window.location.href.find(/work-trial-softrobot/)) {
+          navigator.serviceWorker.register('work-trial-softrobot/service-worker.js');
+        } else {e
+          navigator.serviceWorker.register('service-worker.js');
+        }
       });
     }
   </script>
-<script type="text/javascript" src="runtime~main.js?5429731eb7b15dedcef2"></script><script type="text/javascript" src="vendors~main.js?5429731eb7b15dedcef2"></script><script type="text/javascript" src="main.js?5429731eb7b15dedcef2"></script></body>
+<script type="text/javascript" src="runtime~main.js?d8094472e4ec895300f7"></script><script type="text/javascript" src="vendors~main.js?d8094472e4ec895300f7"></script><script type="text/javascript" src="main.js?d8094472e4ec895300f7"></script></body>
 
 </html>
