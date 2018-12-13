@@ -20,6 +20,7 @@ const common = {
     rules: [jsLoader, cssLoader]
   },
   optimization: {
+    runtimeChunk: true,
     splitChunks: {
       chunks: "all"
     }
