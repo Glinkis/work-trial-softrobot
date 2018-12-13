@@ -13,6 +13,9 @@ const common = {
     react: "React",
     "react-dom": "ReactDOM"
   },
+  devServer: {
+    stats: "errors-only"
+  },
   module: {
     rules: [jsLoader, cssLoader]
   },
