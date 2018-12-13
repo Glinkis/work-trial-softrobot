@@ -8,12 +8,12 @@ module.exports = {
   ...common,
   mode: "production",
   plugins: [
-    ...common.plugins,
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: "work-trial-softrobot",
       template: `${__dirname}/template.prod.html`,
       hash: true
-    })
+    }),
+    ...common.plugins
   ]
 };

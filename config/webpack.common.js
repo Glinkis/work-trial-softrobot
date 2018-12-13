@@ -1,4 +1,4 @@
-const ManifestPlugin = require("webpack-manifest-plugin");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 const WorkboxPlugin = require("workbox-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
@@ -33,7 +33,13 @@ const common = {
     extensions: [".js", ".jsx", ".json"]
   },
   plugins: [
-    new ManifestPlugin(),
+    new WebpackPwaManifest({
+      name: "work-trial-softrobot",
+      short_name: "WTS",
+      description: "Softrobot work trial project.",
+      theme_color: "#E0E0E0",
+      inject: true
+    }),
     new WorkboxPlugin.GenerateSW(),
     new OptimizeCssAssetsPlugin()
   ]
