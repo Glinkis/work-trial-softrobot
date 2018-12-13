@@ -12,6 +12,7 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   plugins: [
+    ...common.plugins,
     new HtmlWebpackPlugin({
       title: "work-trial-softrobot (dev)",
       template: `${__dirname}/template.dev.html`

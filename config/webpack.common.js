@@ -1,3 +1,6 @@
+const ManifestPlugin = require("webpack-manifest-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
 const jsLoader = {
   test: /js?x$/,
   loader: "ts-loader"
@@ -27,7 +30,8 @@ const common = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"]
-  }
+  },
+  plugins: [new ManifestPlugin(), new OptimizeCssAssetsPlugin()]
 };
 
 module.exports = {
