@@ -1,0 +1,8 @@
+{
+  "main.css": "main.css",
+  "main.js": "main.js",
+  "runtime~main.js": "runtime~main.js",
+  "vendors~main.css": "vendors~main.css",
+  "vendors~main.js": "vendors~main.js",
+  "index.html": "index.html"
+}
