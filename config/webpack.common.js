@@ -1,4 +1,5 @@
 const ManifestPlugin = require("webpack-manifest-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const jsLoader = {
@@ -31,7 +32,11 @@ const common = {
   resolve: {
     extensions: [".js", ".jsx", ".json"]
   },
-  plugins: [new ManifestPlugin(), new OptimizeCssAssetsPlugin()]
+  plugins: [
+    new ManifestPlugin(),
+    new WorkboxPlugin.GenerateSW(),
+    new OptimizeCssAssetsPlugin()
+  ]
 };
 
 module.exports = {
