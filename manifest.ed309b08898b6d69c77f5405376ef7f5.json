@@ -1,0 +1,9 @@
+{
+  "name": "work-trial-softrobot",
+  "short_name": "WTS",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Softrobot work trial project.",
+  "theme_color": "#E0E0E0"
+}
