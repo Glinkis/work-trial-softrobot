@@ -37,7 +37,8 @@ const defaultState = {
   failed: []
 };
 
-export default (state = defaultState, { type, payload }) => {
+/** @type {(state: ItemState | undefined, action: any) => ItemState} */
+export default function(state = defaultState, { type, payload }) {
   switch (type) {
     case ADD_UPDATING_ITEM:
       return addUpdatingItem(state, payload);
@@ -49,4 +50,4 @@ export default (state = defaultState, { type, payload }) => {
       return removeFailedItem(state, payload);
   }
   return state;
-};
+}

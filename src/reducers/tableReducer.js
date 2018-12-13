@@ -38,7 +38,8 @@ const defaultState = {
   page: 0
 };
 
-export default (state = defaultState, { type, payload }) => {
+/** @type {(state: TableState | undefined, action: any) => TableState} */
+export default function(state = defaultState, { type, payload }) {
   switch (type) {
     case SORT_TABLE:
       return sortTable(state, payload);
@@ -48,4 +49,4 @@ export default (state = defaultState, { type, payload }) => {
       return setTablePage(state, payload);
   }
   return state;
-};
+}

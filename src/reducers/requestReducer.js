@@ -75,7 +75,8 @@ const defaultState = {
   items: []
 };
 
-export default (state = defaultState, { type, payload }) => {
+/** @type {(state: RequestState | undefined, action: any) => RequestState} */
+export default function(state = defaultState, { type, payload }) {
   switch (type) {
     case REQUEST_ERROR:
       return requestError(state, payload);
@@ -93,4 +94,4 @@ export default (state = defaultState, { type, payload }) => {
       return updateItem(state, payload);
   }
   return state;
-};
+}
