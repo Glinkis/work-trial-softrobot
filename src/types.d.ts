@@ -6,6 +6,10 @@ declare interface Item {
   active: boolean;
 }
 
+declare type Action<T = void> = T extends void
+  ? () => { type: string }
+  : (payload: T) => { type: string; payload: T };
+
 declare type Reducer<S, T = void> = T extends void
   ? (state: S) => RequestState
   : (state: S, payload?: T) => S;
