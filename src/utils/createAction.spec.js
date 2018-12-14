@@ -24,7 +24,7 @@ describe("createAction()", () => {
     });
   });
 
-  describe("calling the returned function with the paylaod as 'undefined'", () => {
+  describe("calling the returned function with the payload as 'undefined'", () => {
     it("should return an action with the payload as 'undefined'", () => {
       expect(createAction("ACTION")(undefined)).to.deep.equal({
         type: "ACTION",
