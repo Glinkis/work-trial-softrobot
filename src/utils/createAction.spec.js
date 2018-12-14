@@ -12,7 +12,8 @@ describe("createAction()", () => {
   describe("the returned function", () => {
     it("should return an action without payload", () => {
       expect(action()).to.deep.equal({
-        type: "ACTION"
+        type: "ACTION",
+        payload: undefined
       });
     });
 

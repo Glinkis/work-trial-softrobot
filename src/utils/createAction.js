@@ -3,14 +3,8 @@
 /**
  * Creates an action.
  * @param {string} type - Action type.
- * @returns {(payload?) => any}
+ * @returns {<T>(payload?: T) => {type:string, payload: T}}
  */
-const createAction = type => (...args) => {
-  if (args.length) {
-    const [payload, ...rest] = args;
-    return { type, payload, ...rest };
-  }
-  return { type };
-};
+const createAction = type => payload => ({ type, payload });
 
 export default createAction;

@@ -12,7 +12,8 @@ describe("request actions", () => {
 
   it("should create an action to request items", () => {
     expect(actions.requestItems()).deep.equals({
-      type: actions.REQUEST_ITEMS
+      type: actions.REQUEST_ITEMS,
+      payload: undefined
     });
   });
 
@@ -26,7 +27,8 @@ describe("request actions", () => {
 
   it("should create an action to request users", () => {
     expect(actions.requestUsers()).deep.equals({
-      type: actions.REQUEST_USERS
+      type: actions.REQUEST_USERS,
+      payload: undefined
     });
   });
 
@@ -39,7 +41,8 @@ describe("request actions", () => {
 
   it("should create an action to reject a request", () => {
     expect(actions.requestRejected()).deep.equals({
-      type: actions.REQUEST_REJECTED
+      type: actions.REQUEST_REJECTED,
+      payload: undefined
     });
   });
 });
