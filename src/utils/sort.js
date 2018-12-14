@@ -1,12 +1,12 @@
 // @ts-check
 
 /**
- * Sort strings alphabetically.
- * @param {string} a
- * @param {string} b
+ * Sort strings booleans by truthiness.
+ * @param {boolean} a
+ * @param {boolean} b
  */
-export const sortByString = (a, b) => {
-  return a.localeCompare(b);
+export const sortByBoolean = (a, b) => {
+  return a === b ? 0 : a ? -1 : 1;
 };
 
 /**
@@ -19,10 +19,10 @@ export const sortByNumber = (a, b) => {
 };
 
 /**
- * Sort strings booleans by truthiness.
- * @param {boolean} a
- * @param {boolean} b
+ * Sort strings alphabetically.
+ * @param {string} a
+ * @param {string} b
  */
-export const sortByBoolean = (a, b) => {
-  return a === b ? 0 : a ? -1 : 1;
+export const sortByString = (a, b) => {
+  return a.localeCompare(b);
 };

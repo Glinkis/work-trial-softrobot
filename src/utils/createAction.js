@@ -1,4 +1,5 @@
 // @ts-check
+
 /**
  * Creates an action.
  * @param {string} type - Action type.
