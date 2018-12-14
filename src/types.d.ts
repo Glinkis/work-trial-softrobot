@@ -11,7 +11,7 @@ declare type Action<T = void> = T extends void
   : (payload: T) => { type: string; payload: T };
 
 declare type Reducer<S, T = void> = T extends void
-  ? (state: S) => RequestState
+  ? (state: S) => S
   : (state: S, payload?: T) => S;
 
 declare interface ItemState {
