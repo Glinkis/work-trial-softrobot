@@ -4,7 +4,12 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const jsLoader = {
   test: /js?x$/,
-  loader: "ts-loader"
+  loader: "ts-loader",
+  options: {
+    compilerOptions: {
+      noEmit: false
+    }
+  }
 };
 
 const cssLoader = {
