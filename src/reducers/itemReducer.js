@@ -1,11 +1,6 @@
 // @ts-check
 /// <reference path="../types.d.ts" />
-import {
-  ADD_FAILED_ITEM,
-  ADD_UPDATING_ITEM,
-  REMOVE_FAILED_ITEM,
-  REMOVE_UPDATING_ITEM
-} from "../actions/itemActions";
+import * as itemActions from "../actions/itemActions";
 
 /** @type {ItemReducer<number>} */
 const addUpdatingItem = (state, payload) => ({
@@ -40,13 +35,13 @@ const defaultState = {
 /** @type {(state: ItemState | undefined, action: any) => ItemState} */
 export default function(state = defaultState, { type, payload }) {
   switch (type) {
-    case ADD_UPDATING_ITEM:
+    case itemActions.ADD_UPDATING_ITEM:
       return addUpdatingItem(state, payload);
-    case REMOVE_UPDATING_ITEM:
+    case itemActions.REMOVE_UPDATING_ITEM:
       return removeUpdatingItem(state, payload);
-    case ADD_FAILED_ITEM:
+    case itemActions.ADD_FAILED_ITEM:
       return addFailedItem(state, payload);
-    case REMOVE_FAILED_ITEM:
+    case itemActions.REMOVE_FAILED_ITEM:
       return removeFailedItem(state, payload);
   }
   return state;

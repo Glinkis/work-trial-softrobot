@@ -1,14 +1,7 @@
 // @ts-check
 /// <reference path="../types.d.ts" />
-import { UPDATE_ITEM } from "../actions/itemActions";
-import {
-  RECEIVE_ITEMS,
-  RECEIVE_USERS,
-  REQUEST_ERROR,
-  REQUEST_ITEMS,
-  REQUEST_REJECTED,
-  REQUEST_USERS
-} from "../actions/requestActions";
+import * as itemActions from "../actions/itemActions";
+import * as requestActions from "../actions/requestActions";
 
 /** @type {RequestReducer<string>} */
 const requestError = (state, payload) => ({
@@ -78,19 +71,19 @@ const defaultState = {
 /** @type {(state: RequestState | undefined, action: any) => RequestState} */
 export default function(state = defaultState, { type, payload }) {
   switch (type) {
-    case REQUEST_ERROR:
+    case requestActions.REQUEST_ERROR:
       return requestError(state, payload);
-    case REQUEST_ITEMS:
+    case requestActions.REQUEST_ITEMS:
       return requestItems(state);
-    case RECEIVE_ITEMS:
+    case requestActions.RECEIVE_ITEMS:
       return receiveItems(state, payload);
-    case REQUEST_USERS:
+    case requestActions.REQUEST_USERS:
       return requestUsers(state);
-    case RECEIVE_USERS:
+    case requestActions.RECEIVE_USERS:
       return receiveUsers(state, payload);
-    case REQUEST_REJECTED:
+    case requestActions.REQUEST_REJECTED:
       return requestRejected(state);
-    case UPDATE_ITEM:
+    case itemActions.UPDATE_ITEM:
       return updateItem(state, payload);
   }
   return state;

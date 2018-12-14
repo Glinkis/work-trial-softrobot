@@ -1,9 +1,5 @@
 /// <reference path="../types.d.ts" />
-import {
-  SET_TABLE_PAGE,
-  SET_TABLE_ROW,
-  SORT_TABLE
-} from "../actions/tableActions";
+import * as tableActions from "../actions/tableActions";
 
 /** @type {TableReducer<string>} */
 const sortTable = (state, payload) => {
@@ -41,11 +37,11 @@ const defaultState = {
 /** @type {(state: TableState | undefined, action: any) => TableState} */
 export default function(state = defaultState, { type, payload }) {
   switch (type) {
-    case SORT_TABLE:
+    case tableActions.SORT_TABLE:
       return sortTable(state, payload);
-    case SET_TABLE_ROW:
+    case tableActions.SET_TABLE_ROW:
       return setTableRows(state, payload);
-    case SET_TABLE_PAGE:
+    case tableActions.SET_TABLE_PAGE:
       return setTablePage(state, payload);
   }
   return state;
