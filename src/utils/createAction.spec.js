@@ -3,30 +3,28 @@ import { expect } from "chai";
 import createAction from "./createAction";
 
 describe("createAction()", () => {
+  const action = createAction("ACTION");
+
   it("should create a function", () => {
-    expect(createAction("ACTION")).to.be.a("function");
+    expect(action).to.be.a("function");
   });
 
-  describe("calling the returned function without payload", () => {
+  describe("the returned function", () => {
     it("should return an action without payload", () => {
-      expect(createAction("ACTION")()).to.deep.equal({
+      expect(action()).to.deep.equal({
         type: "ACTION"
       });
     });
-  });
 
-  describe("calling the returned function with a payload", () => {
     it("should return an action with a payload", () => {
-      expect(createAction("ACTION")("payload")).to.deep.equal({
+      expect(action("payload")).to.deep.equal({
         type: "ACTION",
         payload: "payload"
       });
     });
-  });
 
-  describe("calling the returned function with the payload as 'undefined'", () => {
     it("should return an action with the payload as 'undefined'", () => {
-      expect(createAction("ACTION")(undefined)).to.deep.equal({
+      expect(action(undefined)).to.deep.equal({
         type: "ACTION",
         payload: undefined
       });
