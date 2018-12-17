@@ -5,20 +5,16 @@ import getFormattedTime from "../utils/getFormattedTime";
 import ErrorMessage from "./ErrorMessage";
 
 export default class TableRowEditable extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // Create default values if no prop item exists.
-    const item = props.item || {
+  state = {
+    ...(this.props.item || {
+      // Create default values if no prop item exists.
       id: this.props.items.length,
       text: "",
       date: "",
       userId: 0,
       active: false
-    };
-
-    this.state = { ...item };
-  }
+    })
+  };
 
   onSubmit = event => {
     event.preventDefault();
