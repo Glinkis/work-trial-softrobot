@@ -22,21 +22,20 @@ export default class Table extends React.Component {
   };
 
   sort = (a, b) => {
-    const { TEXT, DATE, OWNER, STATUS } = columns;
     const { users } = this.props.request;
-    const { name } = this.props.table;
+
     let pos = 0;
-    switch (name) {
-      case TEXT:
+    switch (this.props.table.name) {
+      case columns.TEXT:
         pos = sortByString(a.text, b.text);
         break;
-      case DATE:
+      case columns.DATE:
         pos = sortByString(a.date, b.date);
         break;
-      case OWNER:
+      case columns.OWNER:
         pos = sortByString(users[a.userId], users[b.userId]);
         break;
-      case STATUS:
+      case columns.STATUS:
         pos = sortByBoolean(a.active, b.active);
         break;
     }
