@@ -10,19 +10,19 @@ export const REQUEST_USERS = "[request] REQUEST_USERS";
 export const RECEIVE_USERS = "[request] RECEIVE_USERS";
 export const REQUEST_REJECTED = "[request] REQUEST_REJECTED";
 
-/** @type {Action<string>} */
+/** @type {Action.<string>} */
 export const requestError = createAction(REQUEST_ERROR);
 
 /** @type {Action} */
 export const requestItems = createAction(REQUEST_ITEMS);
 
-/** @type {Action<Item[]>} */
+/** @type {Action.<Item[]>} */
 export const receiveItems = createAction(RECEIVE_ITEMS);
 
 /** @type {Action} */
 export const requestUsers = createAction(REQUEST_USERS);
 
-/** @type {Action<string[]>} */
+/** @type {Action.<string[]>} */
 export const receiveUsers = createAction(RECEIVE_USERS);
 
 /** @type {Action} */

@@ -9,16 +9,16 @@ export const ADD_FAILED_ITEM = "[item] ADD_FAILED_ITEM";
 export const REMOVE_FAILED_ITEM = "[item] REMOVE_FAILED_ITEM";
 export const UPDATE_ITEM = "[item] UPDATE_ITEM";
 
-/** @type {Action<number>} */
+/** @type {Action.<number>} */
 export const addUpdatingItem = createAction(ADD_UPDATING_ITEM);
 
-/** @type {Action<number>} */
+/** @type {Action.<number>} */
 export const removeUpdatingItem = createAction(REMOVE_UPDATING_ITEM);
 
-/** @type {Action<number>} */
+/** @type {Action.<number>} */
 export const addFailedItem = createAction(ADD_FAILED_ITEM);
 
-/** @type {Action<number>} */
+/** @type {Action.<number>} */
 export const removeFailedItem = createAction(REMOVE_FAILED_ITEM);
 
 /** @param {Item} item */

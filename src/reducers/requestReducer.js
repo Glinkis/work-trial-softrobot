@@ -3,7 +3,7 @@
 import * as itemActions from "../actions/itemActions";
 import * as requestActions from "../actions/requestActions";
 
-/** @type {RequestReducer<string>} */
+/** @type {RequestReducer.<string>} */
 const requestError = (state, payload) => ({
   ...state,
   errors: [...state.errors, payload]
@@ -23,7 +23,7 @@ const requestUsers = state => ({
   openRequests: state.openRequests + 1
 });
 
-/** @type {RequestReducer<Item[]>} */
+/** @type {RequestReducer.<Item[]>} */
 const receiveItems = (state, payload) => {
   const openRequests = state.openRequests - 1;
   return {
@@ -34,7 +34,7 @@ const receiveItems = (state, payload) => {
   };
 };
 
-/** @type {RequestReducer<string[]>} */
+/** @type {RequestReducer.<string[]>} */
 const receiveUsers = (state, payload) => {
   const openRequests = state.openRequests - 1;
   return {
@@ -51,7 +51,7 @@ const requestRejected = state => ({
   openRequests: state.openRequests - 1
 });
 
-/** @type {RequestReducer<Item>} */
+/** @type {RequestReducer.<Item>} */
 const updateItem = ({ items, ...rest }, payload) => ({
   ...rest,
   items:

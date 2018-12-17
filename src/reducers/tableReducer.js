@@ -1,7 +1,7 @@
 /// <reference path="../types.d.ts" />
 import * as tableActions from "../actions/tableActions";
 
-/** @type {TableReducer<string>} */
+/** @type {TableReducer.<string>} */
 const sortTable = (state, payload) => {
   if (state.name === payload && state.direction === "up") {
     return { ...state, name: payload, direction: "down" };
@@ -14,13 +14,13 @@ const sortTable = (state, payload) => {
   return { ...state, name: payload, direction: "up" };
 };
 
-/** @type {TableReducer<number>} */
+/** @type {TableReducer.<number>} */
 const setTableRows = (state, payload) => ({
   ...state,
   rows: payload < 0 ? 0 : payload
 });
 
-/** @type {TableReducer<number>} */
+/** @type {TableReducer.<number>} */
 const setTablePage = (state, payload) => ({
   ...state,
   page: payload < 0 ? 0 : payload

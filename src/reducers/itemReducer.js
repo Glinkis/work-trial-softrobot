@@ -2,25 +2,25 @@
 /// <reference path="../types.d.ts" />
 import * as itemActions from "../actions/itemActions";
 
-/** @type {ItemReducer<number>} */
+/** @type {ItemReducer.<number>} */
 const addUpdatingItem = (state, payload) => ({
   ...state,
   updating: [...state.updating, payload]
 });
 
-/** @type {ItemReducer<number>} */
+/** @type {ItemReducer.<number>} */
 const removeUpdatingItem = (state, payload) => ({
   ...state,
   updating: state.updating.filter(id => id !== payload)
 });
 
-/** @type {ItemReducer<number>} */
+/** @type {ItemReducer.<number>} */
 const addFailedItem = (state, payload) => ({
   ...state,
   failed: [...state.failed, payload]
 });
 
-/** @type {ItemReducer<number>} */
+/** @type {ItemReducer.<number>} */
 const removeFailedItem = (state, payload) => ({
   ...state,
   failed: state.failed.filter(id => id !== payload)
