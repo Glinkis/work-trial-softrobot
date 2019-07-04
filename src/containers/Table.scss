@@ -1,24 +1,7 @@
-@import "../index";
-
-$tablePadding: 6pt;
+@import "../global";
 
 .table {
   width: 460pt;
-  > * {
-    > * {
-      vertical-align: middle;
-      padding: $tablePadding 0;
-    }
-    span,
-    input,
-    textarea,
-    select {
-      display: inline-block;
-      text-align: center;
-      width: 100pt;
-      font-size: 1rem;
-    }
-  }
   .table-header,
   .table-row {
     > :last-child {
@@ -26,6 +9,21 @@ $tablePadding: 6pt;
     }
     .fill {
       width: 100%;
+    }
+  }
+  > * {
+    > * {
+      padding: $tablePadding 0;
+      vertical-align: middle;
+    }
+    span,
+    input,
+    textarea,
+    select {
+      display: inline-block;
+      font-size: 1rem;
+      text-align: center;
+      width: 100pt;
     }
   }
   form {

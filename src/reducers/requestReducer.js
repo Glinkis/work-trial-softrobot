@@ -1,32 +1,30 @@
 // @ts-check
-import { UPDATE_ITEM } from "../actions/itemActions";
-import {
-  RECEIVE_ITEMS,
-  RECEIVE_USERS,
-  REQUEST_ERROR,
-  REQUEST_ITEMS,
-  REQUEST_REJECTED,
-  REQUEST_USERS
-} from "../actions/requestActions";
+/// <reference path="../types.d.ts" />
+import * as itemActions from "../actions/itemActions";
+import * as requestActions from "../actions/requestActions";
 
-const requestError = (state, { payload }) => ({
+/** @type {RequestReducer.<string>} */
+const requestError = (state, payload) => ({
   ...state,
   errors: [...state.errors, payload]
 });
 
+/** @type {RequestReducer} */
 const requestItems = state => ({
   ...state,
   errors: [],
   openRequests: state.openRequests + 1
 });
 
+/** @type {RequestReducer} */
 const requestUsers = state => ({
   ...state,
   errors: [],
   openRequests: state.openRequests + 1
 });
 
-const receiveItems = (state, { payload }) => {
+/** @type {RequestReducer.<Item[]>} */
+const receiveItems = (state, payload) => {
   const openRequests = state.openRequests - 1;
   return {
     ...state,
@@ -36,7 +34,8 @@ const receiveItems = (state, { payload }) => {
   };
 };
 
-const receiveUsers = (state, { payload }) => {
+/** @type {RequestReducer.<string[]>} */
+const receiveUsers = (state, payload) => {
   const openRequests = state.openRequests - 1;
   return {
     ...state,
@@ -46,12 +45,14 @@ const receiveUsers = (state, { payload }) => {
   };
 };
 
+/** @type {RequestReducer} */
 const requestRejected = state => ({
   ...state,
   openRequests: state.openRequests - 1
 });
 
-const updateItem = ({ items, ...rest }, { payload }) => ({
+/** @type {RequestReducer.<Item>} */
+const updateItem = ({ items, ...rest }, payload) => ({
   ...rest,
   items:
     payload.id >= items.length
@@ -59,6 +60,7 @@ const updateItem = ({ items, ...rest }, { payload }) => ({
       : items.map(item => (item.id === payload.id ? payload : item))
 });
 
+/** @type {RequestState} */
 const defaultState = {
   openRequests: 0,
   errors: [],
@@ -66,22 +68,23 @@ const defaultState = {
   items: []
 };
 
-export default (state = defaultState, action) => {
-  switch (action.type) {
-    case REQUEST_ERROR:
-      return requestError(state, action);
-    case REQUEST_ITEMS:
+/** @type {(state: RequestState | undefined, action: any) => RequestState} */
+export default function(state = defaultState, { type, payload }) {
+  switch (type) {
+    case requestActions.REQUEST_ERROR:
+      return requestError(state, payload);
+    case requestActions.REQUEST_ITEMS:
       return requestItems(state);
-    case RECEIVE_ITEMS:
-      return receiveItems(state, action);
-    case REQUEST_USERS:
+    case requestActions.RECEIVE_ITEMS:
+      return receiveItems(state, payload);
+    case requestActions.REQUEST_USERS:
       return requestUsers(state);
-    case RECEIVE_USERS:
-      return receiveUsers(state, action);
-    case REQUEST_REJECTED:
+    case requestActions.RECEIVE_USERS:
+      return receiveUsers(state, payload);
+    case requestActions.REQUEST_REJECTED:
       return requestRejected(state);
-    case UPDATE_ITEM:
-      return updateItem(state, action);
+    case itemActions.UPDATE_ITEM:
+      return updateItem(state, payload);
   }
   return state;
-};
+}

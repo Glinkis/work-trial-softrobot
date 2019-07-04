@@ -5,10 +5,7 @@ import TableRowEditable from "../components/TableRowEditable";
 
 @connect(state => state)
 export default class AddItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isOpen: false };
-  }
+  state = { isOpen: false };
 
   toggleClosed = () => {
     this.setState({ isOpen: !this.state.isOpen });

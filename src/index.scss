@@ -1,21 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
-
-$light: #f9f9f9;
-$medium: #e0e0e0;
-$dark: #0f0f0f;
-$red: #e04328;
-$green: #6ccc13;
+@import "global";
 
 html {
-  padding: 0;
-  margin: 0;
-  font-size: 12pt;
-  font-family: "PT Sans", sans-serif;
   background-color: $light;
-  color: $dark;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 100%;
 }

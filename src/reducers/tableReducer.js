@@ -1,10 +1,8 @@
-import {
-  SET_TABLE_PAGE,
-  SET_TABLE_ROW,
-  SORT_TABLE
-} from "../actions/tableActions";
+/// <reference path="../types.d.ts" />
+import * as tableActions from "../actions/tableActions";
 
-const sortTable = (state, { payload }) => {
+/** @type {TableReducer.<string>} */
+const sortTable = (state, payload) => {
   if (state.name === payload && state.direction === "up") {
     return { ...state, name: payload, direction: "down" };
   }
@@ -16,16 +14,19 @@ const sortTable = (state, { payload }) => {
   return { ...state, name: payload, direction: "up" };
 };
 
-const setTableRows = (state, { payload }) => ({
+/** @type {TableReducer.<number>} */
+const setTableRows = (state, payload) => ({
   ...state,
   rows: payload < 0 ? 0 : payload
 });
 
-const setTablePage = (state, { payload }) => ({
+/** @type {TableReducer.<number>} */
+const setTablePage = (state, payload) => ({
   ...state,
   page: payload < 0 ? 0 : payload
 });
 
+/** @type {TableState} */
 const defaultState = {
   name: "",
   direction: "",
@@ -33,14 +34,15 @@ const defaultState = {
   page: 0
 };
 
-export default (state = defaultState, action) => {
-  switch (action.type) {
-    case SORT_TABLE:
-      return sortTable(state, action);
-    case SET_TABLE_ROW:
-      return setTableRows(state, action);
-    case SET_TABLE_PAGE:
-      return setTablePage(state, action);
+/** @type {(state: TableState | undefined, action: any) => TableState} */
+export default function(state = defaultState, { type, payload }) {
+  switch (type) {
+    case tableActions.SORT_TABLE:
+      return sortTable(state, payload);
+    case tableActions.SET_TABLE_ROW:
+      return setTableRows(state, payload);
+    case tableActions.SET_TABLE_PAGE:
+      return setTablePage(state, payload);
   }
   return state;
-};
+}

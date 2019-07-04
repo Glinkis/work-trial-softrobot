@@ -10,6 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "sourceMap": true,
+    "noEmit": true,
     "lib": ["esnext", "dom"]
   }
 }

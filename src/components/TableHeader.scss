@@ -1,10 +1,11 @@
-@import "../index";
-@import "../containers/Table";
+@import "../global";
+
+$markerHeight: 2pt;
 
 .table {
   .table-header {
-    font-weight: bold;
     background-color: $medium;
+    font-weight: bold;
     :last-child {
       background-color: $medium;
     }
@@ -14,14 +15,13 @@
         background-color: darken($medium, 10%);
         cursor: pointer;
       }
-      $border: 2pt;
       &.up {
-        border-top: $border solid $dark;
-        padding-top: $tablePadding - $border;
+        border-top: $markerHeight solid $dark;
+        padding-top: $tablePadding - $markerHeight;
       }
       &.down {
-        border-bottom: $border solid $dark;
-        padding-bottom: $tablePadding - $border;
+        border-bottom: $markerHeight solid $dark;
+        padding-bottom: $tablePadding - $markerHeight;
       }
     }
   }

@@ -8,14 +8,12 @@ module.exports = {
   ...common,
   mode: "production",
   plugins: [
-    new MiniCssExtractPlugin({
-      chunkFilename: "[id].css",
-      filename: "[name].css"
-    }),
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: "work-trial-softrobot",
       template: `${__dirname}/template.prod.html`,
       hash: true
-    })
+    }),
+    ...common.plugins
   ]
 };

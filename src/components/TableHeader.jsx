@@ -10,7 +10,6 @@ export const columns = {
 };
 
 const TableHeader = ({ onClick, table }) => {
-  const { TEXT, DATE, OWNER, STATUS } = columns;
   const activeSort = name => (table.name === name ? table.direction : "");
 
   const Cell = ({ column }) => (
@@ -21,10 +20,10 @@ const TableHeader = ({ onClick, table }) => {
 
   return (
     <div className="table-header">
-      <Cell column={TEXT} />
-      <Cell column={DATE} />
-      <Cell column={OWNER} />
-      <Cell column={STATUS} />
+      <Cell column={columns.TEXT} />
+      <Cell column={columns.DATE} />
+      <Cell column={columns.OWNER} />
+      <Cell column={columns.STATUS} />
       <span />
     </div>
   );

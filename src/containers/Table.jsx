@@ -13,32 +13,29 @@ import "./Table.scss";
 @connect(state => state)
 export default class Table extends React.Component {
   updateItem = item => {
-    const { dispatch } = this.props;
-    dispatch(updateItem(item));
+    this.props.dispatch(updateItem(item));
   };
 
   onSort = event => {
-    const { dispatch } = this.props;
     const name = event.target.textContent;
-    dispatch(sortTable(name));
+    this.props.dispatch(sortTable(name));
   };
 
   sort = (a, b) => {
-    const { TEXT, DATE, OWNER, STATUS } = columns;
     const { users } = this.props.request;
-    const { name } = this.props.table;
+
     let pos = 0;
-    switch (name) {
-      case TEXT:
+    switch (this.props.table.name) {
+      case columns.TEXT:
         pos = sortByString(a.text, b.text);
         break;
-      case DATE:
+      case columns.DATE:
         pos = sortByString(a.date, b.date);
         break;
-      case OWNER:
+      case columns.OWNER:
         pos = sortByString(users[a.userId], users[b.userId]);
         break;
-      case STATUS:
+      case columns.STATUS:
         pos = sortByBoolean(a.active, b.active);
         break;
     }
@@ -47,10 +44,8 @@ export default class Table extends React.Component {
   };
 
   onSetPage = page => {
-    const { dispatch } = this.props;
-    const { items } = this.props.request;
-    const { rows } = this.props.table;
-    const max = Math.ceil(items.length / rows) - 1;
+    const { dispatch, request, table } = this.props;
+    const max = Math.ceil(request.items.length / table.rows) - 1;
     if (page > max) {
       page = max;
     }
@@ -58,9 +53,8 @@ export default class Table extends React.Component {
   };
 
   onSetRows = ({ target }) => {
-    const { dispatch } = this.props;
     const rows = Number(target.value);
-    dispatch(setTableRows(rows));
+    this.props.dispatch(setTableRows(rows));
   };
 
   render() {

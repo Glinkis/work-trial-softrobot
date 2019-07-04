@@ -4,7 +4,7 @@ import "./ErrorMessage.scss";
 
 /**
  * Component for displaying error messages.
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.message
  */
 const ErrorMessage = ({ message }) => (

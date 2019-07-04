@@ -1,44 +1,32 @@
 // @ts-check
 /// <reference path="../types.d.ts" />
-
+import createAction from "../utils/createAction";
 import fetch from "../utils/fetch";
 
-export const REQUEST_ERROR = "REQUEST_ERROR";
-export const REQUEST_ITEMS = "REQUEST_ITEMS";
-export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
-export const REQUEST_USERS = "REQUEST_USERS";
-export const RECEIVE_USERS = "RECEIVE_USERS";
-export const REQUEST_REJECTED = "REQUEST_REJECTED";
+export const REQUEST_ERROR = "[request] REQUEST_ERROR";
+export const REQUEST_ITEMS = "[request] REQUEST_ITEMS";
+export const RECEIVE_ITEMS = "[request] RECEIVE_ITEMS";
+export const REQUEST_USERS = "[request] REQUEST_USERS";
+export const RECEIVE_USERS = "[request] RECEIVE_USERS";
+export const REQUEST_REJECTED = "[request] REQUEST_REJECTED";
 
-/** @param {string} error */
-export const requestError = error => ({
-  type: REQUEST_ERROR,
-  payload: error
-});
+/** @type {Action.<string>} */
+export const requestError = createAction(REQUEST_ERROR);
 
-export const requestItems = () => ({
-  type: REQUEST_ITEMS
-});
+/** @type {Action} */
+export const requestItems = createAction(REQUEST_ITEMS);
 
-/** @param {Item[]} items */
-export const receiveItems = items => ({
-  type: RECEIVE_ITEMS,
-  payload: items
-});
+/** @type {Action.<Item[]>} */
+export const receiveItems = createAction(RECEIVE_ITEMS);
 
-export const requestUsers = () => ({
-  type: REQUEST_USERS
-});
+/** @type {Action} */
+export const requestUsers = createAction(REQUEST_USERS);
 
-/** @param {string[]} users */
-export const receiveUsers = users => ({
-  type: RECEIVE_USERS,
-  payload: users
-});
+/** @type {Action.<string[]>} */
+export const receiveUsers = createAction(RECEIVE_USERS);
 
-export const requestRejected = () => ({
-  type: REQUEST_REJECTED
-});
+/** @type {Action} */
+export const requestRejected = createAction(REQUEST_REJECTED);
 
 export const fetchUsers = () => async dispatch => {
   dispatch(requestUsers());

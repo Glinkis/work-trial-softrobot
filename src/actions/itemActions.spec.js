@@ -4,38 +4,30 @@ import * as actions from "./itemActions";
 
 describe("item actions", () => {
   it("should create an action to add an updating item", () => {
-    const action = actions.addUpdatingItem(0);
-    const expectedAction = {
+    expect(actions.addUpdatingItem(0)).deep.equals({
       type: actions.ADD_UPDATING_ITEM,
       payload: 0
-    };
-    expect(action).deep.equals(expectedAction);
+    });
   });
 
   it("should create an action to remove an updating item", () => {
-    const action = actions.removeUpdatingItem(0);
-    const expectedAction = {
+    expect(actions.removeUpdatingItem(0)).deep.equals({
       type: actions.REMOVE_UPDATING_ITEM,
       payload: 0
-    };
-    expect(action).deep.equals(expectedAction);
+    });
   });
 
   it("should create an action to add a failed item", () => {
-    const action = actions.addFailedItem(0);
-    const expectedAction = {
+    expect(actions.addFailedItem(0)).deep.equals({
       type: actions.ADD_FAILED_ITEM,
       payload: 0
-    };
-    expect(action).deep.equals(expectedAction);
+    });
   });
 
   it("should create an action to remove a failed item", () => {
-    const action = actions.removeFailedItem(0);
-    const expectedAction = {
+    expect(actions.removeFailedItem(0)).deep.equals({
       type: actions.REMOVE_FAILED_ITEM,
       payload: 0
-    };
-    expect(action).deep.equals(expectedAction);
+    });
   });
 });

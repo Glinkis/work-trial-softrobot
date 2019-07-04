@@ -4,10 +4,7 @@ import "./TableRow.scss";
 import TableRowEditable from "./TableRowEditable";
 
 export default class TableRow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isEditing: false };
-  }
+  state = { isEditing: false };
 
   onSubmit = item => {
     this.props.onSubmit(item);

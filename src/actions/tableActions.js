@@ -1,22 +1,16 @@
 // @ts-check
-export const SORT_TABLE = "SORT_TABLE";
-export const SET_TABLE_ROW = "SET_TABLE_ROW";
-export const SET_TABLE_PAGE = "SET_TABLE_PAGE";
+/// <reference path="../types.d.ts" />
+import createAction from "../utils/createAction";
 
-/** @param {string} name */
-export const sortTable = name => ({
-  type: SORT_TABLE,
-  payload: name
-});
+export const SORT_TABLE = "[table] SORT_TABLE";
+export const SET_TABLE_ROW = "[table] SET_TABLE_ROW";
+export const SET_TABLE_PAGE = "[table] SET_TABLE_PAGE";
 
-/** @param {number} amount */
-export const setTableRows = amount => ({
-  type: SET_TABLE_ROW,
-  payload: amount
-});
+/** @type {Action.<string>} */
+export const sortTable = createAction(SORT_TABLE);
 
-/** @param {number} page */
-export const setTablePage = page => ({
-  type: SET_TABLE_PAGE,
-  payload: page
-});
+/** @type {Action.<number>} */
+export const setTableRows = createAction(SET_TABLE_ROW);
+
+/** @type {Action.<number>} */
+export const setTablePage = createAction(SET_TABLE_PAGE);

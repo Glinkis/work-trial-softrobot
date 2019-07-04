@@ -15,6 +15,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "work-trial-softrobot (dev)",
       template: `${__dirname}/template.dev.html`
-    })
+    }),
+    ...common.plugins
   ]
 };
